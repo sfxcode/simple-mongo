@@ -147,6 +147,7 @@ sfxcode/simple-mongo
     <li><a href="../tutorial/database.html#case-classes-for-document-representation" class="header">case classes for document representation</a></li>
     <li><a href="../tutorial/database.html#registry-and-database" class="header">Registry and database</a></li>
     <li><a href="../tutorial/database.html#restaurant-dao" class="header">Restaurant DAO</a></li>
+    <li><a href="../tutorial/database.html#usage" class="header">Usage</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -172,6 +173,7 @@ sfxcode/simple-mongo
     <li><a href="../tutorial/database.html#case-classes-for-document-representation" class="header">case classes for document representation</a></li>
     <li><a href="../tutorial/database.html#registry-and-database" class="header">Registry and database</a></li>
     <li><a href="../tutorial/database.html#restaurant-dao" class="header">Restaurant DAO</a></li>
+    <li><a href="../tutorial/database.html#usage" class="header">Usage</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -184,7 +186,7 @@ sfxcode/simple-mongo
 <div class="md-content__searchable">
 <h1><a href="#tutorial-part-2-database" name="tutorial-part-2-database" class="anchor"><span class="anchor-link"></span></a>Tutorial Part 2 - Database</h1>
 <h2><a href="#info" name="info" class="anchor"><span class="anchor-link"></span></a>Info</h2>
-<p>The database is an all in one object for our DAO pattern.</p>
+<p>The database provides static import to our <a href="https://en.wikipedia.org/wiki/Data_access_object">DAO</a> objects.</p>
 <h2><a href="#imports" name="imports" class="anchor"><span class="anchor-link"></span></a>Imports</h2>
 <pre class="prettyprint"><code class="language-scala">import java.util.Date
 
@@ -214,6 +216,30 @@ val database = DatabaseProvider(&quot;test&quot;, registry)
 </code></pre>
 <h2><a href="#restaurant-dao" name="restaurant-dao" class="anchor"><span class="anchor-link"></span></a>Restaurant DAO</h2>
 <pre class="prettyprint"><code class="language-scala">object RestaurantDAO extends MongoDAO[Restaurant](database, &quot;restaurants&quot;)
+</code></pre>
+<h2><a href="#usage" name="usage" class="anchor"><span class="anchor-link"></span></a>Usage</h2>
+<ul>
+  <li>Create Database object</li>
+</ul>
+<pre class="prettyprint"><code class="language-scala"><br/>object RestaurantDatabase {
+
+// case classes ...
+
+// registry and database setup ...
+
+object RestaurantDAO extends MongoDAO[Restaurant](database, &quot;restaurants&quot;)
+
+// more DAO objects
+}
+</code></pre>
+<ul>
+  <li>Static Import and Application</li>
+</ul>
+<pre class="prettyprint"><code class="language-scala">   // static import of needed DAO objects
+   import my.namespace.RestaurantDatabase._
+   
+   // ... some code
+   
 </code></pre>
 </div>
 <div>
