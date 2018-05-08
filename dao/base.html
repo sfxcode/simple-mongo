@@ -18,7 +18,7 @@
 
 <meta name="description" content="simple-mongo">
 <link rel="shortcut icon" href="../assets/images/favicon.png">
-<title>Tutorial Part 3 - Application · simple-mongo</title>
+<title>MongoDAO - Base Functions · simple-mongo</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.7a4cdee3.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -54,7 +54,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 simple-mongo
 </span>
 <span class="md-header-nav__topic">
-Tutorial Part 3 - Application
+MongoDAO - Base Functions
 </span>
 </div>
 </div>
@@ -134,9 +134,9 @@ sfxcode/simple-mongo
 <ul>
   <li><a href="../tutorial/setup.html" class="page">Tutorial Part 1 - Setup</a></li>
   <li><a href="../tutorial/database.html" class="page">Tutorial Part 2 - Database</a></li>
-  <li><a href="../tutorial/application.html" class="active page">Tutorial Part 3 - Application</a></li>
+  <li><a href="../tutorial/application.html" class="page">Tutorial Part 3 - Application</a></li>
   <li><a href="../dao/mongo_dao.html" class="page">MongoDAO - Overview</a></li>
-  <li><a href="../dao/base.html" class="page">MongoDAO - Base Functions</a></li>
+  <li><a href="../dao/base.html" class="active page">MongoDAO - Base Functions</a></li>
   <li><a href="../dao/crud.html" class="page">MongoDAO - CRUD Functions</a></li>
   <li><a href="../dao/search.html" class="page">MongoDAO - Search Functions</a></li>
   <li><a href="../features/aggregation.html" class="page">Features - Aggregation</a></li>
@@ -146,11 +146,12 @@ sfxcode/simple-mongo
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="toc">Table of contents</label>
 <ul>
-  <li><a href="../tutorial/application.html#tutorial-part-3-application" class="header">Tutorial Part 3 - Application</a>
+  <li><a href="../dao/base.html#mongodao-base-functions" class="header">MongoDAO - Base Functions</a>
   <ul>
-    <li><a href="../tutorial/application.html#info" class="header">Info</a></li>
-    <li><a href="../tutorial/application.html#imports" class="header">Imports</a></li>
-    <li><a href="../tutorial/application.html#simple-application" class="header">Simple Application</a></li>
+    <li><a href="../dao/base.html#info" class="header">Info</a></li>
+    <li><a href="../dao/base.html#drop" class="header">Drop</a></li>
+    <li><a href="../dao/base.html#count" class="header">Count</a></li>
+    <li><a href="../dao/base.html#indexes" class="header">Indexes</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -169,11 +170,12 @@ sfxcode/simple-mongo
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="toc">Table of contents</label>
 <ul>
-  <li><a href="../tutorial/application.html#tutorial-part-3-application" class="header">Tutorial Part 3 - Application</a>
+  <li><a href="../dao/base.html#mongodao-base-functions" class="header">MongoDAO - Base Functions</a>
   <ul>
-    <li><a href="../tutorial/application.html#info" class="header">Info</a></li>
-    <li><a href="../tutorial/application.html#imports" class="header">Imports</a></li>
-    <li><a href="../tutorial/application.html#simple-application" class="header">Simple Application</a></li>
+    <li><a href="../dao/base.html#info" class="header">Info</a></li>
+    <li><a href="../dao/base.html#drop" class="header">Drop</a></li>
+    <li><a href="../dao/base.html#count" class="header">Count</a></li>
+    <li><a href="../dao/base.html#indexes" class="header">Indexes</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -184,36 +186,32 @@ sfxcode/simple-mongo
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#tutorial-part-3-application" name="tutorial-part-3-application" class="anchor"><span class="anchor-link"></span></a>Tutorial Part 3 - Application</h1>
+<h1><a href="#mongodao-base-functions" name="mongodao-base-functions" class="anchor"><span class="anchor-link"></span></a>MongoDAO - Base Functions</h1>
 <h2><a href="#info" name="info" class="anchor"><span class="anchor-link"></span></a>Info</h2>
-<p>This Demo Application should demonstrate the basic usage of simple-mongo.</p>
-<h2><a href="#imports" name="imports" class="anchor"><span class="anchor-link"></span></a>Imports</h2>
-<pre class="prettyprint"><code class="language-scala">import java.util.Date
+<p>Base Collection functions. All functions support synchronous result handling (add Result to function name, e.g. drop -&gt; dropResult).</p>
+<h2><a href="#drop" name="drop" class="anchor"><span class="anchor-link"></span></a>Drop</h2>
+<p>Drop Collection.</p>
+<pre class="prettyprint"><code class="language-scala">def drop(): Observable[Completed]
+</code></pre>
+<h2><a href="#count" name="count" class="anchor"><span class="anchor-link"></span></a>Count</h2>
+<p>Count of collection with optional filter.</p>
+<pre class="prettyprint"><code class="language-scala">def count(filter: Bson = Document()): Observable[Long]
+</code></pre>
+<h2><a href="#indexes" name="indexes" class="anchor"><span class="anchor-link"></span></a>Indexes</h2>
+<pre class="prettyprint"><code class="language-scala"><br/>def createIndex(key: Bson, options: IndexOptions = IndexOptions()): SingleObservable[String]
 
-import com.sfxcode.nosql.mongo.MongoDAO
-import com.sfxcode.nosql.mongo.database.DatabaseProvider
-import org.bson.codecs.configuration.CodecRegistries._
-import org.mongodb.scala.bson.ObjectId
-import org.mongodb.scala.bson.codecs.Macros._</code></pre>
-<h2><a href="#simple-application" name="simple-application" class="anchor"><span class="anchor-link"></span></a>Simple Application</h2>
-<pre class="prettyprint"><code class="language-scala"><br/>object RestaurantDemoApp extends App {
-  // find specific restaurant key and value as Option Result
-  val restaurant = RestaurantDAO.find(&quot;name&quot;, &quot;Dj Reynolds Pub And Restaurant&quot;)
+// Simple Index creation
+def createIndexForField(field: String, sortAscending: Boolean = true): SingleObservable[String]
 
-  println(restaurant.get)
+def dropIndex(keys: Bson): SingleObservable[Completed]
 
-  private val filter = Map(&quot;address.zipcode&quot; -&gt; &quot;10075&quot;, &quot;cuisine&quot; -&gt; &quot;Italian&quot;)
-  // find restaurants by filter - use implicit map to document conversion
-  // as List result
-  val restaurants: List[Restaurant] = RestaurantDAO.find(filter)
+// Simple Index delete
+def dropIndexForName(name: String): SingleObservable[Completed]
 
-  restaurants.sortBy(r =&gt; r.name).foreach(r =&gt; println(r.name))
-
-}
 </code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/master/src/main/paradox/tutorial/application.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/master/src/main/paradox/dao/base.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
@@ -229,7 +227,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../tutorial/database.html" title="Tutorial Part 2 - Database" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../dao/mongo_dao.html" title="MongoDAO - Overview" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -238,17 +236,17 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Tutorial Part 2 - Database
+MongoDAO - Overview
 </span>
 </div>
 </a>
-<a href="../dao/mongo_dao.html" title="MongoDAO - Overview" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../dao/crud.html" title="MongoDAO - CRUD Functions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-MongoDAO - Overview
+MongoDAO - CRUD Functions
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">

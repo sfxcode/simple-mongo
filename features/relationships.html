@@ -18,7 +18,7 @@
 
 <meta name="description" content="simple-mongo">
 <link rel="shortcut icon" href="../assets/images/favicon.png">
-<title>Tutorial Part 3 - Application · simple-mongo</title>
+<title>Features - Relationships · simple-mongo</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.7a4cdee3.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -54,7 +54,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 simple-mongo
 </span>
 <span class="md-header-nav__topic">
-Tutorial Part 3 - Application
+Features - Relationships
 </span>
 </div>
 </div>
@@ -134,23 +134,23 @@ sfxcode/simple-mongo
 <ul>
   <li><a href="../tutorial/setup.html" class="page">Tutorial Part 1 - Setup</a></li>
   <li><a href="../tutorial/database.html" class="page">Tutorial Part 2 - Database</a></li>
-  <li><a href="../tutorial/application.html" class="active page">Tutorial Part 3 - Application</a></li>
+  <li><a href="../tutorial/application.html" class="page">Tutorial Part 3 - Application</a></li>
   <li><a href="../dao/mongo_dao.html" class="page">MongoDAO - Overview</a></li>
   <li><a href="../dao/base.html" class="page">MongoDAO - Base Functions</a></li>
   <li><a href="../dao/crud.html" class="page">MongoDAO - CRUD Functions</a></li>
   <li><a href="../dao/search.html" class="page">MongoDAO - Search Functions</a></li>
   <li><a href="../features/aggregation.html" class="page">Features - Aggregation</a></li>
-  <li><a href="../features/relationships.html" class="page">Features - Relationships</a></li>
+  <li><a href="../features/relationships.html" class="active page">Features - Relationships</a></li>
   <li><a href="../changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="toc">Table of contents</label>
 <ul>
-  <li><a href="../tutorial/application.html#tutorial-part-3-application" class="header">Tutorial Part 3 - Application</a>
+  <li><a href="../features/relationships.html#features-relationships" class="header">Features - Relationships</a>
   <ul>
-    <li><a href="../tutorial/application.html#info" class="header">Info</a></li>
-    <li><a href="../tutorial/application.html#imports" class="header">Imports</a></li>
-    <li><a href="../tutorial/application.html#simple-application" class="header">Simple Application</a></li>
+    <li><a href="../features/relationships.html#info" class="header">Info</a></li>
+    <li><a href="../features/relationships.html#relations-trait" class="header">Relations trait</a></li>
+    <li><a href="../features/relationships.html#demo" class="header">Demo</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -169,11 +169,11 @@ sfxcode/simple-mongo
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="toc">Table of contents</label>
 <ul>
-  <li><a href="../tutorial/application.html#tutorial-part-3-application" class="header">Tutorial Part 3 - Application</a>
+  <li><a href="../features/relationships.html#features-relationships" class="header">Features - Relationships</a>
   <ul>
-    <li><a href="../tutorial/application.html#info" class="header">Info</a></li>
-    <li><a href="../tutorial/application.html#imports" class="header">Imports</a></li>
-    <li><a href="../tutorial/application.html#simple-application" class="header">Simple Application</a></li>
+    <li><a href="../features/relationships.html#info" class="header">Info</a></li>
+    <li><a href="../features/relationships.html#relations-trait" class="header">Relations trait</a></li>
+    <li><a href="../features/relationships.html#demo" class="header">Demo</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -184,36 +184,55 @@ sfxcode/simple-mongo
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#tutorial-part-3-application" name="tutorial-part-3-application" class="anchor"><span class="anchor-link"></span></a>Tutorial Part 3 - Application</h1>
+<h1><a href="#features-relationships" name="features-relationships" class="anchor"><span class="anchor-link"></span></a>Features - Relationships</h1>
 <h2><a href="#info" name="info" class="anchor"><span class="anchor-link"></span></a>Info</h2>
-<p>This Demo Application should demonstrate the basic usage of simple-mongo.</p>
-<h2><a href="#imports" name="imports" class="anchor"><span class="anchor-link"></span></a>Imports</h2>
-<pre class="prettyprint"><code class="language-scala">import java.util.Date
-
-import com.sfxcode.nosql.mongo.MongoDAO
-import com.sfxcode.nosql.mongo.database.DatabaseProvider
-import org.bson.codecs.configuration.CodecRegistries._
-import org.mongodb.scala.bson.ObjectId
-import org.mongodb.scala.bson.codecs.Macros._</code></pre>
-<h2><a href="#simple-application" name="simple-application" class="anchor"><span class="anchor-link"></span></a>Simple Application</h2>
-<pre class="prettyprint"><code class="language-scala"><br/>object RestaurantDemoApp extends App {
-  // find specific restaurant key and value as Option Result
-  val restaurant = RestaurantDAO.find(&quot;name&quot;, &quot;Dj Reynolds Pub And Restaurant&quot;)
-
-  println(restaurant.get)
-
-  private val filter = Map(&quot;address.zipcode&quot; -&gt; &quot;10075&quot;, &quot;cuisine&quot; -&gt; &quot;Italian&quot;)
-  // find restaurants by filter - use implicit map to document conversion
-  // as List result
-  val restaurants: List[Restaurant] = RestaurantDAO.find(filter)
-
-  restaurants.sortBy(r =&gt; r.name).foreach(r =&gt; println(r.name))
-
-}
+<p>Normal Relationship handling is the use of <a href="https://docs.mongodb.com/manual/tutorial/model-embedded-one-to-one-relationships-between-documents/">embedded documents</a>. However, sometimes there is a need for <a href="https://docs.mongodb.com/manual/tutorial/model-referenced-one-to-many-relationships-between-documents/">relationsips beetween collections</a>. There is a Relations Trait to be used in case classes for easy relationship handling.</p>
+<h2><a href="#relations-trait" name="relations-trait" class="anchor"><span class="anchor-link"></span></a>Relations trait</h2>
+<p>The Relations trait extends DAO case classes with relationship functions.</p>
+<ul>
+  <li>relatedRecordForOneToOne (OneToOneRelationship and reference vlue needed)</li>
+  <li>relatedRecordsForOneToMany (OneToManyRelationship and reference vlue needed)</li>
+</ul>
+<h2><a href="#demo" name="demo" class="anchor"><span class="anchor-link"></span></a>Demo</h2>
+<p>Simple Setup.</p>
+<ul>
+  <li>User Collection(should have one login and multiple friends)</li>
+  <li>Login Collection</li>
+  <li>Friend Collection</li>
+</ul>
+<pre class="prettyprint"><code class="language-scala"><br/>  case class User(id: Long, name: String, loginId: String)
+  case class Login(id: String, email: String, password: String)
+  case class Friend(id: Long, name: String, userId: Long)
+  
+  object UserDAO extends MongoDAO[User](database, &quot;user&quot;) 
+  object LoginDAO extends MongoDAO[Login](database, &quot;login&quot;)
+  object FriendDAO extends MongoDAO[Friend](database, &quot;friend&quot;)
+  
 </code></pre>
+<p>For relationship setup we create two Relationships in the UserDAO.</p>
+<ul>
+  <li>OneToOne loginRelation (LoginDAO, key is id in user collection)</li>
+  <li>OneToMany friendsRelation (FriendDAO, key is userId in friend collection)</li>
+</ul>
+<pre class="prettyprint"><code class="language-scala">object UserDAO extends MongoDAO[User](database, &quot;user&quot;) {
+  lazy val loginRelation = OneToOneRelationship(LoginDAO, &quot;id&quot;)
+  lazy val friendsRelation = OneToManyRelationship(FriendDAO, &quot;userId&quot;)
+}</code></pre>
+<p>We extend the User case class with the Relations trait and add relation specific functions.</p>
+<ul>
+  <li>login (create an Option of Login)</li>
+  <li>friends (create a List of Friend)</li>
+</ul>
+<pre class="prettyprint"><code class="language-scala">case class User(id: Long, name: String, loginId: String) extends Relations {
+
+  def login: Option[Login] = relatedRecordForOneToOne(UserDAO.loginRelation, loginId)
+
+  def friends: List[Friend] = relatedRecordForOneToMany(UserDAO.friendsRelation, id)
+
+}</code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/master/src/main/paradox/tutorial/application.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/master/src/main/paradox/features/relationships.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
@@ -229,7 +248,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../tutorial/database.html" title="Tutorial Part 2 - Database" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../features/aggregation.html" title="Features - Aggregation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -238,17 +257,17 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Tutorial Part 2 - Database
+Features - Aggregation
 </span>
 </div>
 </a>
-<a href="../dao/mongo_dao.html" title="MongoDAO - Overview" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../changes.html" title="Version History" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-MongoDAO - Overview
+Version History
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">
