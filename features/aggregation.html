@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="description" content="simple-mongo">
-<meta name="generator" content="Paradox, paradox-material-theme=1.3.0, mkdocs-material=2.2.2">
+<meta name="generator" content="Paradox, paradox-material-theme=1.3.1, mkdocs-material=2.2.2">
 
 <meta name="lang:clipboard.copy" content="Copy to clipboard">
 <meta name="lang:clipboard.copied" content="Copied to clipboard">
@@ -155,7 +155,7 @@ sfxcode/simple-mongo
 </nav>
 
 <div class="md-nav__title--site md-version" title="Version">
-<i class="md-icon">label_outline</i> 1.3.0
+<i class="md-icon">label_outline</i> 1.3.1
 </div>
 </nav>
 
@@ -190,7 +190,7 @@ sfxcode/simple-mongo
 <pre class="prettyprint"><code class="language-scala">import com.sfxcode.nosql.mongo.Field._
 import com.sfxcode.nosql.mongo.Filter._
 import com.sfxcode.nosql.mongo.Sort._
-import com.sfxcode.nosql.mongo._</code></pre>
+import com.sfxcode.nosql.mongo._</code></pre><a href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L4-L7">Full source at GitHub</a>
 <h3><a href="#define-stages" name="define-stages" class="anchor"><span class="anchor-link"></span></a>Define stages</h3>
 <pre class="prettyprint"><code class="language-scala">val filterStage: Bson = filter(and(
   equal(&quot;gender&quot;, &quot;female&quot;),
@@ -200,16 +200,16 @@ val groupStage: Bson = group(
   Map(&quot;age&quot; -&gt; &quot;$age&quot;),
   sumField(&quot;balance&quot;), firstField(&quot;age&quot;))
 
-val sortStage: Bson = sort(sortByKey(&quot;age&quot;))</code></pre>
+val sortStage: Bson = sort(sortByKey(&quot;age&quot;))</code></pre><a href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L21-L29">Full source at GitHub</a>
 <h3><a href="#execute-aggregation" name="execute-aggregation" class="anchor"><span class="anchor-link"></span></a>Execute Aggregation</h3><div class="callout note "><div class="callout-title">Important</div>
 <p>In most cases we have to use the RAW attribute, because the aggregation result not follows the case class pattern. RAW returns always Documents instead of case classes.</p></div>
 <pre class="prettyprint"><code class="language-scala">val aggregator = List(filterStage, groupStage, sortStage)
 
 val aggregated = PersonDAO.Raw.findAggregated(aggregator).resultList()
-</code></pre>
+</code></pre><a href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L46-L49">Full source at GitHub</a>
 <h3><a href="#convert-result" name="convert-result" class="anchor"><span class="anchor-link"></span></a>Convert Result</h3>
 <p>For easy result handling, using the implicit Document to Map conversion can be useful.</p>
-<pre class="prettyprint"><code class="language-scala">val list: List[Map[String, Any]] = aggregated</code></pre>
+<pre class="prettyprint"><code class="language-scala">val list: List[Map[String, Any]] = aggregated</code></pre><a href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L55">Full source at GitHub</a>
 </div>
 <div>
 <a href="https://github.com/sfxcode/simple-mongo/tree/master/src/main/paradox/features/aggregation.md" title="Edit this page" class="md-source-file md-edit">
@@ -218,7 +218,7 @@ Edit this page
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.3.0
+1.3.1
 </span>
 </div>
 </article>
