@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="description" content="simple-mongo">
-<meta name="generator" content="Paradox, paradox-material-theme=1.3.1, mkdocs-material=2.2.2">
+<meta name="generator" content="Paradox, paradox-material-theme=1.4.0, mkdocs-material=2.2.2">
 
 <meta name="lang:clipboard.copy" content="Copy to clipboard">
 <meta name="lang:clipboard.copied" content="Copied to clipboard">
@@ -18,7 +18,7 @@
 
 <meta name="description" content="simple-mongo">
 <link rel="shortcut icon" href="../assets/images/favicon.png">
-<title>Tutorial Part 3 - Application · simple-mongo</title>
+<title>Tutorial Part 4 - Application · simple-mongo</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.7a4cdee3.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -54,7 +54,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 simple-mongo
 </span>
 <span class="md-header-nav__topic">
-Tutorial Part 3 - Application
+Tutorial Part 4 - Application
 </span>
 </div>
 </div>
@@ -134,7 +134,8 @@ sfxcode/simple-mongo
 <ul>
   <li><a href="../tutorial/setup.html" class="page">Tutorial Part 1 - Setup</a></li>
   <li><a href="../tutorial/database.html" class="page">Tutorial Part 2 - Database</a></li>
-  <li><a href="../tutorial/application.html" class="active page">Tutorial Part 3 - Application</a></li>
+  <li><a href="../tutorial/functions.html" class="page">Tutorial Part 3 - Functions</a></li>
+  <li><a href="../tutorial/application.html" class="active page">Tutorial Part 4 - Application</a></li>
   <li><a href="../dao/mongo_dao.html" class="page">MongoDAO - Overview</a></li>
   <li><a href="../dao/base.html" class="page">MongoDAO - Base Functions</a></li>
   <li><a href="../dao/crud.html" class="page">MongoDAO - CRUD Functions</a></li>
@@ -146,17 +147,16 @@ sfxcode/simple-mongo
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="toc">Table of contents</label>
 <ul>
-  <li><a href="../tutorial/application.html#tutorial-part-3-application" class="header">Tutorial Part 3 - Application</a>
+  <li><a href="../tutorial/application.html#tutorial-part-4-application" class="header">Tutorial Part 4 - Application</a>
   <ul>
     <li><a href="../tutorial/application.html#info" class="header">Info</a></li>
-    <li><a href="../tutorial/application.html#imports" class="header">Imports</a></li>
     <li><a href="../tutorial/application.html#simple-application" class="header">Simple Application</a></li>
   </ul></li>
 </ul>
 </nav>
 
 <div class="md-nav__title--site md-version" title="Version">
-<i class="md-icon">label_outline</i> 1.3.1
+<i class="md-icon">label_outline</i> 1.4.0
 </div>
 </nav>
 
@@ -169,10 +169,9 @@ sfxcode/simple-mongo
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="toc">Table of contents</label>
 <ul>
-  <li><a href="../tutorial/application.html#tutorial-part-3-application" class="header">Tutorial Part 3 - Application</a>
+  <li><a href="../tutorial/application.html#tutorial-part-4-application" class="header">Tutorial Part 4 - Application</a>
   <ul>
     <li><a href="../tutorial/application.html#info" class="header">Info</a></li>
-    <li><a href="../tutorial/application.html#imports" class="header">Imports</a></li>
     <li><a href="../tutorial/application.html#simple-application" class="header">Simple Application</a></li>
   </ul></li>
 </ul>
@@ -184,33 +183,28 @@ sfxcode/simple-mongo
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#tutorial-part-3-application" name="tutorial-part-3-application" class="anchor"><span class="anchor-link"></span></a>Tutorial Part 3 - Application</h1>
+<h1><a href="#tutorial-part-4-application" name="tutorial-part-4-application" class="anchor"><span class="anchor-link"></span></a>Tutorial Part 4 - Application</h1>
 <h2><a href="#info" name="info" class="anchor"><span class="anchor-link"></span></a>Info</h2>
 <p>This Demo Application should demonstrate the basic usage of simple-mongo.</p>
-<h2><a href="#imports" name="imports" class="anchor"><span class="anchor-link"></span></a>Imports</h2>
-<pre class="prettyprint"><code class="language-scala">import java.util.Date
-
-import com.sfxcode.nosql.mongo.MongoDAO
-import com.sfxcode.nosql.mongo.database.DatabaseProvider
-import org.bson.codecs.configuration.CodecRegistries._
-import org.mongodb.scala.bson.ObjectId
-import org.mongodb.scala.bson.codecs.Macros._</code></pre><a href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/demo/restaurant/RestaurantDemoDatabase.scala#L4-L10">Full source at GitHub</a>
 <h2><a href="#simple-application" name="simple-application" class="anchor"><span class="anchor-link"></span></a>Simple Application</h2>
-<pre class="prettyprint"><code class="language-scala"><br/>object RestaurantDemoApp extends App {
-  // find specific restaurant key and value as Option Result
-  val restaurant = RestaurantDAO.find(&quot;name&quot;, &quot;Dj Reynolds Pub And Restaurant&quot;)
+<pre class="prettyprint"><code class="language-scala"><br/>object RestaurantDemoApp extends App with RestaurantDemoDatabaseFunctions {
 
-  println(restaurant.get)
+  // find specific restaurant by name as Option Result
+  val restaurant = findRestaurantByName(&quot;Dj Reynolds Pub And Restaurant&quot;)
 
+  println(restaurant)
+
+  // use count function
+  println(restaurantsSize)
+
+  // find restaurants by filter
   private val filter = Map(&quot;address.zipcode&quot; -&gt; &quot;10075&quot;, &quot;cuisine&quot; -&gt; &quot;Italian&quot;)
-  // find restaurants by filter - use implicit map to document conversion
-  // as List result
-  val restaurants: List[Restaurant] = RestaurantDAO.find(filter)
+  val restaurants = findAllRestaurants(filter)
 
   restaurants.sortBy(r =&gt; r.name).foreach(r =&gt; println(r.name))
 
 }
-</code></pre><a href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/demo/restaurant/RestaurantDemoApp.scala#L12-L27">Full source at GitHub</a>
+</code></pre><a href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/demo/restaurant/RestaurantDemoApp.scala#L4-L22">Full source at GitHub</a>
 </div>
 <div>
 <a href="https://github.com/sfxcode/simple-mongo/tree/master/src/main/paradox/tutorial/application.md" title="Edit this page" class="md-source-file md-edit">
@@ -219,7 +213,7 @@ Edit this page
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.3.1
+1.4.0
 </span>
 </div>
 </article>
@@ -229,7 +223,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../tutorial/database.html" title="Tutorial Part 2 - Database" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../tutorial/functions.html" title="Tutorial Part 3 - Functions" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -238,7 +232,7 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Tutorial Part 2 - Database
+Tutorial Part 3 - Functions
 </span>
 </div>
 </a>
