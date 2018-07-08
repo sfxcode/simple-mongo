@@ -132,17 +132,18 @@ sfxcode/simple-mongo
 
 </div>
 <ul>
-  <li><a href="../tutorial/setup.html" class="page">Tutorial Part 1 - Setup</a></li>
-  <li><a href="../tutorial/database.html" class="page">Tutorial Part 2 - Database</a></li>
-  <li><a href="../tutorial/functions.html" class="page">Tutorial Part 3 - Functions</a></li>
-  <li><a href="../tutorial/application.html" class="page">Tutorial Part 4 - Application</a></li>
   <li><a href="../dao/mongo_dao.html" class="page">MongoDAO</a></li>
   <li><a href="../dao/base.html" class="page">MongoDAO - Base Functions</a></li>
   <li><a href="../dao/crud.html" class="page">MongoDAO - CRUD Functions</a></li>
   <li><a href="../dao/search.html" class="page">MongoDAO - Search Functions</a></li>
   <li><a href="../dao/gridfs_dao.html" class="active page">GridFSDAO</a></li>
+  <li><a href="../gridfs/crud.html" class="page">GridFSDAO - CRUD Functions</a></li>
   <li><a href="../features/aggregation.html" class="page">Features - Aggregation</a></li>
   <li><a href="../features/relationships.html" class="page">Features - Relationships</a></li>
+  <li><a href="../tutorial/setup.html" class="page">Tutorial Part 1 - Setup</a></li>
+  <li><a href="../tutorial/database.html" class="page">Tutorial Part 2 - Database</a></li>
+  <li><a href="../tutorial/functions.html" class="page">Tutorial Part 3 - Functions</a></li>
+  <li><a href="../tutorial/application.html" class="page">Tutorial Part 4 - Application</a></li>
   <li><a href="../changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
@@ -187,10 +188,20 @@ sfxcode/simple-mongo
 <h1><a href="#gridfsdao" name="gridfsdao" class="anchor"><span class="anchor-link"></span></a>GridFSDAO</h1>
 <h2><a href="#info" name="info" class="anchor"><span class="anchor-link"></span></a>Info</h2>
 <p>GridFSDAO adds MongoDB <a href="https://docs.mongodb.com/manual/core/gridfs/">GridFS</a> support. It provides easy upload, download and metadata handling.</p>
+<p>Sometimes also normal collections can be helpful for storing data.</p><div class="callout note "><div class="callout-title">Official_MongoDB_Documentation</div>
+<p>Furthermore, if your files are all smaller than the 16 MB BSON Document Size limit, consider storing each file in a single document instead of using GridFS. You may use the BinData data type to store the binary data. See your drivers documentation for details on using BinData.Furthermore, if your files are all smaller than the 16 MB BSON Document Size limit, consider storing each file in a single document instead of using GridFS. You may use the BinData data type to store the binary data. See your drivers documentation for details on using BinData.</p></div>
 <h2><a href="#usage" name="usage" class="anchor"><span class="anchor-link"></span></a>Usage</h2>
 <p>A <a href="http://mongodb.github.io/mongo-scala-driver/2.3/scaladoc/org/mongodb/scala/MongoDatabase.html">MongoDatabase</a> and a bucket name is needed.</p>
 <h3><a href="#create-dao" name="create-dao" class="anchor"><span class="anchor-link"></span></a>Create DAO</h3>
-<pre class="prettyprint"><code class="language-scala"><br/>  object ImageFilesDAO extends GridFSDAO(database, &quot;images&quot;)
+<pre class="prettyprint"><code class="language-scala"><br/>  /**
+  * use bucket name fs
+  */
+  object ImageFilesDAO extends GridFSDAO(database)
+
+  /**
+  * use bucket name images
+  */
+  object ImageFilesDAO extends GridFSDAO(database, &quot;images&quot;)
 
 </code></pre>
 </div>
@@ -224,13 +235,13 @@ MongoDAO - Search Functions
 </span>
 </div>
 </a>
-<a href="../features/aggregation.html" title="Features - Aggregation" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../gridfs/crud.html" title="GridFSDAO - CRUD Functions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Features - Aggregation
+GridFSDAO - CRUD Functions
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">

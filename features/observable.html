@@ -18,7 +18,7 @@
 
 <meta name="description" content="simple-mongo">
 <link rel="shortcut icon" href="../assets/images/favicon.png">
-<title>Tutorial Part 3 - Functions · simple-mongo</title>
+<title></title>
 <link rel="stylesheet" href="../assets/stylesheets/application.7a4cdee3.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -41,7 +41,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 <nav class="md-header-nav md-grid">
 <div class="md-flex">
 <div class="md-flex__cell md-flex__cell--shrink">
-<a href="../index.html" title="simple-mongo" class="md-header-nav__button md-logo">
+<a href="../features/observable.html" title="" class="md-header-nav__button md-logo">
 <i class="md-icon">local_library</i>
 </a>
 </div>
@@ -50,12 +50,6 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 </div>
 <div class="md-flex__cell md-flex__cell--stretch">
 <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-<span class="md-header-nav__topic">
-simple-mongo
-</span>
-<span class="md-header-nav__topic">
-Tutorial Part 3 - Functions
-</span>
 </div>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">
@@ -113,8 +107,7 @@ sfxcode/simple-mongo
 <span class="md-nav__button md-logo">
 <i class="md-icon">local_library</i>
 </span>
-<a href="../index.html" title="simple-mongo">
-simple-mongo
+<a href="../features/observable.html" title="">
 </a>
 </label>
 <div class="md-nav__source">
@@ -132,30 +125,8 @@ sfxcode/simple-mongo
 
 </div>
 <ul>
-  <li><a href="../dao/mongo_dao.html" class="page">MongoDAO</a></li>
-  <li><a href="../dao/base.html" class="page">MongoDAO - Base Functions</a></li>
-  <li><a href="../dao/crud.html" class="page">MongoDAO - CRUD Functions</a></li>
-  <li><a href="../dao/search.html" class="page">MongoDAO - Search Functions</a></li>
-  <li><a href="../dao/gridfs_dao.html" class="page">GridFSDAO</a></li>
-  <li><a href="../gridfs/crud.html" class="page">GridFSDAO - CRUD Functions</a></li>
-  <li><a href="../features/aggregation.html" class="page">Features - Aggregation</a></li>
-  <li><a href="../features/relationships.html" class="page">Features - Relationships</a></li>
-  <li><a href="../tutorial/setup.html" class="page">Tutorial Part 1 - Setup</a></li>
-  <li><a href="../tutorial/database.html" class="page">Tutorial Part 2 - Database</a></li>
-  <li><a href="../tutorial/functions.html" class="active page">Tutorial Part 3 - Functions</a></li>
-  <li><a href="../tutorial/application.html" class="page">Tutorial Part 4 - Application</a></li>
-  <li><a href="../changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="toc">Table of contents</label>
-<ul>
-  <li><a href="../tutorial/functions.html#tutorial-part-3-functions" class="header">Tutorial Part 3 - Functions</a>
-  <ul>
-    <li><a href="../tutorial/functions.html#info" class="header">Info</a></li>
-    <li><a href="../tutorial/functions.html#imports" class="header">Imports</a></li>
-    <li><a href="../tutorial/functions.html#simple-application" class="header">Simple Application</a></li>
-  </ul></li>
-</ul>
 </nav>
 
 <div class="md-nav__title--site md-version" title="Version">
@@ -166,54 +137,12 @@ sfxcode/simple-mongo
 </div>
 </div>
 </div>
-<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="toc">Table of contents</label>
-<ul>
-  <li><a href="../tutorial/functions.html#tutorial-part-3-functions" class="header">Tutorial Part 3 - Functions</a>
-  <ul>
-    <li><a href="../tutorial/functions.html#info" class="header">Info</a></li>
-    <li><a href="../tutorial/functions.html#imports" class="header">Imports</a></li>
-    <li><a href="../tutorial/functions.html#simple-application" class="header">Simple Application</a></li>
-  </ul></li>
-</ul>
-</nav>
-
-</div>
-</div>
-</div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#tutorial-part-3-functions" name="tutorial-part-3-functions" class="anchor"><span class="anchor-link"></span></a>Tutorial Part 3 - Functions</h1>
-<h2><a href="#info" name="info" class="anchor"><span class="anchor-link"></span></a>Info</h2>
-<p>Use a functions trait to define some commonly used funtions.</p>
-<h2><a href="#imports" name="imports" class="anchor"><span class="anchor-link"></span></a>Imports</h2>
-<pre class="prettyprint"><code class="language-scala">// static import of needed DAO objects
-import com.sfxcode.nosql.mongo.demo.restaurant.RestaurantDemoDatabase._
-
-// static import of mongo package object for needed implicits
-import com.sfxcode.nosql.mongo._</code></pre><a href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/demo/restaurant/RestaurantDemoDatabaseFunctions.scala#L4-L8">Full source at GitHub</a>
-<h2><a href="#simple-application" name="simple-application" class="anchor"><span class="anchor-link"></span></a>Simple Application</h2>
-<pre class="prettyprint"><code class="language-scala"><br/>/**
- * single result with implicit conversion to Entity Option
- */
-def findRestaurantByName(name: String): Option[Restaurant] =
-  RestaurantDAO.find(&quot;name&quot;, name)
-
-def restaurantsSize: Long = RestaurantDAO.count()
-
-/**
- * result with implicit conversion to List of Entities
- */
-def findAllRestaurants(filterValues: Map[String, Any] = Map()): List[Restaurant] =
-  RestaurantDAO.find(filterValues)
-</code></pre><a href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/demo/restaurant/RestaurantDemoDatabaseFunctions.scala#L15-L29">Full source at GitHub</a>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/master/src/main/paradox/tutorial/functions.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/master/src/main/paradox/features/observable.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
@@ -227,36 +156,6 @@ v1.5.0
 </div>
 </main>
 <footer class="md-footer">
-<div class="md-footer-nav">
-<nav class="md-footer-nav__inner md-grid">
-<a href="../tutorial/database.html" title="Tutorial Part 2 - Database" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-<div class="md-flex__cell md-flex__cell--shrink">
-<i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-</div>
-<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-<span class="md-flex__ellipsis">
-<span class="md-footer-nav__direction">
-Previous
-</span>
-Tutorial Part 2 - Database
-</span>
-</div>
-</a>
-<a href="../tutorial/application.html" title="Tutorial Part 4 - Application" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-<span class="md-flex__ellipsis">
-<span class="md-footer-nav__direction">
-Next
-</span>
-Tutorial Part 4 - Application
-</span>
-</div>
-<div class="md-flex__cell md-flex__cell--shrink">
-<i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-</div>
-</a>
-</nav>
-</div>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">

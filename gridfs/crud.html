@@ -18,7 +18,7 @@
 
 <meta name="description" content="simple-mongo">
 <link rel="shortcut icon" href="../assets/images/favicon.png">
-<title>Tutorial Part 1 - Setup · simple-mongo</title>
+<title>GridFSDAO - CRUD Functions · simple-mongo</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.7a4cdee3.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -54,7 +54,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 simple-mongo
 </span>
 <span class="md-header-nav__topic">
-Tutorial Part 1 - Setup
+GridFSDAO - CRUD Functions
 </span>
 </div>
 </div>
@@ -137,10 +137,10 @@ sfxcode/simple-mongo
   <li><a href="../dao/crud.html" class="page">MongoDAO - CRUD Functions</a></li>
   <li><a href="../dao/search.html" class="page">MongoDAO - Search Functions</a></li>
   <li><a href="../dao/gridfs_dao.html" class="page">GridFSDAO</a></li>
-  <li><a href="../gridfs/crud.html" class="page">GridFSDAO - CRUD Functions</a></li>
+  <li><a href="../gridfs/crud.html" class="active page">GridFSDAO - CRUD Functions</a></li>
   <li><a href="../features/aggregation.html" class="page">Features - Aggregation</a></li>
   <li><a href="../features/relationships.html" class="page">Features - Relationships</a></li>
-  <li><a href="../tutorial/setup.html" class="active page">Tutorial Part 1 - Setup</a></li>
+  <li><a href="../tutorial/setup.html" class="page">Tutorial Part 1 - Setup</a></li>
   <li><a href="../tutorial/database.html" class="page">Tutorial Part 2 - Database</a></li>
   <li><a href="../tutorial/functions.html" class="page">Tutorial Part 3 - Functions</a></li>
   <li><a href="../tutorial/application.html" class="page">Tutorial Part 4 - Application</a></li>
@@ -149,9 +149,11 @@ sfxcode/simple-mongo
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="toc">Table of contents</label>
 <ul>
-  <li><a href="../tutorial/setup.html#tutorial-part-1-setup" class="header">Tutorial Part 1 - Setup</a>
+  <li><a href="../gridfs/crud.html#gridfsdao-crud-functions" class="header">GridFSDAO - CRUD Functions</a>
   <ul>
-    <li><a href="../tutorial/setup.html#mongodb-demo-database" class="header">MongoDB Demo Database</a></li>
+    <li><a href="../gridfs/crud.html#create" class="header">Create</a></li>
+    <li><a href="../gridfs/crud.html#update" class="header">Update</a></li>
+    <li><a href="../gridfs/crud.html#delete" class="header">Delete</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -170,9 +172,11 @@ sfxcode/simple-mongo
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="toc">Table of contents</label>
 <ul>
-  <li><a href="../tutorial/setup.html#tutorial-part-1-setup" class="header">Tutorial Part 1 - Setup</a>
+  <li><a href="../gridfs/crud.html#gridfsdao-crud-functions" class="header">GridFSDAO - CRUD Functions</a>
   <ul>
-    <li><a href="../tutorial/setup.html#mongodb-demo-database" class="header">MongoDB Demo Database</a></li>
+    <li><a href="../gridfs/crud.html#create" class="header">Create</a></li>
+    <li><a href="../gridfs/crud.html#update" class="header">Update</a></li>
+    <li><a href="../gridfs/crud.html#delete" class="header">Delete</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -183,48 +187,26 @@ sfxcode/simple-mongo
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#tutorial-part-1-setup" name="tutorial-part-1-setup" class="anchor"><span class="anchor-link"></span></a>Tutorial Part 1 - Setup</h1>
-<h2><a href="#mongodb-demo-database" name="mongodb-demo-database" class="anchor"><span class="anchor-link"></span></a>MongoDB Demo Database</h2>
-<h3><a href="#setup" name="setup" class="anchor"><span class="anchor-link"></span></a>Setup</h3>
-<p>Use Import from MongoDB Website:</p>
-<p><a href="https://docs.mongodb.com/getting-started/shell/import-data/">Restaurant Data Import</a></p>
-<h3><a href="#sample-document" name="sample-document" class="anchor"><span class="anchor-link"></span></a>Sample Document</h3>
-<p>A sample document in the restaurants collection:</p>
-<pre class="prettyprint"><code class="language-json">{
-  &quot;address&quot;: {
-     &quot;building&quot;: &quot;1007&quot;,
-     &quot;coord&quot;: [ -73.856077, 40.848447 ],
-     &quot;street&quot;: &quot;Morris Park Ave&quot;,
-     &quot;zipcode&quot;: &quot;10462&quot;
-  },
-  &quot;borough&quot;: &quot;Bronx&quot;,
-  &quot;cuisine&quot;: &quot;Bakery&quot;,
-  &quot;grades&quot;: [
-     { &quot;date&quot;: { &quot;$date&quot;: 1393804800000 }, &quot;grade&quot;: &quot;A&quot;, &quot;score&quot;: 2 },
-     { &quot;date&quot;: { &quot;$date&quot;: 1378857600000 }, &quot;grade&quot;: &quot;A&quot;, &quot;score&quot;: 6 },
-     { &quot;date&quot;: { &quot;$date&quot;: 1358985600000 }, &quot;grade&quot;: &quot;A&quot;, &quot;score&quot;: 10 },
-     { &quot;date&quot;: { &quot;$date&quot;: 1322006400000 }, &quot;grade&quot;: &quot;A&quot;, &quot;score&quot;: 9 },
-     { &quot;date&quot;: { &quot;$date&quot;: 1299715200000 }, &quot;grade&quot;: &quot;B&quot;, &quot;score&quot;: 14 }
-  ],
-  &quot;name&quot;: &quot;Morris Park Bake Shop&quot;,
-  &quot;restaurant_id&quot;: &quot;30075445&quot;
-}
-
+<h1><a href="#gridfsdao-crud-functions" name="gridfsdao-crud-functions" class="anchor"><span class="anchor-link"></span></a>GridFSDAO - CRUD Functions</h1>
+<h2><a href="#create" name="create" class="anchor"><span class="anchor-link"></span></a>Create</h2>
+<p>You need a fiename, an input stream and some kind of meatadata.</p>
+<p>Possible Metadata types: * Document * Map * Scala Case Class</p>
+<p>Return Observable of ObjectId.</p>
+<pre class="prettyprint"><code class="language-scala">    ImageFilesDAO.insertOne(filename, stream, metadata)
 </code></pre>
-<h3><a href="#scala-case-classes-for-restaurant-document" name="scala-case-classes-for-restaurant-document" class="anchor"><span class="anchor-link"></span></a>Scala case classes for Restaurant document</h3>
-<pre class="prettyprint"><code class="language-scala">case class Address(street: String, building: String,
-  zipcode: String, coord: List[Double])
-
-case class Grade(date: Date, grade: String, score: Int)
-
-case class Restaurant(restaurant_id: String, name: String,
-  borough: String, cuisine: String,
-  grades: List[Grade], address: Address,
-  _id: ObjectId = new ObjectId())
-</code></pre><a href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/demo/restaurant/RestaurantDemoDatabase.scala#L19-L28">Full source at GitHub</a>
+<h2><a href="#update" name="update" class="anchor"><span class="anchor-link"></span></a>Update</h2><div class="callout note "><div class="callout-title">Official_MongoDB_Documentation</div>
+<p>Do not use GridFS if you need to update the content of the entire file atomically. As an alternative you can store multiple versions of each file and specify the current version of the file in the metadata. You can update the metadata field that indicates “latest” status in an atomic update after uploading the new version of the file, and later remove previous versions if needed.Do not use GridFS if you need to update the content of the entire file atomically. As an alternative you can store multiple versions of each file and specify the current version of the file in the metadata. You can update the metadata field that indicates “latest” status in an atomic update after uploading the new version of the file, and later remove previous versions if needed.</p></div>
+<h2><a href="#delete" name="delete" class="anchor"><span class="anchor-link"></span></a>Delete</h2>
+<p>GridFSFile will be deleted by a given ObjectID.</p>
+<p>With implicit conversion you can use for oid Parameter: * ObjectID * GridFSFile * String</p>
+<pre class="prettyprint"><code class="language-scala">  // for implicit conversion usage
+  import com.sfxcode.nosql.mongo._
+  
+  ImageFilesDAO.deleteOne(oid)
+</code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/master/src/main/paradox/tutorial/setup.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/master/src/main/paradox/gridfs/crud.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
@@ -240,7 +222,7 @@ v1.5.0
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../features/relationships.html" title="Features - Relationships" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../dao/gridfs_dao.html" title="GridFSDAO" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -249,17 +231,17 @@ v1.5.0
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Features - Relationships
+GridFSDAO
 </span>
 </div>
 </a>
-<a href="../tutorial/database.html" title="Tutorial Part 2 - Database" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../features/aggregation.html" title="Features - Aggregation" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Tutorial Part 2 - Database
+Features - Aggregation
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">
