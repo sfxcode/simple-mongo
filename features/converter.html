@@ -18,7 +18,7 @@
 
 <meta name="description" content="simple-mongo">
 <link rel="shortcut icon" href="../assets/images/favicon.png">
-<title>Feature - BSON Converter</title>
+<title>Feature - Converter · simple-mongo</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.7a4cdee3.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -41,7 +41,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 <nav class="md-header-nav md-grid">
 <div class="md-flex">
 <div class="md-flex__cell md-flex__cell--shrink">
-<a href="../features/converter.html" title="Feature - BSON Converter" class="md-header-nav__button md-logo">
+<a href="../index.html" title="simple-mongo" class="md-header-nav__button md-logo">
 <i class="md-icon">local_library</i>
 </a>
 </div>
@@ -50,7 +50,12 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 </div>
 <div class="md-flex__cell md-flex__cell--stretch">
 <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-Feature - BSON Converter
+<span class="md-header-nav__topic">
+simple-mongo
+</span>
+<span class="md-header-nav__topic">
+Feature - Converter
+</span>
 </div>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">
@@ -108,8 +113,8 @@ sfxcode/simple-mongo
 <span class="md-nav__button md-logo">
 <i class="md-icon">local_library</i>
 </span>
-<a href="../features/converter.html" title="Feature - BSON Converter">
-Feature - BSON Converter
+<a href="../index.html" title="simple-mongo">
+simple-mongo
 </a>
 </label>
 <div class="md-nav__source">
@@ -127,13 +132,30 @@ sfxcode/simple-mongo
 
 </div>
 <ul>
+  <li><a href="../dao/mongo_dao.html" class="page">MongoDAO</a></li>
+  <li><a href="../dao/base.html" class="page">MongoDAO - Base Functions</a></li>
+  <li><a href="../dao/crud.html" class="page">MongoDAO - CRUD Functions</a></li>
+  <li><a href="../dao/search.html" class="page">MongoDAO - Search Functions</a></li>
+  <li><a href="../dao/gridfs_dao.html" class="page">GridFSDAO</a></li>
+  <li><a href="../gridfs/crud.html" class="page">GridFSDAO - CRUD Functions</a></li>
+  <li><a href="../features/aggregation.html" class="page">Feature - Aggregation</a></li>
+  <li><a href="../features/relationships.html" class="page">Feature - Relationships</a></li>
+  <li><a href="../features/observable.html" class="page">Feature - Observable</a></li>
+  <li><a href="../features/converter.html" class="active page">Feature - Converter</a></li>
+  <li><a href="../tutorial/setup.html" class="page">Tutorial Part 1 - Setup</a></li>
+  <li><a href="../tutorial/database.html" class="page">Tutorial Part 2 - Database</a></li>
+  <li><a href="../tutorial/functions.html" class="page">Tutorial Part 3 - Functions</a></li>
+  <li><a href="../tutorial/application.html" class="page">Tutorial Part 4 - Application</a></li>
+  <li><a href="../changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="toc">Table of contents</label>
 <ul>
-  <li><a href="../features/converter.html#feature-bson-converter" class="header">Feature - BSON Converter</a>
+  <li><a href="../features/converter.html#feature-converter" class="header">Feature - Converter</a>
   <ul>
     <li><a href="../features/converter.html#info" class="header">Info</a></li>
+    <li><a href="../features/converter.html#usage" class="header">Usage</a></li>
+    <li><a href="../features/converter.html#plugins" class="header">Plugins</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -152,9 +174,11 @@ sfxcode/simple-mongo
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="toc">Table of contents</label>
 <ul>
-  <li><a href="../features/converter.html#feature-bson-converter" class="header">Feature - BSON Converter</a>
+  <li><a href="../features/converter.html#feature-converter" class="header">Feature - Converter</a>
   <ul>
     <li><a href="../features/converter.html#info" class="header">Info</a></li>
+    <li><a href="../features/converter.html#usage" class="header">Usage</a></li>
+    <li><a href="../features/converter.html#plugins" class="header">Plugins</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -165,8 +189,61 @@ sfxcode/simple-mongo
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#feature-bson-converter" name="feature-bson-converter" class="anchor"><span class="anchor-link"></span></a>Feature - BSON Converter</h1>
+<h1><a href="#feature-converter" name="feature-converter" class="anchor"><span class="anchor-link"></span></a>Feature - Converter</h1>
 <h2><a href="#info" name="info" class="anchor"><span class="anchor-link"></span></a>Info</h2>
+<p>BSON converter is used for bidirectional converting of BSON data.</p>
+<ul>
+  <li>Supports most Scala / Java types.</li>
+  <li>Case class support</li>
+  <li>Java Bean support</li>
+  <li>pluggable</li>
+</ul>
+<h2><a href="#usage" name="usage" class="anchor"><span class="anchor-link"></span></a>Usage</h2>
+<h3><a href="#tobson" name="tobson" class="anchor"><span class="anchor-link"></span></a>toBson</h3>
+<pre class="prettyprint"><code class="language-scala"><br/>  val result = BsonConverter.toBson(3) // result = BsonInt32(3)
+
+</code></pre>
+<h3><a href="#frombson" name="frombson" class="anchor"><span class="anchor-link"></span></a>fromBson</h3>
+<pre class="prettyprint"><code class="language-scala"><br/>  val result = BsonConverter.fromBson(BsonInt32(3)) // result = 3
+
+</code></pre>
+<h3><a href="#todocument" name="todocument" class="anchor"><span class="anchor-link"></span></a>toDocument</h3>
+<pre class="prettyprint"><code class="language-scala"><br/>    case class Base(int: Int, Long: Long, float: Float, double: Double, 
+      string: String, date: Date = new Date())
+
+    object Base {
+      def apply(): Base = new Base(1, 2, 3, 4, &quot;test&quot;)
+    }
+
+   val document = Converter.toDocument(Base())
+
+    // Document((float,BsonDouble{value=3.0}), (string,BsonString{value=&#39;test&#39;}), 
+    // (double,BsonDouble{value=4.0}), (Long,BsonInt64{value=2}), (date,
+    // BsonDateTime{value=1531166757627}), (int,BsonInt32{value=1}))
+
+
+</code></pre>
+<h2><a href="#plugins" name="plugins" class="anchor"><span class="anchor-link"></span></a>Plugins</h2>
+<h3><a href="#example" name="example" class="anchor"><span class="anchor-link"></span></a>Example</h3>
+<pre class="prettyprint"><code class="language-scala">package com.sfxcode.nosql.mongo.converter
+
+import com.sfxcode.nosql.mongo.bson.AbstractConverterPlugin
+import org.bson.BsonValue
+import org.joda.time.DateTime
+import org.mongodb.scala.bson.{ BsonDateTime, BsonNull }
+
+class JodaConverterPlugin extends AbstractConverterPlugin {
+  override def customClassList: List[Class[_]] = List(classOf[DateTime])
+
+  override def toBson(value: Any): BsonValue = {
+    value match {
+      case dt: DateTime =&gt; BsonDateTime(dt.toDate)
+      case _ =&gt;
+        BsonNull()
+
+    }
+  }
+}</code></pre><a href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/converter/JodaConverterPlugin.scala">Full source at GitHub</a>
 </div>
 <div>
 <a href="https://github.com/sfxcode/simple-mongo/tree/master/src/main/paradox/features/converter.md" title="Edit this page" class="md-source-file md-edit">
@@ -183,6 +260,36 @@ v1.5.1
 </div>
 </main>
 <footer class="md-footer">
+<div class="md-footer-nav">
+<nav class="md-footer-nav__inner md-grid">
+<a href="../features/observable.html" title="Feature - Observable" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<div class="md-flex__cell md-flex__cell--shrink">
+<i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+</div>
+<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+<span class="md-flex__ellipsis">
+<span class="md-footer-nav__direction">
+Previous
+</span>
+Feature - Observable
+</span>
+</div>
+</a>
+<a href="../tutorial/setup.html" title="Tutorial Part 1 - Setup" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+<span class="md-flex__ellipsis">
+<span class="md-footer-nav__direction">
+Next
+</span>
+Tutorial Part 1 - Setup
+</span>
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+</div>
+</a>
+</nav>
+</div>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">

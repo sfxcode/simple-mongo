@@ -141,6 +141,7 @@ sfxcode/simple-mongo
   <li><a href="../features/aggregation.html" class="page">Feature - Aggregation</a></li>
   <li><a href="../features/relationships.html" class="page">Feature - Relationships</a></li>
   <li><a href="../features/observable.html" class="page">Feature - Observable</a></li>
+  <li><a href="../features/converter.html" class="page">Feature - Converter</a></li>
   <li><a href="../tutorial/setup.html" class="page">Tutorial Part 1 - Setup</a></li>
   <li><a href="../tutorial/database.html" class="page">Tutorial Part 2 - Database</a></li>
   <li><a href="../tutorial/functions.html" class="page">Tutorial Part 3 - Functions</a></li>
@@ -200,6 +201,10 @@ sfxcode/simple-mongo
 </ul>
 <h2><a href="#usage" name="usage" class="anchor"><span class="anchor-link"></span></a>Usage</h2>
 <p>A <a href="http://mongodb.github.io/mongo-scala-driver/2.3/scaladoc/org/mongodb/scala/MongoDatabase.html">MongoDatabase</a> and a collection name is needed.</p>
+<pre class="prettyprint"><code class="language-scala"><br/>private val registry = fromProviders(classOf[Restaurant])
+
+val database = DatabaseProvider(&quot;restaurants&quot;, registry)
+</code></pre>
 <h3><a href="#create-dao" name="create-dao" class="anchor"><span class="anchor-link"></span></a>Create DAO</h3>
 <p>A Type Parameter is used for automatic Document to Class conversion (case classes needs to be registered).</p>
 <pre class="prettyprint"><code class="language-scala">  object RestaurantDAO extends MongoDAO[Restaurant](database, &quot;restaurants&quot;)
