@@ -205,8 +205,12 @@ sfxcode/simple-mongo
 <pre class="prettyprint"><code class="language-scala">  object RestaurantDAO extends MongoDAO[Restaurant](database, &quot;restaurants&quot;)
 </code></pre>
 <h3><a href="#use-dao" name="use-dao" class="anchor"><span class="anchor-link"></span></a>Use DAO</h3>
-<p>```scala</p>
-<p>```</p>
+<pre class="prettyprint"><code class="language-scala"> import com.sfxcode.nosql.mongo._
+ 
+  def restaurantsSize: Long = RestaurantDAO.count()
+  
+  def findAllRestaurants:List[Restaurant] = RestaurantDAO.find()
+</code></pre>
 </div>
 <div>
 <a href="https://github.com/sfxcode/simple-mongo/tree/master/src/main/paradox/dao/mongo_dao.md" title="Edit this page" class="md-source-file md-edit">
