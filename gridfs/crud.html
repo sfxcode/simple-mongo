@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="description" content="simple-mongo">
-<meta name="generator" content="Paradox, paradox-material-theme=v1.5.1, mkdocs-material=2.2.2">
+<meta name="generator" content="Paradox, paradox-material-theme=1.5.2, mkdocs-material=2.2.2">
 
 <meta name="lang:clipboard.copy" content="Copy to clipboard">
 <meta name="lang:clipboard.copied" content="Copied to clipboard">
@@ -138,6 +138,7 @@ sfxcode/simple-mongo
   <li><a href="../dao/search.html" class="page">MongoDAO - Search Functions</a></li>
   <li><a href="../dao/gridfs_dao.html" class="page">GridFSDAO</a></li>
   <li><a href="../gridfs/crud.html" class="active page">GridFSDAO - CRUD Functions</a></li>
+  <li><a href="../gridfs/metadata.html" class="page">GridFSDAO - Metadata</a></li>
   <li><a href="../features/aggregation.html" class="page">Feature - Aggregation</a></li>
   <li><a href="../features/relationships.html" class="page">Feature - Relationships</a></li>
   <li><a href="../features/observable.html" class="page">Feature - Observable</a></li>
@@ -161,7 +162,7 @@ sfxcode/simple-mongo
 </nav>
 
 <div class="md-nav__title--site md-version" title="Version">
-<i class="md-icon">label_outline</i> v1.5.1
+<i class="md-icon">label_outline</i> 1.5.2
 </div>
 </nav>
 
@@ -191,8 +192,13 @@ sfxcode/simple-mongo
 <div class="md-content__searchable">
 <h1><a href="#gridfsdao-crud-functions" name="gridfsdao-crud-functions" class="anchor"><span class="anchor-link"></span></a>GridFSDAO - CRUD Functions</h1>
 <h2><a href="#create" name="create" class="anchor"><span class="anchor-link"></span></a>Create</h2>
-<p>You need a fiename, an input stream and some kind of meatadata.</p>
-<p>Possible Metadata types: * Document * Map * Scala Case Class</p>
+<p>You need a filename, an input stream and some kind of metadata.</p>
+<p>Possible Metadata types:</p>
+<ul>
+  <li>Document</li>
+  <li>Map</li>
+  <li>Scala Case Class</li>
+</ul>
 <p>Return Observable of ObjectId.</p>
 <pre class="prettyprint"><code class="language-scala">    ImageFilesDAO.insertOne(filename, stream, metadata)
 </code></pre>
@@ -200,7 +206,12 @@ sfxcode/simple-mongo
 <p>Do not use GridFS if you need to update the content of the entire file atomically. As an alternative you can store multiple versions of each file and specify the current version of the file in the metadata. You can update the metadata field that indicates “latest” status in an atomic update after uploading the new version of the file, and later remove previous versions if needed.Do not use GridFS if you need to update the content of the entire file atomically. As an alternative you can store multiple versions of each file and specify the current version of the file in the metadata. You can update the metadata field that indicates “latest” status in an atomic update after uploading the new version of the file, and later remove previous versions if needed.</p></div>
 <h2><a href="#delete" name="delete" class="anchor"><span class="anchor-link"></span></a>Delete</h2>
 <p>GridFSFile will be deleted by a given ObjectID.</p>
-<p>With implicit conversion you can use for oid Parameter: * ObjectID * GridFSFile * String</p>
+<p>With implicit conversion you can use for oid Parameter:</p>
+<ul>
+  <li>ObjectID</li>
+  <li>GridFSFile</li>
+  <li>String</li>
+</ul>
 <pre class="prettyprint"><code class="language-scala">  // for implicit conversion usage
   import com.sfxcode.nosql.mongo._
   
@@ -214,7 +225,7 @@ Edit this page
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-v1.5.1
+1.5.2
 </span>
 </div>
 </article>
@@ -237,13 +248,13 @@ GridFSDAO
 </span>
 </div>
 </a>
-<a href="../features/aggregation.html" title="Feature - Aggregation" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../gridfs/metadata.html" title="GridFSDAO - Metadata" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Feature - Aggregation
+GridFSDAO - Metadata
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">
