@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="description" content="simple-mongo">
-<meta name="generator" content="Paradox, paradox-material-theme=v1.6.0, mkdocs-material=3.0.3">
+<meta name="description" content="simple mongo docs">
+<meta name="generator" content="Paradox, paradox-material-theme=0.6.0, mkdocs-material=3.0.3">
 
 <meta name="lang:clipboard.copy" content="Copy to clipboard">
 <meta name="lang:clipboard.copied" content="Copied to clipboard">
@@ -18,9 +18,9 @@
 <meta name="lang:search.tokenizer" content="[\s\-]+">
 
 
-<meta name="description" content="simple-mongo">
+<meta name="description" content="simple mongo docs">
 <link rel="shortcut icon" href="../assets/images/favicon.png">
-<title>Feature - Aggregation · simple-mongo</title>
+<title>Aggregation · simple-mongo</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.451f80e5.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -56,7 +56,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 simple-mongo
 </span>
 <span class="md-header-nav__topic">
-Feature - Aggregation
+Aggregation
 </span>
 </div>
 </div>
@@ -135,27 +135,38 @@ sfxcode/simple-mongo
 
 </div>
 <ul>
-  <li><a href="../dao/mongo_dao.html" class="page">MongoDAO</a></li>
-  <li><a href="../dao/base.html" class="page">MongoDAO - Base Functions</a></li>
-  <li><a href="../dao/crud.html" class="page">MongoDAO - CRUD Functions</a></li>
-  <li><a href="../dao/search.html" class="page">MongoDAO - Search Functions</a></li>
-  <li><a href="../dao/gridfs_dao.html" class="page">GridFSDAO</a></li>
-  <li><a href="../gridfs/crud.html" class="page">GridFSDAO - CRUD Functions</a></li>
-  <li><a href="../gridfs/metadata.html" class="page">GridFSDAO - Metadata</a></li>
-  <li><a href="../features/aggregation.html" class="active page">Feature - Aggregation</a></li>
-  <li><a href="../features/relationships.html" class="page">Feature - Relationships</a></li>
-  <li><a href="../features/observable.html" class="page">Feature - Observable</a></li>
-  <li><a href="../features/converter.html" class="page">Feature - Converter</a></li>
-  <li><a href="../tutorial/setup.html" class="page">Tutorial Part 1 - Setup</a></li>
-  <li><a href="../tutorial/database.html" class="page">Tutorial Part 2 - Database</a></li>
-  <li><a href="../tutorial/functions.html" class="page">Tutorial Part 3 - Functions</a></li>
-  <li><a href="../tutorial/application.html" class="page">Tutorial Part 4 - Application</a></li>
+  <li><a href="../database_provider.html" class="page">DatabaseProvider</a></li>
+  <li><a href="../dao/index.html" class="page">MongoDAO</a>
+  <ul>
+    <li><a href="../dao/base.html" class="page">MongoDAO Base</a></li>
+    <li><a href="../dao/crud.html" class="page">CRUD Functions</a></li>
+    <li><a href="../dao/search.html" class="page">Search Functions</a></li>
+  </ul></li>
+  <li><a href="../gridfs/index.html" class="page">GridFSDAO</a>
+  <ul>
+    <li><a href="../gridfs/crud.html" class="page">CRUD Functions</a></li>
+    <li><a href="../gridfs/metadata.html" class="page">Metadata</a></li>
+  </ul></li>
+  <li><a href="../features/index.html" class="page">Features</a>
+  <ul>
+    <li><a href="../features/aggregation.html" class="active page">Aggregation</a></li>
+    <li><a href="../features/relationships.html" class="page">Relationships</a></li>
+    <li><a href="../features/observable.html" class="page">Observable</a></li>
+    <li><a href="../features/converter.html" class="page">Converter</a></li>
+  </ul></li>
+  <li><a href="../tutorial/index.html" class="page">Tutorial</a>
+  <ul>
+    <li><a href="../tutorial/setup.html" class="page">Part 1 - Setup</a></li>
+    <li><a href="../tutorial/database.html" class="page">Part 2 - Database</a></li>
+    <li><a href="../tutorial/functions.html" class="page">Part 3 - Functions</a></li>
+    <li><a href="../tutorial/application.html" class="page">Part 4 - Application</a></li>
+  </ul></li>
   <li><a href="../changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../features/aggregation.html#feature-aggregation" class="header">Feature - Aggregation</a>
+  <li><a href="../features/aggregation.html#aggregation" class="header">Aggregation</a>
   <ul>
     <li><a href="../features/aggregation.html#info" class="header">Info</a></li>
     <li><a href="../features/aggregation.html#demo" class="header">Demo</a></li>
@@ -167,7 +178,7 @@ sfxcode/simple-mongo
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> v1.6.0
+<i class="md-icon" title="Version">label_outline</i> 1.6.5
 </label>
 </li>
 </ul>
@@ -180,7 +191,7 @@ sfxcode/simple-mongo
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../features/aggregation.html#feature-aggregation" class="header">Feature - Aggregation</a>
+  <li><a href="../features/aggregation.html#aggregation" class="header">Aggregation</a>
   <ul>
     <li><a href="../features/aggregation.html#info" class="header">Info</a></li>
     <li><a href="../features/aggregation.html#demo" class="header">Demo</a></li>
@@ -194,17 +205,15 @@ sfxcode/simple-mongo
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#feature-aggregation" name="feature-aggregation" class="anchor"><span class="anchor-link"></span></a>Feature - Aggregation</h1>
+<h1><a href="#aggregation" name="aggregation" class="anchor"><span class="anchor-link"></span></a>Aggregation</h1>
 <h2><a href="#info" name="info" class="anchor"><span class="anchor-link"></span></a>Info</h2>
 <p>MongoDB support an easy to use <a href="https://docs.mongodb.com/manual/aggregation/">Aggregation Handling</a>.</p>
 <h2><a href="#demo" name="demo" class="anchor"><span class="anchor-link"></span></a>Demo</h2>
 <h3><a href="#setup-imports" name="setup-imports" class="anchor"><span class="anchor-link"></span></a>Setup imports</h3>
-<pre class="prettyprint"><code class="language-scala">import com.sfxcode.nosql.mongo.Field._
-import com.sfxcode.nosql.mongo.Filter._
-import com.sfxcode.nosql.mongo.Sort._
-import com.sfxcode.nosql.mongo._</code></pre><a href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L4-L7">Full source at GitHub</a>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.6.5/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L4-L5" target="_blank" title="Go to snippet source"></a><code class="language-scala">import com.sfxcode.nosql.mongo.Aggregate._
+import com.sfxcode.nosql.mongo._</code></pre>
 <h3><a href="#define-stages" name="define-stages" class="anchor"><span class="anchor-link"></span></a>Define stages</h3>
-<pre class="prettyprint"><code class="language-scala">val filterStage: Bson = filter(and(
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.6.5/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L19-L27" target="_blank" title="Go to snippet source"></a><code class="language-scala">val filterStage: Bson = filter(and(
   equal(&quot;gender&quot;, &quot;female&quot;),
   notNullFilter(&quot;balance&quot;)))
 
@@ -212,25 +221,25 @@ val groupStage: Bson = group(
   Map(&quot;age&quot; -&gt; &quot;$age&quot;),
   sumField(&quot;balance&quot;), firstField(&quot;age&quot;))
 
-val sortStage: Bson = sort(sortByKey(&quot;age&quot;))</code></pre><a href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L21-L29">Full source at GitHub</a>
+val sortStage: Bson = sort(sortByKey(&quot;age&quot;))</code></pre>
 <h3><a href="#execute-aggregation" name="execute-aggregation" class="anchor"><span class="anchor-link"></span></a>Execute Aggregation</h3><div class="callout note "><div class="callout-title">Important</div>
 <p>In most cases we have to use the RAW attribute, because the aggregation result not follows the case class pattern. RAW returns always Documents instead of case classes.</p></div>
-<pre class="prettyprint"><code class="language-scala">val aggregator = List(filterStage, groupStage, sortStage)
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.6.5/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L44-L47" target="_blank" title="Go to snippet source"></a><code class="language-scala">val aggregator = List(filterStage, groupStage, sortStage)
 
 val aggregated = PersonDAO.Raw.findAggregated(aggregator).resultList()
-</code></pre><a href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L46-L49">Full source at GitHub</a>
+</code></pre>
 <h3><a href="#convert-result" name="convert-result" class="anchor"><span class="anchor-link"></span></a>Convert Result</h3>
 <p>For easy result handling, using the implicit Document to Map conversion can be useful.</p>
-<pre class="prettyprint"><code class="language-scala">val list: List[Map[String, Any]] = aggregated</code></pre><a href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L55">Full source at GitHub</a>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.6.5/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L53" target="_blank" title="Go to snippet source"></a><code class="language-scala">val list: List[Map[String, Any]] = aggregated</code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/master/src/main/paradox/features/aggregation.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/v1.6.5/docs/src/main/paradox/features/aggregation.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-v1.6.0
+1.6.5
 </span>
 </div>
 </article>
@@ -240,7 +249,7 @@ v1.6.0
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../gridfs/metadata.html" title="GridFSDAO - Metadata" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../features/index.html" title="Features" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -249,17 +258,17 @@ v1.6.0
 <span class="md-footer-nav__direction">
 Previous
 </span>
-GridFSDAO - Metadata
+Features
 </span>
 </div>
 </a>
-<a href="../features/relationships.html" title="Feature - Relationships" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../features/relationships.html" title="Relationships" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Feature - Relationships
+Relationships
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">

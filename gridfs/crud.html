@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="description" content="simple-mongo">
-<meta name="generator" content="Paradox, paradox-material-theme=v1.6.0, mkdocs-material=3.0.3">
+<meta name="description" content="simple mongo docs">
+<meta name="generator" content="Paradox, paradox-material-theme=0.6.0, mkdocs-material=3.0.3">
 
 <meta name="lang:clipboard.copy" content="Copy to clipboard">
 <meta name="lang:clipboard.copied" content="Copied to clipboard">
@@ -18,9 +18,9 @@
 <meta name="lang:search.tokenizer" content="[\s\-]+">
 
 
-<meta name="description" content="simple-mongo">
+<meta name="description" content="simple mongo docs">
 <link rel="shortcut icon" href="../assets/images/favicon.png">
-<title>GridFSDAO - CRUD Functions · simple-mongo</title>
+<title>CRUD Functions · simple-mongo</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.451f80e5.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -56,7 +56,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 simple-mongo
 </span>
 <span class="md-header-nav__topic">
-GridFSDAO - CRUD Functions
+CRUD Functions
 </span>
 </div>
 </div>
@@ -135,27 +135,38 @@ sfxcode/simple-mongo
 
 </div>
 <ul>
-  <li><a href="../dao/mongo_dao.html" class="page">MongoDAO</a></li>
-  <li><a href="../dao/base.html" class="page">MongoDAO - Base Functions</a></li>
-  <li><a href="../dao/crud.html" class="page">MongoDAO - CRUD Functions</a></li>
-  <li><a href="../dao/search.html" class="page">MongoDAO - Search Functions</a></li>
-  <li><a href="../dao/gridfs_dao.html" class="page">GridFSDAO</a></li>
-  <li><a href="../gridfs/crud.html" class="active page">GridFSDAO - CRUD Functions</a></li>
-  <li><a href="../gridfs/metadata.html" class="page">GridFSDAO - Metadata</a></li>
-  <li><a href="../features/aggregation.html" class="page">Feature - Aggregation</a></li>
-  <li><a href="../features/relationships.html" class="page">Feature - Relationships</a></li>
-  <li><a href="../features/observable.html" class="page">Feature - Observable</a></li>
-  <li><a href="../features/converter.html" class="page">Feature - Converter</a></li>
-  <li><a href="../tutorial/setup.html" class="page">Tutorial Part 1 - Setup</a></li>
-  <li><a href="../tutorial/database.html" class="page">Tutorial Part 2 - Database</a></li>
-  <li><a href="../tutorial/functions.html" class="page">Tutorial Part 3 - Functions</a></li>
-  <li><a href="../tutorial/application.html" class="page">Tutorial Part 4 - Application</a></li>
+  <li><a href="../database_provider.html" class="page">DatabaseProvider</a></li>
+  <li><a href="../dao/index.html" class="page">MongoDAO</a>
+  <ul>
+    <li><a href="../dao/base.html" class="page">MongoDAO Base</a></li>
+    <li><a href="../dao/crud.html" class="page">CRUD Functions</a></li>
+    <li><a href="../dao/search.html" class="page">Search Functions</a></li>
+  </ul></li>
+  <li><a href="../gridfs/index.html" class="page">GridFSDAO</a>
+  <ul>
+    <li><a href="../gridfs/crud.html" class="active page">CRUD Functions</a></li>
+    <li><a href="../gridfs/metadata.html" class="page">Metadata</a></li>
+  </ul></li>
+  <li><a href="../features/index.html" class="page">Features</a>
+  <ul>
+    <li><a href="../features/aggregation.html" class="page">Aggregation</a></li>
+    <li><a href="../features/relationships.html" class="page">Relationships</a></li>
+    <li><a href="../features/observable.html" class="page">Observable</a></li>
+    <li><a href="../features/converter.html" class="page">Converter</a></li>
+  </ul></li>
+  <li><a href="../tutorial/index.html" class="page">Tutorial</a>
+  <ul>
+    <li><a href="../tutorial/setup.html" class="page">Part 1 - Setup</a></li>
+    <li><a href="../tutorial/database.html" class="page">Part 2 - Database</a></li>
+    <li><a href="../tutorial/functions.html" class="page">Part 3 - Functions</a></li>
+    <li><a href="../tutorial/application.html" class="page">Part 4 - Application</a></li>
+  </ul></li>
   <li><a href="../changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../gridfs/crud.html#gridfsdao-crud-functions" class="header">GridFSDAO - CRUD Functions</a>
+  <li><a href="../gridfs/crud.html#crud-functions" class="header">CRUD Functions</a>
   <ul>
     <li><a href="../gridfs/crud.html#create" class="header">Create</a></li>
     <li><a href="../gridfs/crud.html#update" class="header">Update</a></li>
@@ -168,7 +179,7 @@ sfxcode/simple-mongo
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> v1.6.0
+<i class="md-icon" title="Version">label_outline</i> 1.6.5
 </label>
 </li>
 </ul>
@@ -181,7 +192,7 @@ sfxcode/simple-mongo
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../gridfs/crud.html#gridfsdao-crud-functions" class="header">GridFSDAO - CRUD Functions</a>
+  <li><a href="../gridfs/crud.html#crud-functions" class="header">CRUD Functions</a>
   <ul>
     <li><a href="../gridfs/crud.html#create" class="header">Create</a></li>
     <li><a href="../gridfs/crud.html#update" class="header">Update</a></li>
@@ -196,7 +207,7 @@ sfxcode/simple-mongo
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#gridfsdao-crud-functions" name="gridfsdao-crud-functions" class="anchor"><span class="anchor-link"></span></a>GridFSDAO - CRUD Functions</h1>
+<h1><a href="#crud-functions" name="crud-functions" class="anchor"><span class="anchor-link"></span></a>CRUD Functions</h1>
 <h2><a href="#create" name="create" class="anchor"><span class="anchor-link"></span></a>Create</h2>
 <p>You need a filename, an input stream and some kind of metadata.</p>
 <p>Possible Metadata types:</p>
@@ -212,7 +223,7 @@ sfxcode/simple-mongo
 <p>Do not use GridFS if you need to update the content of the entire file atomically. As an alternative you can store multiple versions of each file and specify the current version of the file in the metadata. You can update the metadata field that indicates “latest” status in an atomic update after uploading the new version of the file, and later remove previous versions if needed.Do not use GridFS if you need to update the content of the entire file atomically. As an alternative you can store multiple versions of each file and specify the current version of the file in the metadata. You can update the metadata field that indicates “latest” status in an atomic update after uploading the new version of the file, and later remove previous versions if needed.</p></div>
 <h2><a href="#delete" name="delete" class="anchor"><span class="anchor-link"></span></a>Delete</h2>
 <p>GridFSFile will be deleted by a given ObjectID.</p>
-<p>With implicit conversion you can use for oid Parameter:</p>
+<p>With implicit conversion you can use for OID Parameter:</p>
 <ul>
   <li>ObjectID</li>
   <li>GridFSFile</li>
@@ -225,13 +236,13 @@ sfxcode/simple-mongo
 </code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/master/src/main/paradox/gridfs/crud.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/v1.6.5/docs/src/main/paradox/gridfs/crud.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-v1.6.0
+1.6.5
 </span>
 </div>
 </article>
@@ -241,7 +252,7 @@ v1.6.0
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../dao/gridfs_dao.html" title="GridFSDAO" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../gridfs/index.html" title="GridFSDAO" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -254,13 +265,13 @@ GridFSDAO
 </span>
 </div>
 </a>
-<a href="../gridfs/metadata.html" title="GridFSDAO - Metadata" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../gridfs/metadata.html" title="Metadata" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-GridFSDAO - Metadata
+Metadata
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">

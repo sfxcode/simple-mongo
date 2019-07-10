@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="description" content="simple-mongo">
-<meta name="generator" content="Paradox, paradox-material-theme=v1.6.0, mkdocs-material=3.0.3">
+<meta name="description" content="simple mongo docs">
+<meta name="generator" content="Paradox, paradox-material-theme=0.6.0, mkdocs-material=3.0.3">
 
 <meta name="lang:clipboard.copy" content="Copy to clipboard">
 <meta name="lang:clipboard.copied" content="Copied to clipboard">
@@ -18,7 +18,7 @@
 <meta name="lang:search.tokenizer" content="[\s\-]+">
 
 
-<meta name="description" content="simple-mongo">
+<meta name="description" content="simple mongo docs">
 <link rel="shortcut icon" href="assets/images/favicon.png">
 <title>simple-mongo</title>
 <link rel="stylesheet" href="assets/stylesheets/application.451f80e5.css">
@@ -130,21 +130,32 @@ sfxcode/simple-mongo
 
 </div>
 <ul>
-  <li><a href="dao/mongo_dao.html" class="page">MongoDAO</a></li>
-  <li><a href="dao/base.html" class="page">MongoDAO - Base Functions</a></li>
-  <li><a href="dao/crud.html" class="page">MongoDAO - CRUD Functions</a></li>
-  <li><a href="dao/search.html" class="page">MongoDAO - Search Functions</a></li>
-  <li><a href="dao/gridfs_dao.html" class="page">GridFSDAO</a></li>
-  <li><a href="gridfs/crud.html" class="page">GridFSDAO - CRUD Functions</a></li>
-  <li><a href="gridfs/metadata.html" class="page">GridFSDAO - Metadata</a></li>
-  <li><a href="features/aggregation.html" class="page">Feature - Aggregation</a></li>
-  <li><a href="features/relationships.html" class="page">Feature - Relationships</a></li>
-  <li><a href="features/observable.html" class="page">Feature - Observable</a></li>
-  <li><a href="features/converter.html" class="page">Feature - Converter</a></li>
-  <li><a href="tutorial/setup.html" class="page">Tutorial Part 1 - Setup</a></li>
-  <li><a href="tutorial/database.html" class="page">Tutorial Part 2 - Database</a></li>
-  <li><a href="tutorial/functions.html" class="page">Tutorial Part 3 - Functions</a></li>
-  <li><a href="tutorial/application.html" class="page">Tutorial Part 4 - Application</a></li>
+  <li><a href="database_provider.html" class="page">DatabaseProvider</a></li>
+  <li><a href="dao/index.html" class="page">MongoDAO</a>
+  <ul>
+    <li><a href="dao/base.html" class="page">MongoDAO Base</a></li>
+    <li><a href="dao/crud.html" class="page">CRUD Functions</a></li>
+    <li><a href="dao/search.html" class="page">Search Functions</a></li>
+  </ul></li>
+  <li><a href="gridfs/index.html" class="page">GridFSDAO</a>
+  <ul>
+    <li><a href="gridfs/crud.html" class="page">CRUD Functions</a></li>
+    <li><a href="gridfs/metadata.html" class="page">Metadata</a></li>
+  </ul></li>
+  <li><a href="features/index.html" class="page">Features</a>
+  <ul>
+    <li><a href="features/aggregation.html" class="page">Aggregation</a></li>
+    <li><a href="features/relationships.html" class="page">Relationships</a></li>
+    <li><a href="features/observable.html" class="page">Observable</a></li>
+    <li><a href="features/converter.html" class="page">Converter</a></li>
+  </ul></li>
+  <li><a href="tutorial/index.html" class="page">Tutorial</a>
+  <ul>
+    <li><a href="tutorial/setup.html" class="page">Part 1 - Setup</a></li>
+    <li><a href="tutorial/database.html" class="page">Part 2 - Database</a></li>
+    <li><a href="tutorial/functions.html" class="page">Part 3 - Functions</a></li>
+    <li><a href="tutorial/application.html" class="page">Part 4 - Application</a></li>
+  </ul></li>
   <li><a href="changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
@@ -163,7 +174,7 @@ sfxcode/simple-mongo
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> v1.6.0
+<i class="md-icon" title="Version">label_outline</i> 1.6.5
 </label>
 </li>
 </ul>
@@ -195,12 +206,11 @@ sfxcode/simple-mongo
 <p>A library for easy usage of the mongo-scala-driver.</p>
 <p>Features:</p>
 <ul>
+  <li>Easy Config with <a href="database_provider.html">DatabaseProvider</a></li>
+  <li>Implement the <a href="https://en.wikipedia.org/wiki/Data_access_object">DAO</a> Pattern for simple MongoDB database usage (<a href="dao/index.html">MongoDAO</a>)</li>
+  <li>Enhanced <a href="http://mongodb.github.io/mongo-scala-driver/2.2/bson/">BSON</a> conversion support (<a href="features/converter.html">Converter</a>)</li>
   <li>
-  <p>Implement the <a href="https://en.wikipedia.org/wiki/Data_access_object">DAO</a> Pattern for easy MongoDB database usage (<a href="dao/mongo_dao.html">MongoDAO</a>)</p></li>
-  <li>
-  <p>Enhanced <a href="http://mongodb.github.io/mongo-scala-driver/2.2/bson/">BSON</a> conversion support (<a href="features/converter.html">Converter</a>)</p></li>
-  <li>
-  <p><a href="https://docs.mongodb.com/manual/core/gridfs/">GridFS</a> support (<a href="dao/gridfs_dao.html">GridFSDAO</a>)</p></li>
+  <p><a href="https://docs.mongodb.com/manual/core/gridfs/">GridFS</a> support (<a href="gridfs/index.html">GridFSDAO</a>)</p></li>
   <li><a href="features/relationships.html">Relationships</a></li>
 </ul>
 <h2><a href="#additional-documentation" name="additional-documentation" class="anchor"><span class="anchor-link"></span></a>Additional Documentation</h2>
@@ -209,24 +219,24 @@ sfxcode/simple-mongo
   <li><a href="https://docs.mongodb.com/">MongoDB</a></li>
 </ul>
 <h2><a href="#dependency-setup" name="dependency-setup" class="anchor"><span class="anchor-link"></span></a>Dependency Setup</h2>
-<p>Support Scala 2.11 and Scala 2.12.</p><dl class="dependency"><dt>sbt</dt><dd><pre class="prettyprint"><code class="language-scala">libraryDependencies += "com.sfxcode.nosql" %% "simple-mongo" % "v1.6.0"</code></pre></dd><dt>Maven</dt><dd><pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
+<p>Support Scala 2.11 and Scala 2.12.</p><dl class="dependency"><dt>sbt</dt><dd><pre class="prettyprint"><code class="language-scala">libraryDependencies += "com.sfxcode.nosql" %% "simple-mongo" % "1.6.5"</code></pre></dd><dt>Maven</dt><dd><pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
   &lt;groupId&gt;com.sfxcode.nosql&lt;/groupId&gt;
   &lt;artifactId&gt;simple-mongo_2.12&lt;/artifactId&gt;
-  &lt;version&gt;v1.6.0&lt;/version&gt;
+  &lt;version&gt;1.6.5&lt;/version&gt;
 &lt;/dependency&gt;</code></pre></dd><dt>Gradle</dt><dd><pre class="prettyprint"><code class="language-gradle">dependencies {
-  compile group: 'com.sfxcode.nosql', name: 'simple-mongo_2.12', version: 'v1.6.0'
+  compile group: 'com.sfxcode.nosql', name: 'simple-mongo_2.12', version: '1.6.5'
 }</code></pre></dd></dl>
 <h2><a href="#licence" name="licence" class="anchor"><span class="anchor-link"></span></a>Licence</h2>
 <p><a href="https://github.com/sfxcode/simple-mongo/blob/master/LICENSE">Apache 2</a></p>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/master/src/main/paradox/index.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/v1.6.5/docs/src/main/paradox/index.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-v1.6.0
+1.6.5
 </span>
 </div>
 </article>
@@ -236,13 +246,13 @@ v1.6.0
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="dao/mongo_dao.html" title="MongoDAO" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="database_provider.html" title="DatabaseProvider" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-MongoDAO
+DatabaseProvider
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">

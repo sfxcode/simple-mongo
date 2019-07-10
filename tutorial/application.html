@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="description" content="simple-mongo">
-<meta name="generator" content="Paradox, paradox-material-theme=v1.6.0, mkdocs-material=3.0.3">
+<meta name="description" content="simple mongo docs">
+<meta name="generator" content="Paradox, paradox-material-theme=0.6.0, mkdocs-material=3.0.3">
 
 <meta name="lang:clipboard.copy" content="Copy to clipboard">
 <meta name="lang:clipboard.copied" content="Copied to clipboard">
@@ -18,9 +18,9 @@
 <meta name="lang:search.tokenizer" content="[\s\-]+">
 
 
-<meta name="description" content="simple-mongo">
+<meta name="description" content="simple mongo docs">
 <link rel="shortcut icon" href="../assets/images/favicon.png">
-<title>Tutorial Part 4 - Application · simple-mongo</title>
+<title>Part 4 - Application · simple-mongo</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.451f80e5.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -56,7 +56,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 simple-mongo
 </span>
 <span class="md-header-nav__topic">
-Tutorial Part 4 - Application
+Part 4 - Application
 </span>
 </div>
 </div>
@@ -135,27 +135,38 @@ sfxcode/simple-mongo
 
 </div>
 <ul>
-  <li><a href="../dao/mongo_dao.html" class="page">MongoDAO</a></li>
-  <li><a href="../dao/base.html" class="page">MongoDAO - Base Functions</a></li>
-  <li><a href="../dao/crud.html" class="page">MongoDAO - CRUD Functions</a></li>
-  <li><a href="../dao/search.html" class="page">MongoDAO - Search Functions</a></li>
-  <li><a href="../dao/gridfs_dao.html" class="page">GridFSDAO</a></li>
-  <li><a href="../gridfs/crud.html" class="page">GridFSDAO - CRUD Functions</a></li>
-  <li><a href="../gridfs/metadata.html" class="page">GridFSDAO - Metadata</a></li>
-  <li><a href="../features/aggregation.html" class="page">Feature - Aggregation</a></li>
-  <li><a href="../features/relationships.html" class="page">Feature - Relationships</a></li>
-  <li><a href="../features/observable.html" class="page">Feature - Observable</a></li>
-  <li><a href="../features/converter.html" class="page">Feature - Converter</a></li>
-  <li><a href="../tutorial/setup.html" class="page">Tutorial Part 1 - Setup</a></li>
-  <li><a href="../tutorial/database.html" class="page">Tutorial Part 2 - Database</a></li>
-  <li><a href="../tutorial/functions.html" class="page">Tutorial Part 3 - Functions</a></li>
-  <li><a href="../tutorial/application.html" class="active page">Tutorial Part 4 - Application</a></li>
+  <li><a href="../database_provider.html" class="page">DatabaseProvider</a></li>
+  <li><a href="../dao/index.html" class="page">MongoDAO</a>
+  <ul>
+    <li><a href="../dao/base.html" class="page">MongoDAO Base</a></li>
+    <li><a href="../dao/crud.html" class="page">CRUD Functions</a></li>
+    <li><a href="../dao/search.html" class="page">Search Functions</a></li>
+  </ul></li>
+  <li><a href="../gridfs/index.html" class="page">GridFSDAO</a>
+  <ul>
+    <li><a href="../gridfs/crud.html" class="page">CRUD Functions</a></li>
+    <li><a href="../gridfs/metadata.html" class="page">Metadata</a></li>
+  </ul></li>
+  <li><a href="../features/index.html" class="page">Features</a>
+  <ul>
+    <li><a href="../features/aggregation.html" class="page">Aggregation</a></li>
+    <li><a href="../features/relationships.html" class="page">Relationships</a></li>
+    <li><a href="../features/observable.html" class="page">Observable</a></li>
+    <li><a href="../features/converter.html" class="page">Converter</a></li>
+  </ul></li>
+  <li><a href="../tutorial/index.html" class="page">Tutorial</a>
+  <ul>
+    <li><a href="../tutorial/setup.html" class="page">Part 1 - Setup</a></li>
+    <li><a href="../tutorial/database.html" class="page">Part 2 - Database</a></li>
+    <li><a href="../tutorial/functions.html" class="page">Part 3 - Functions</a></li>
+    <li><a href="../tutorial/application.html" class="active page">Part 4 - Application</a></li>
+  </ul></li>
   <li><a href="../changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../tutorial/application.html#tutorial-part-4-application" class="header">Tutorial Part 4 - Application</a>
+  <li><a href="../tutorial/application.html#part-4-application" class="header">Part 4 - Application</a>
   <ul>
     <li><a href="../tutorial/application.html#info" class="header">Info</a></li>
     <li><a href="../tutorial/application.html#simple-application" class="header">Simple Application</a></li>
@@ -167,7 +178,7 @@ sfxcode/simple-mongo
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> v1.6.0
+<i class="md-icon" title="Version">label_outline</i> 1.6.5
 </label>
 </li>
 </ul>
@@ -180,7 +191,7 @@ sfxcode/simple-mongo
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../tutorial/application.html#tutorial-part-4-application" class="header">Tutorial Part 4 - Application</a>
+  <li><a href="../tutorial/application.html#part-4-application" class="header">Part 4 - Application</a>
   <ul>
     <li><a href="../tutorial/application.html#info" class="header">Info</a></li>
     <li><a href="../tutorial/application.html#simple-application" class="header">Simple Application</a></li>
@@ -194,11 +205,11 @@ sfxcode/simple-mongo
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#tutorial-part-4-application" name="tutorial-part-4-application" class="anchor"><span class="anchor-link"></span></a>Tutorial Part 4 - Application</h1>
+<h1><a href="#part-4-application" name="part-4-application" class="anchor"><span class="anchor-link"></span></a>Part 4 - Application</h1>
 <h2><a href="#info" name="info" class="anchor"><span class="anchor-link"></span></a>Info</h2>
 <p>This Demo Application should demonstrate the basic usage of simple-mongo.</p>
 <h2><a href="#simple-application" name="simple-application" class="anchor"><span class="anchor-link"></span></a>Simple Application</h2>
-<pre class="prettyprint"><code class="language-scala"><br/>object RestaurantDemoApp extends App with RestaurantDemoDatabaseFunctions {
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.6.5/src/test/scala/com/sfxcode/nosql/mongo/demo/restaurant/RestaurantDemoApp.scala#L4-L22" target="_blank" title="Go to snippet source"></a><code class="language-scala"><br/>object RestaurantDemoApp extends App with RestaurantDemoDatabaseFunctions {
 
   // find specific restaurant by name as Option Result
   val restaurant = findRestaurantByName(&quot;Dj Reynolds Pub And Restaurant&quot;)
@@ -215,16 +226,16 @@ sfxcode/simple-mongo
   restaurants.sortBy(r =&gt; r.name).foreach(r =&gt; println(r.name))
 
 }
-</code></pre><a href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/demo/restaurant/RestaurantDemoApp.scala#L4-L22">Full source at GitHub</a>
+</code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/master/src/main/paradox/tutorial/application.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/v1.6.5/docs/src/main/paradox/tutorial/application.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-v1.6.0
+1.6.5
 </span>
 </div>
 </article>
@@ -234,7 +245,7 @@ v1.6.0
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../tutorial/functions.html" title="Tutorial Part 3 - Functions" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../tutorial/functions.html" title="Part 3 - Functions" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -243,7 +254,7 @@ v1.6.0
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Tutorial Part 3 - Functions
+Part 3 - Functions
 </span>
 </div>
 </a>

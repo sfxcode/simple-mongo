@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="description" content="simple-mongo">
-<meta name="generator" content="Paradox, paradox-material-theme=v1.6.0, mkdocs-material=3.0.3">
+<meta name="description" content="simple mongo docs">
+<meta name="generator" content="Paradox, paradox-material-theme=0.6.0, mkdocs-material=3.0.3">
 
 <meta name="lang:clipboard.copy" content="Copy to clipboard">
 <meta name="lang:clipboard.copied" content="Copied to clipboard">
@@ -18,9 +18,9 @@
 <meta name="lang:search.tokenizer" content="[\s\-]+">
 
 
-<meta name="description" content="simple-mongo">
+<meta name="description" content="simple mongo docs">
 <link rel="shortcut icon" href="../assets/images/favicon.png">
-<title>GridFSDAO - Metadata · simple-mongo</title>
+<title>Metadata · simple-mongo</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.451f80e5.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -56,7 +56,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 simple-mongo
 </span>
 <span class="md-header-nav__topic">
-GridFSDAO - Metadata
+Metadata
 </span>
 </div>
 </div>
@@ -135,27 +135,38 @@ sfxcode/simple-mongo
 
 </div>
 <ul>
-  <li><a href="../dao/mongo_dao.html" class="page">MongoDAO</a></li>
-  <li><a href="../dao/base.html" class="page">MongoDAO - Base Functions</a></li>
-  <li><a href="../dao/crud.html" class="page">MongoDAO - CRUD Functions</a></li>
-  <li><a href="../dao/search.html" class="page">MongoDAO - Search Functions</a></li>
-  <li><a href="../dao/gridfs_dao.html" class="page">GridFSDAO</a></li>
-  <li><a href="../gridfs/crud.html" class="page">GridFSDAO - CRUD Functions</a></li>
-  <li><a href="../gridfs/metadata.html" class="active page">GridFSDAO - Metadata</a></li>
-  <li><a href="../features/aggregation.html" class="page">Feature - Aggregation</a></li>
-  <li><a href="../features/relationships.html" class="page">Feature - Relationships</a></li>
-  <li><a href="../features/observable.html" class="page">Feature - Observable</a></li>
-  <li><a href="../features/converter.html" class="page">Feature - Converter</a></li>
-  <li><a href="../tutorial/setup.html" class="page">Tutorial Part 1 - Setup</a></li>
-  <li><a href="../tutorial/database.html" class="page">Tutorial Part 2 - Database</a></li>
-  <li><a href="../tutorial/functions.html" class="page">Tutorial Part 3 - Functions</a></li>
-  <li><a href="../tutorial/application.html" class="page">Tutorial Part 4 - Application</a></li>
+  <li><a href="../database_provider.html" class="page">DatabaseProvider</a></li>
+  <li><a href="../dao/index.html" class="page">MongoDAO</a>
+  <ul>
+    <li><a href="../dao/base.html" class="page">MongoDAO Base</a></li>
+    <li><a href="../dao/crud.html" class="page">CRUD Functions</a></li>
+    <li><a href="../dao/search.html" class="page">Search Functions</a></li>
+  </ul></li>
+  <li><a href="../gridfs/index.html" class="page">GridFSDAO</a>
+  <ul>
+    <li><a href="../gridfs/crud.html" class="page">CRUD Functions</a></li>
+    <li><a href="../gridfs/metadata.html" class="active page">Metadata</a></li>
+  </ul></li>
+  <li><a href="../features/index.html" class="page">Features</a>
+  <ul>
+    <li><a href="../features/aggregation.html" class="page">Aggregation</a></li>
+    <li><a href="../features/relationships.html" class="page">Relationships</a></li>
+    <li><a href="../features/observable.html" class="page">Observable</a></li>
+    <li><a href="../features/converter.html" class="page">Converter</a></li>
+  </ul></li>
+  <li><a href="../tutorial/index.html" class="page">Tutorial</a>
+  <ul>
+    <li><a href="../tutorial/setup.html" class="page">Part 1 - Setup</a></li>
+    <li><a href="../tutorial/database.html" class="page">Part 2 - Database</a></li>
+    <li><a href="../tutorial/functions.html" class="page">Part 3 - Functions</a></li>
+    <li><a href="../tutorial/application.html" class="page">Part 4 - Application</a></li>
+  </ul></li>
   <li><a href="../changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../gridfs/metadata.html#gridfsdao-metadata" class="header">GridFSDAO - Metadata</a>
+  <li><a href="../gridfs/metadata.html#metadata" class="header">Metadata</a>
   <ul>
     <li><a href="../gridfs/metadata.html#update-complete-metadata" class="header">Update complete Metadata</a></li>
     <li><a href="../gridfs/metadata.html#update-metadata-elements" class="header">Update Metadata elements</a></li>
@@ -167,7 +178,7 @@ sfxcode/simple-mongo
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> v1.6.0
+<i class="md-icon" title="Version">label_outline</i> 1.6.5
 </label>
 </li>
 </ul>
@@ -180,7 +191,7 @@ sfxcode/simple-mongo
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../gridfs/metadata.html#gridfsdao-metadata" class="header">GridFSDAO - Metadata</a>
+  <li><a href="../gridfs/metadata.html#metadata" class="header">Metadata</a>
   <ul>
     <li><a href="../gridfs/metadata.html#update-complete-metadata" class="header">Update complete Metadata</a></li>
     <li><a href="../gridfs/metadata.html#update-metadata-elements" class="header">Update Metadata elements</a></li>
@@ -194,8 +205,8 @@ sfxcode/simple-mongo
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#gridfsdao-metadata" name="gridfsdao-metadata" class="anchor"><span class="anchor-link"></span></a>GridFSDAO - Metadata</h1>
-<p>Metadata can be updated by the GridFSDAO.</p>
+<h1><a href="#metadata" name="metadata" class="anchor"><span class="anchor-link"></span></a>Metadata</h1>
+<p>Metadata can be updated by the <a href="index.html">GridFSDAO</a> object.</p>
 <h2><a href="#update-complete-metadata" name="update-complete-metadata" class="anchor"><span class="anchor-link"></span></a>Update complete Metadata</h2>
 <p>UpdateMetadata function will replace the whole metadata for one file.</p>
 <pre class="prettyprint"><code class="language-scala"><br/>val value = Map(&quot;index&quot;-&gt;11, &quot;category&quot;-&gt;&quot;templates&quot;)
@@ -212,13 +223,13 @@ ImageFilesDAO.updateMetadata(oid, value)
 </code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/master/src/main/paradox/gridfs/metadata.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/v1.6.5/docs/src/main/paradox/gridfs/metadata.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-v1.6.0
+1.6.5
 </span>
 </div>
 </article>
@@ -228,7 +239,7 @@ v1.6.0
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../gridfs/crud.html" title="GridFSDAO - CRUD Functions" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../gridfs/crud.html" title="CRUD Functions" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -237,17 +248,17 @@ v1.6.0
 <span class="md-footer-nav__direction">
 Previous
 </span>
-GridFSDAO - CRUD Functions
+CRUD Functions
 </span>
 </div>
 </a>
-<a href="../features/aggregation.html" title="Feature - Aggregation" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../features/index.html" title="Features" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Feature - Aggregation
+Features
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">
