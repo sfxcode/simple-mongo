@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="description" content="sapphire core docs">
+<meta name="description" content="simple mongo docs">
 <meta name="generator" content="Paradox, paradox-material-theme=0.6.0, mkdocs-material=3.0.3">
 
 <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -18,9 +18,9 @@
 <meta name="lang:search.tokenizer" content="[\s\-]+">
 
 
-<meta name="description" content="sapphire core docs">
+<meta name="description" content="simple mongo docs">
 <link rel="shortcut icon" href="../assets/images/favicon.png">
-<title>Tutorial Navigation · Sapphire Core</title>
+<title>Observable · simple-mongo</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.451f80e5.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -43,7 +43,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 <nav class="md-header-nav md-grid">
 <div class="md-flex">
 <div class="md-flex__cell md-flex__cell--shrink">
-<a href="../index.html" title="Sapphire Core" class="md-header-nav__button md-logo">
+<a href="../index.html" title="simple-mongo" class="md-header-nav__button md-logo">
 <i class="md-icon">local_library</i>
 </a>
 </div>
@@ -53,10 +53,10 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 <div class="md-flex__cell md-flex__cell--stretch">
 <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
 <span class="md-header-nav__topic">
-Sapphire Core
+simple-mongo
 </span>
 <span class="md-header-nav__topic">
-Tutorial Navigation
+Observable
 </span>
 </div>
 </div>
@@ -86,7 +86,7 @@ Type to start searching
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">
 <div class="md-header-nav__source">
-<a href="https://github.com/sfxcode/sapphire-core"
+<a href="https://github.com/sfxcode/simple-mongo"
 title="Go to repository"
 class="md-source"
 data-md-source="github">
@@ -94,7 +94,7 @@ data-md-source="github">
 <i class="fa fa-github"></i>
 </div>
 <div class="md-source__repository">
-sfxcode/sapphire-core
+sfxcode/simple-mongo
 </div>
 </a>
 
@@ -112,16 +112,16 @@ sfxcode/sapphire-core
 <div class="md-sidebar__inner">
 <nav class="md-nav md-nav--primary" data-md-level="0" style="visibility: hidden">
 <label class="md-nav__title md-nav__title--site" for="drawer">
-<a href="../index.html" title="Sapphire Core" class="md-nav__button md-logo">
+<a href="../index.html" title="simple-mongo" class="md-nav__button md-logo">
 <span class="md-nav__button md-logo">
 <i class="md-icon">local_library</i>
 </a>
-<a href="../index.html" title="Sapphire Core">
-Sapphire Core
+<a href="../index.html" title="simple-mongo">
+simple-mongo
 </a>
 </label>
 <div class="md-nav__source">
-<a href="https://github.com/sfxcode/sapphire-core"
+<a href="https://github.com/sfxcode/simple-mongo"
 title="Go to repository"
 class="md-source"
 data-md-source="github">
@@ -129,46 +129,47 @@ data-md-source="github">
 <i class="fa fa-github"></i>
 </div>
 <div class="md-source__repository">
-sfxcode/sapphire-core
+sfxcode/simple-mongo
 </div>
 </a>
 
 </div>
 <ul>
-  <li><a href="../features.html" class="page">Features</a></li>
-  <li><a href="../development/index.html" class="page">Development</a>
+  <li><a href="../database_provider.html" class="page">DatabaseProvider</a></li>
+  <li><a href="../dao/index.html" class="page">MongoDAO</a>
   <ul>
-    <li><a href="../development/tools.html" class="page">Development Tools</a></li>
-    <li><a href="../development/development.html" class="page">Hot Reloading</a></li>
+    <li><a href="../dao/base.html" class="page">MongoDAO Base</a></li>
+    <li><a href="../dao/crud.html" class="page">CRUD Functions</a></li>
+    <li><a href="../dao/search.html" class="page">Search Functions</a></li>
+  </ul></li>
+  <li><a href="../gridfs/index.html" class="page">GridFSDAO</a>
+  <ul>
+    <li><a href="../gridfs/crud.html" class="page">CRUD Functions</a></li>
+    <li><a href="../gridfs/metadata.html" class="page">Metadata</a></li>
+  </ul></li>
+  <li><a href="../features/index.html" class="page">Features</a>
+  <ul>
+    <li><a href="../features/aggregation.html" class="page">Aggregation</a></li>
+    <li><a href="../features/relationships.html" class="page">Relationships</a></li>
+    <li><a href="../features/observable.html" class="active page">Observable</a></li>
+    <li><a href="../features/converter.html" class="page">Converter</a></li>
   </ul></li>
   <li><a href="../tutorial/index.html" class="page">Tutorial</a>
   <ul>
-    <li><a href="../tutorial/setup.html" class="page">Tutorial Setup</a></li>
-    <li><a href="../tutorial/application.html" class="page">Tutorial Application</a></li>
-    <li><a href="../tutorial/main_window.html" class="page">Tutorial Main Controller</a></li>
-    <li><a href="../tutorial/navigation.html" class="active page">Tutorial Navigation</a></li>
+    <li><a href="../tutorial/setup.html" class="page">Part 1 - Setup</a></li>
+    <li><a href="../tutorial/database.html" class="page">Part 2 - Database</a></li>
+    <li><a href="../tutorial/functions.html" class="page">Part 3 - Functions</a></li>
+    <li><a href="../tutorial/application.html" class="page">Part 4 - Application</a></li>
   </ul></li>
-  <li><a href="../detail/index.html" class="page">Core Concepts</a>
-  <ul>
-    <li><a href="../detail/fxbean.html" class="page">In Depth FXBean</a></li>
-    <li><a href="../detail/fxml_loading.html" class="page">In Depth FxmlLoading</a></li>
-    <li><a href="../detail/view_controller.html" class="page">In Depth ViewController</a></li>
-  </ul></li>
-  <li><a href="../sample/index.html" class="page">Examples</a>
-  <ul>
-    <li><a href="../sample/basic.html" class="page">Samples Basic</a></li>
-    <li><a href="../sample/advanced.html" class="page">Samples Advanced</a></li>
-  </ul></li>
-  <li><a href="../extension.html" class="page">Sapphire Extension</a></li>
   <li><a href="../changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../tutorial/navigation.html#tutorial-navigation" class="header">Tutorial Navigation</a>
+  <li><a href="../features/observable.html#observable" class="header">Observable</a>
   <ul>
-    <li><a href="../tutorial/navigation.html#navigation-fxml-file" class="header">Navigation FXML File</a></li>
-    <li><a href="../tutorial/navigation.html#navigationcontroller" class="header">NavigationController</a></li>
+    <li><a href="../features/observable.html#info" class="header">Info</a></li>
+    <li><a href="../features/observable.html#dealing-with-observables" class="header">Dealing with Observables</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -177,7 +178,7 @@ sfxcode/sapphire-core
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> 1.6.0
+<i class="md-icon" title="Version">label_outline</i> 1.6.6*
 </label>
 </li>
 </ul>
@@ -190,10 +191,10 @@ sfxcode/sapphire-core
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../tutorial/navigation.html#tutorial-navigation" class="header">Tutorial Navigation</a>
+  <li><a href="../features/observable.html#observable" class="header">Observable</a>
   <ul>
-    <li><a href="../tutorial/navigation.html#navigation-fxml-file" class="header">Navigation FXML File</a></li>
-    <li><a href="../tutorial/navigation.html#navigationcontroller" class="header">NavigationController</a></li>
+    <li><a href="../features/observable.html#info" class="header">Info</a></li>
+    <li><a href="../features/observable.html#dealing-with-observables" class="header">Dealing with Observables</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -204,82 +205,44 @@ sfxcode/sapphire-core
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#tutorial-navigation" name="tutorial-navigation" class="anchor"><span class="anchor-link"></span></a>Tutorial Navigation</h1>
-<h2><a href="#navigation-fxml-file" name="navigation-fxml-file" class="anchor"><span class="anchor-link"></span></a>Navigation FXML File</h2>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/sapphire-core/tree/v1.6.0/docs/src/main/paradox/tutorial/navigation.xml" target="_blank" title="Go to snippet source"></a><code class="language-xml">&lt;AnchorPane fx:controller=&quot;NavigationController&quot;&gt;
-    &lt;children&gt;
-        &lt;HBox&gt;
-            &lt;children&gt;
-                &lt;Button onAction=&quot;#actionToggleWorkspace&quot;
-                        text=&quot;%navigation.toggle&quot;/&gt;
-                &lt;Button onAction=&quot;#actionShowPersonController&quot;
-                        text=&quot;FXBean Demo&quot;/&gt;
-                &lt;Button onAction=&quot;#actionClickButton&quot;
-                        text=&quot;Action Button&quot;/&gt;
-                &lt;Button id=&quot;debugButton&quot; onAction=&quot;#actionReload&quot;
-                        text=&quot;[Debug] Reload&quot;/&gt;
-            &lt;/children&gt;
-            &lt;padding&gt;
-                &lt;Insets left=&quot;10.0&quot; top=&quot;7.0&quot;/&gt;
-            &lt;/padding&gt;
-        &lt;/HBox&gt;
-    &lt;/children&gt;
-    &lt;stylesheets&gt;
-        &lt;URL value=&quot;@default.css&quot;/&gt;
-    &lt;/stylesheets&gt;
-&lt;/AnchorPane&gt;</code></pre>
-<h2><a href="#navigationcontroller" name="navigationcontroller" class="anchor"><span class="anchor-link"></span></a>NavigationController</h2>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/sapphire-core/tree/v1.6.0/demos/tutorial/src/main/scala/com/sfxcode/sapphire/core/demo/tutorial/controller/NavigationController.scala" target="_blank" title="Go to snippet source"></a><code class="language-scala">package com.sfxcode.sapphire.core.demo.tutorial.controller
+<h1><a href="#observable" name="observable" class="anchor"><span class="anchor-link"></span></a>Observable</h1>
+<h2><a href="#info" name="info" class="anchor"><span class="anchor-link"></span></a>Info</h2><div class="callout note "><div class="callout-title">MongoDB_Scala_Driver_Documentation</div>
+<p>The MongoDB Scala Driver is an asynchronous and non blocking driver. Using the Observable model asynchronous events become simple, composable operations, freed from the complexity of nested callbacks.</p></div>
+<p>See <a href="http://mongodb.github.io/mongo-scala-driver/2.4/reference/observables/">MongoDB Scala Driver Documentation</a>.</p>
+<h2><a href="#dealing-with-observables" name="dealing-with-observables" class="anchor"><span class="anchor-link"></span></a>Dealing with Observables</h2>
+<h3><a href="#as-future" name="as-future" class="anchor"><span class="anchor-link"></span></a>As Future</h3>
+<pre class="prettyprint"><code class="language-scala"><br/>  def findAllRestaurants: Future[Seq[Restaurant]] = 
+      RestaurantDAO.find().asFuture()
 
-import com.sfxcode.sapphire.core.demo.tutorial.ApplicationController
-import javafx.event.ActionEvent
-import javafx.scene.control.Button
+</code></pre>
+<h3><a href="#result-functions" name="result-functions" class="anchor"><span class="anchor-link"></span></a>Result Functions</h3>
+<p>Convert Observable to result object. Import mongo package is needed.</p>
+<p>Functions headResult anf resultList have an optional maxWait in seconds parameter (Default maxWait = 10 seconds).</p>
+<pre class="prettyprint"><code class="language-scala">  import com.sfxcode.nosql.mongo._
 
-class NavigationController extends AbstractViewController {
+  def restaurantsSize = RestaurantDAO.count().headResult()
+  
+  def findAllRestaurants = RestaurantDAO.find().resultList(maxWait = 20)
 
-  def actionClickButton(event: ActionEvent) {
-    logger.debug(event.toString)
+</code></pre>
+<h3><a href="#implicit-result-functions" name="implicit-result-functions" class="anchor"><span class="anchor-link"></span></a>Implicit Result Functions</h3>
+<p>Implicit result conversion to a given type. Import mongo package is needed.</p>
+<pre class="prettyprint"><code class="language-scala ">  import com.sfxcode.nosql.mongo._
 
-    // resolve controller by getViewController lookup
-    val controller = getViewController[StatusBarController]()
-    controller.foreach(c =&gt; {
-      val button = event.getSource.asInstanceOf[Button]
-      c.updateLabel(button)
-    })
-  }
+  def restaurantsSize: Long = RestaurantDAO.count()
+  
+  def findAllRestaurants:List[Restaurant] = RestaurantDAO.find()
 
-  def actionToggleWorkspace(event: ActionEvent) {
-    actionClickButton(event)
-    val actualController = workspaceManager.actualController
-    val barChartController = mainWindowController.barChartController
-    val workspaceController = mainWindowController.workspaceController
-    if (actualController == workspaceController) {
-      workspaceManager.updatePaneContent(barChartController)
-    } else
-      workspaceManager.updatePaneContent(workspaceController)
-  }
-
-  def actionShowPersonController(event: ActionEvent): Unit = {
-    actionClickButton(event)
-    val personController = mainWindowController.personController
-    workspaceManager.updatePaneContent(personController)
-  }
-
-  def actionReload(event: ActionEvent): Unit = {
-    actionClickButton(event)
-    getBean[ApplicationController]().reload()
-  }
-
-}</code></pre>
+</code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/sapphire-core/tree/v1.6.0/docs/src/main/paradox/tutorial/navigation.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/master/docs/src/main/paradox/features/observable.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.6.0
+1.6.6*
 </span>
 </div>
 </article>
@@ -289,7 +252,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../tutorial/main_window.html" title="Tutorial Main Controller" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../features/relationships.html" title="Relationships" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -298,17 +261,17 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Tutorial Main Controller
+Relationships
 </span>
 </div>
 </a>
-<a href="../detail/index.html" title="Core Concepts" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../features/converter.html" title="Converter" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Core Concepts
+Converter
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">

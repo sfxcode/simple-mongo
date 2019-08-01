@@ -20,7 +20,7 @@
 
 <meta name="description" content="simple mongo docs">
 <link rel="shortcut icon" href="assets/images/favicon.png">
-<title>Version History · simple-mongo</title>
+<title>DatabaseProvider · simple-mongo</title>
 <link rel="stylesheet" href="assets/stylesheets/application.451f80e5.css">
 <link rel="stylesheet" href="lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="lib/prettify/prettify.css">
@@ -56,7 +56,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 simple-mongo
 </span>
 <span class="md-header-nav__topic">
-Version History
+DatabaseProvider
 </span>
 </div>
 </div>
@@ -135,7 +135,7 @@ sfxcode/simple-mongo
 
 </div>
 <ul>
-  <li><a href="database_provider.html" class="page">DatabaseProvider</a></li>
+  <li><a href="database_provider.html" class="active page">DatabaseProvider</a></li>
   <li><a href="dao/index.html" class="page">MongoDAO</a>
   <ul>
     <li><a href="dao/base.html" class="page">MongoDAO Base</a></li>
@@ -161,15 +161,19 @@ sfxcode/simple-mongo
     <li><a href="tutorial/functions.html" class="page">Part 3 - Functions</a></li>
     <li><a href="tutorial/application.html" class="page">Part 4 - Application</a></li>
   </ul></li>
-  <li><a href="changes.html" class="active page">Version History</a></li>
+  <li><a href="changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="changes.html#version-history" class="header">Version History</a>
+  <li><a href="database_provider.html#databaseprovider" class="header">DatabaseProvider</a>
   <ul>
-    <li><a href="changes.html#current-version" class="header">Current Version</a></li>
-    <li><a href="changes.html#history" class="header">History</a></li>
+    <li><a href="database_provider.html#mongoconfig" class="header">MongoConfig</a></li>
+    <li><a href="database_provider.html#mongopooloptions" class="header">MongoPoolOptions</a></li>
+    <li><a href="database_provider.html#create-mongoconfig-with-properties" class="header">Create MongoConfig with properties</a></li>
+    <li><a href="database_provider.html#create-mongoconfig-with-config" class="header">Create MongoConfig with config</a></li>
+    <li><a href="database_provider.html#create-mongoconfig-with-custom-clientsettings" class="header">Create MongoConfig with custom ClientSettings</a></li>
+    <li><a href="database_provider.html#registries" class="header">Registries</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -191,10 +195,14 @@ sfxcode/simple-mongo
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="changes.html#version-history" class="header">Version History</a>
+  <li><a href="database_provider.html#databaseprovider" class="header">DatabaseProvider</a>
   <ul>
-    <li><a href="changes.html#current-version" class="header">Current Version</a></li>
-    <li><a href="changes.html#history" class="header">History</a></li>
+    <li><a href="database_provider.html#mongoconfig" class="header">MongoConfig</a></li>
+    <li><a href="database_provider.html#mongopooloptions" class="header">MongoPoolOptions</a></li>
+    <li><a href="database_provider.html#create-mongoconfig-with-properties" class="header">Create MongoConfig with properties</a></li>
+    <li><a href="database_provider.html#create-mongoconfig-with-config" class="header">Create MongoConfig with config</a></li>
+    <li><a href="database_provider.html#create-mongoconfig-with-custom-clientsettings" class="header">Create MongoConfig with custom ClientSettings</a></li>
+    <li><a href="database_provider.html#registries" class="header">Registries</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -205,123 +213,122 @@ sfxcode/simple-mongo
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#version-history" name="version-history" class="anchor"><span class="anchor-link"></span></a>Version History</h1>
-<h2><a href="#current-version" name="current-version" class="anchor"><span class="anchor-link"></span></a>Current Version</h2>
-<p><a href="https://bintray.com/sfxcode/maven/simple-mongo/_latestVersion"> <img src="https://api.bintray.com/packages/sfxcode/maven/simple-mongo/images/download.svg" alt="Download" /> </a></p>
-<h2><a href="#history" name="history" class="anchor"><span class="anchor-link"></span></a>History</h2>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/master/CHANGES.md" target="_blank" title="Go to snippet source"></a><code class="language-md"># Changes #
+<h1><a href="#databaseprovider" name="databaseprovider" class="anchor"><span class="anchor-link"></span></a>DatabaseProvider</h1>
+<p>DatabaseProvider is the central repository for MongoClient, databases, collections. It is referenced by the <a href="dao/index.html">MongoDAO</a> Patttern.</p>
+<h2><a href="#mongoconfig" name="mongoconfig" class="anchor"><span class="anchor-link"></span></a>MongoConfig</h2>
+<p>MongoConfig holds all the neded Data for creating a MongoClient. It is used for DatabaseProvider creation.</p>
+<table>
+  <thead>
+    <tr>
+      <th align="left">Key </th>
+      <th align="left">Description </th>
+      <th align="left">Default value </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left">database </td>
+      <td align="left">default database to use </td>
+      <td align="left"> </td>
+    </tr>
+    <tr>
+      <td align="left">host </td>
+      <td align="left"> </td>
+      <td align="left">127.0.0.1 </td>
+    </tr>
+    <tr>
+      <td align="left">port </td>
+      <td align="left"> </td>
+      <td align="left">27017 </td>
+    </tr>
+    <tr>
+      <td align="left">applicationName </td>
+      <td align="left"> </td>
+      <td align="left">simple-mongo-app </td>
+    </tr>
+    <tr>
+      <td align="left">userName </td>
+      <td align="left">used for Authentification </td>
+      <td align="left"> </td>
+    </tr>
+    <tr>
+      <td align="left">password </td>
+      <td align="left">used for Authentification </td>
+      <td align="left"> </td>
+    </tr>
+    <tr>
+      <td align="left">poolOptions </td>
+      <td align="left"> </td>
+      <td align="left">MongoPoolOptions() </td>
+    </tr>
+    <tr>
+      <td align="left">customClientSettings </td>
+      <td align="left"> </td>
+      <td align="left">None </td>
+    </tr>
+  </tbody>
+</table>
+<h2><a href="#mongopooloptions" name="mongopooloptions" class="anchor"><span class="anchor-link"></span></a>MongoPoolOptions</h2>
+<table>
+  <thead>
+    <tr>
+      <th align="left">Key </th>
+      <th align="left">Default value </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left">maxConnectionIdleTime </td>
+      <td align="left">60 </td>
+    </tr>
+    <tr>
+      <td align="left">maxSize </td>
+      <td align="left">50 </td>
+    </tr>
+    <tr>
+      <td align="left">minSize </td>
+      <td align="left">0 </td>
+    </tr>
+    <tr>
+      <td align="left">maxWaitQueueSize </td>
+      <td align="left">500 </td>
+    </tr>
+    <tr>
+      <td align="left">DefaultMaintenanceInitialDelay </td>
+      <td align="left">0 </td>
+    </tr>
+  </tbody>
+</table>
+<h2><a href="#create-mongoconfig-with-properties" name="create-mongoconfig-with-properties" class="anchor"><span class="anchor-link"></span></a>Create MongoConfig with properties</h2>
+<p>Example:</p>
+<pre class="prettyprint"><code class="language-scala"><br/>val config = MongoConfig(&quot;my_database&quot;, host = &quot;localhost&quot;,
+        applicationName = &quot;Awesome Application Name&quot;)
 
-## Versions
-
-### 1.6.5
-* MongoConfig added (also for config values in application.conf)
-* MongoPoolOptions added
-* Codecs prepared for Scala 2.13
-* Additional index functions added
-* Drop Scala 2.11 support
-* Docs updated
-
-### 1.6.2
-* mongo-scala-driver 2.6.0
-* MongoDB Driver Async 3.10.0
-* sbt.version = 1.2.8
-
-### 1.6.1
-* sbt.version = 1.2.7
-
-### 1.6.0
-
-* mongo-scala-driver 2.5.0
-* scalafmt support
-* scalacheck support
-
-### 1.5.6
-
-* mongo-scala-driver 2.4.2
-
-### 1.5.5
-
-* mongo-scala-driver 2.4.1
-
-### 1.5.3
-
-* scala 2.11.12
-* BsonConverter Char support
-
-
-### 1.5.2
-
-* GridFSDAO extends Metadata
-* Metadata - updateMetadata added
-* Metadata - updateMetadataElement/s added
-
-### 1.5.1
-
-* DatabaseProvider refactored
-* ObservableImplicits to package object added
-* update docs for Observable
-
-### 1.5.0
-* GridFSSupport
-
-
-### 1.4.0
-*  dropped operations with pattern &lt;name&gt;Result (use headResult, list result or implicit conversion instead)
-*  introduce Database Functions trait
-*  update docs
-
-
-### 1.3.1
-* update mongo-scala-driver to 2.4.0
-* Operations Base count method support CountOptions
-
-
-### 1.3.0
-
-* Crud refactoring
-* CrudObserver Trait (optional usage)
-
-
-### 1.2.0
-
-* Relations added
-* Field added (used in Aggregation)
-* Aggregation Specs added
-* implicit Document(s) to Map(s) Conversion
-* method sort in Sort object renamed to sortByKey
-
-### 1.1.0
-
-* update mongo-scala-driver to 2.3.0
-* update to Scala 2.12.6
-
-### 1.0.5
-
-* update to Scala 2.12.5
-
-### 1.0.4
-
-* update to mongo scala driver 2.2.1
-
-### 1.0.3
-
-* gh-pages added
-* test fixes
-
-### 1.0.2
-
-* update to mongo scala driver 2.2.0
-
-### 1.0.1
-
-* BuildInfo added
-* dependencies updated
-* plugins updated
-* Index support addded
 </code></pre>
+<h2><a href="#create-mongoconfig-with-config" name="create-mongoconfig-with-config" class="anchor"><span class="anchor-link"></span></a>Create MongoConfig with config</h2>
+<p>Create application.conf:</p>
+<pre class="prettyprint"><code class="language-hocon"><br/>config.test.auth.mongo {
+  database = &quot;another_database&quot;
+  host = &quot;localhost&quot;
+  port = 270007
+  applicationName = &quot;simple-mongo-config-test-with-auth&quot;
+  userName = &quot;admin_user&quot;
+  password = &quot;1234&quot;
+  pool {
+    minSize = 5
+    maxSize = 100
+  }
+
+</code></pre>
+<pre class="prettyprint"><code class="language-scala">val config = MongoConfig.fromPath(&quot;config.test.auth.mongo&quot;)
+</code></pre>
+<h2><a href="#create-mongoconfig-with-custom-clientsettings" name="create-mongoconfig-with-custom-clientsettings" class="anchor"><span class="anchor-link"></span></a>Create MongoConfig with custom ClientSettings</h2>
+<pre class="prettyprint"><code class="language-scala"><br/>val config = MongoConfig(&quot;my_database&quot;, customClientSettings = Some(myClientSettings))
+</code></pre>
+<h2><a href="#registries" name="registries" class="anchor"><span class="anchor-link"></span></a>Registries</h2>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/master/docs/src/main/paradox/changes.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/master/docs/src/main/paradox/database_provider.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
@@ -337,7 +344,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="tutorial/application.html" title="Part 4 - Application" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="index.html" title="simple-mongo" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -346,8 +353,21 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Part 4 - Application
+simple-mongo
 </span>
+</div>
+</a>
+<a href="dao/index.html" title="MongoDAO" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+<span class="md-flex__ellipsis">
+<span class="md-footer-nav__direction">
+Next
+</span>
+MongoDAO
+</span>
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
 </div>
 </a>
 </nav>

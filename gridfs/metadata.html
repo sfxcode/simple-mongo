@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="description" content="sapphire core docs">
+<meta name="description" content="simple mongo docs">
 <meta name="generator" content="Paradox, paradox-material-theme=0.6.0, mkdocs-material=3.0.3">
 
 <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -18,9 +18,9 @@
 <meta name="lang:search.tokenizer" content="[\s\-]+">
 
 
-<meta name="description" content="sapphire core docs">
+<meta name="description" content="simple mongo docs">
 <link rel="shortcut icon" href="../assets/images/favicon.png">
-<title>In Depth FxmlLoading · Sapphire Core</title>
+<title>Metadata · simple-mongo</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.451f80e5.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -43,7 +43,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 <nav class="md-header-nav md-grid">
 <div class="md-flex">
 <div class="md-flex__cell md-flex__cell--shrink">
-<a href="../index.html" title="Sapphire Core" class="md-header-nav__button md-logo">
+<a href="../index.html" title="simple-mongo" class="md-header-nav__button md-logo">
 <i class="md-icon">local_library</i>
 </a>
 </div>
@@ -53,10 +53,10 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 <div class="md-flex__cell md-flex__cell--stretch">
 <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
 <span class="md-header-nav__topic">
-Sapphire Core
+simple-mongo
 </span>
 <span class="md-header-nav__topic">
-In Depth FxmlLoading
+Metadata
 </span>
 </div>
 </div>
@@ -86,7 +86,7 @@ Type to start searching
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">
 <div class="md-header-nav__source">
-<a href="https://github.com/sfxcode/sapphire-core"
+<a href="https://github.com/sfxcode/simple-mongo"
 title="Go to repository"
 class="md-source"
 data-md-source="github">
@@ -94,7 +94,7 @@ data-md-source="github">
 <i class="fa fa-github"></i>
 </div>
 <div class="md-source__repository">
-sfxcode/sapphire-core
+sfxcode/simple-mongo
 </div>
 </a>
 
@@ -112,16 +112,16 @@ sfxcode/sapphire-core
 <div class="md-sidebar__inner">
 <nav class="md-nav md-nav--primary" data-md-level="0" style="visibility: hidden">
 <label class="md-nav__title md-nav__title--site" for="drawer">
-<a href="../index.html" title="Sapphire Core" class="md-nav__button md-logo">
+<a href="../index.html" title="simple-mongo" class="md-nav__button md-logo">
 <span class="md-nav__button md-logo">
 <i class="md-icon">local_library</i>
 </a>
-<a href="../index.html" title="Sapphire Core">
-Sapphire Core
+<a href="../index.html" title="simple-mongo">
+simple-mongo
 </a>
 </label>
 <div class="md-nav__source">
-<a href="https://github.com/sfxcode/sapphire-core"
+<a href="https://github.com/sfxcode/simple-mongo"
 title="Go to repository"
 class="md-source"
 data-md-source="github">
@@ -129,47 +129,47 @@ data-md-source="github">
 <i class="fa fa-github"></i>
 </div>
 <div class="md-source__repository">
-sfxcode/sapphire-core
+sfxcode/simple-mongo
 </div>
 </a>
 
 </div>
 <ul>
-  <li><a href="../features.html" class="page">Features</a></li>
-  <li><a href="../development/index.html" class="page">Development</a>
+  <li><a href="../database_provider.html" class="page">DatabaseProvider</a></li>
+  <li><a href="../dao/index.html" class="page">MongoDAO</a>
   <ul>
-    <li><a href="../development/tools.html" class="page">Development Tools</a></li>
-    <li><a href="../development/development.html" class="page">Hot Reloading</a></li>
+    <li><a href="../dao/base.html" class="page">MongoDAO Base</a></li>
+    <li><a href="../dao/crud.html" class="page">CRUD Functions</a></li>
+    <li><a href="../dao/search.html" class="page">Search Functions</a></li>
+  </ul></li>
+  <li><a href="../gridfs/index.html" class="page">GridFSDAO</a>
+  <ul>
+    <li><a href="../gridfs/crud.html" class="page">CRUD Functions</a></li>
+    <li><a href="../gridfs/metadata.html" class="active page">Metadata</a></li>
+  </ul></li>
+  <li><a href="../features/index.html" class="page">Features</a>
+  <ul>
+    <li><a href="../features/aggregation.html" class="page">Aggregation</a></li>
+    <li><a href="../features/relationships.html" class="page">Relationships</a></li>
+    <li><a href="../features/observable.html" class="page">Observable</a></li>
+    <li><a href="../features/converter.html" class="page">Converter</a></li>
   </ul></li>
   <li><a href="../tutorial/index.html" class="page">Tutorial</a>
   <ul>
-    <li><a href="../tutorial/setup.html" class="page">Tutorial Setup</a></li>
-    <li><a href="../tutorial/application.html" class="page">Tutorial Application</a></li>
-    <li><a href="../tutorial/main_window.html" class="page">Tutorial Main Controller</a></li>
-    <li><a href="../tutorial/navigation.html" class="page">Tutorial Navigation</a></li>
+    <li><a href="../tutorial/setup.html" class="page">Part 1 - Setup</a></li>
+    <li><a href="../tutorial/database.html" class="page">Part 2 - Database</a></li>
+    <li><a href="../tutorial/functions.html" class="page">Part 3 - Functions</a></li>
+    <li><a href="../tutorial/application.html" class="page">Part 4 - Application</a></li>
   </ul></li>
-  <li><a href="../detail/index.html" class="page">Core Concepts</a>
-  <ul>
-    <li><a href="../detail/fxbean.html" class="page">In Depth FXBean</a></li>
-    <li><a href="../detail/fxml_loading.html" class="active page">In Depth FxmlLoading</a></li>
-    <li><a href="../detail/view_controller.html" class="page">In Depth ViewController</a></li>
-  </ul></li>
-  <li><a href="../sample/index.html" class="page">Examples</a>
-  <ul>
-    <li><a href="../sample/basic.html" class="page">Samples Basic</a></li>
-    <li><a href="../sample/advanced.html" class="page">Samples Advanced</a></li>
-  </ul></li>
-  <li><a href="../extension.html" class="page">Sapphire Extension</a></li>
   <li><a href="../changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../detail/fxml_loading.html#in-depth-fxmlloading" class="header">In Depth FxmlLoading</a>
+  <li><a href="../gridfs/metadata.html#metadata" class="header">Metadata</a>
   <ul>
-    <li><a href="../detail/fxml_loading.html#features" class="header">Features</a></li>
-    <li><a href="../detail/fxml_loading.html#example" class="header">Example</a></li>
-    <li><a href="../detail/fxml_loading.html#different-fxml-path-lookup-pattern" class="header">Different FXML-Path lookup pattern</a></li>
+    <li><a href="../gridfs/metadata.html#update-complete-metadata" class="header">Update complete Metadata</a></li>
+    <li><a href="../gridfs/metadata.html#update-metadata-elements" class="header">Update Metadata elements</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -178,7 +178,7 @@ sfxcode/sapphire-core
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> 1.6.0
+<i class="md-icon" title="Version">label_outline</i> 1.6.6*
 </label>
 </li>
 </ul>
@@ -191,11 +191,10 @@ sfxcode/sapphire-core
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../detail/fxml_loading.html#in-depth-fxmlloading" class="header">In Depth FxmlLoading</a>
+  <li><a href="../gridfs/metadata.html#metadata" class="header">Metadata</a>
   <ul>
-    <li><a href="../detail/fxml_loading.html#features" class="header">Features</a></li>
-    <li><a href="../detail/fxml_loading.html#example" class="header">Example</a></li>
-    <li><a href="../detail/fxml_loading.html#different-fxml-path-lookup-pattern" class="header">Different FXML-Path lookup pattern</a></li>
+    <li><a href="../gridfs/metadata.html#update-complete-metadata" class="header">Update complete Metadata</a></li>
+    <li><a href="../gridfs/metadata.html#update-metadata-elements" class="header">Update Metadata elements</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -206,59 +205,31 @@ sfxcode/sapphire-core
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#in-depth-fxmlloading" name="in-depth-fxmlloading" class="anchor"><span class="anchor-link"></span></a>In Depth FxmlLoading</h1>
-<h2><a href="#features" name="features" class="anchor"><span class="anchor-link"></span></a>Features</h2>
-<ul>
-  <li>load fxml by different pattern (convention over configuration)</li>
-  <li>CDI powered ViewController (FXMLLoader, FXMLLoaderProvider)</li>
-  <li>ViewController rootPane is bound to fxml root element</li>
-</ul>
-<h2><a href="#example" name="example" class="anchor"><span class="anchor-link"></span></a>Example</h2>
-<p>ViewController extends FxmlLoading trait. FxmlLoading provide the</p>
-<pre class="prettyprint"><code class="language-scala">getController[T &lt;: ViewController](fxml: String = &quot;&quot;)
-</code></pre>
-<p>method. The package path of the controller is the default fxml directory. [name]Controller is converted to [name].fxml (WorkspaceController -&gt; Workspace.fxml).</p>
-<pre class="prettyprint"><code class="language-scala"><br/>package controller
-
-class MainWindowController extends ViewController with LazyLogging {
-
-  // workspaces
-  lazy val workspaceController = getController[WorkspaceController]()
-  // navigation
-  lazy val defaultNavigationController = 
-     getController[DefaultNavigationController]()
-  
-}
+<h1><a href="#metadata" name="metadata" class="anchor"><span class="anchor-link"></span></a>Metadata</h1>
+<p>Metadata can be updated by the <a href="index.html">GridFSDAO</a> object.</p>
+<h2><a href="#update-complete-metadata" name="update-complete-metadata" class="anchor"><span class="anchor-link"></span></a>Update complete Metadata</h2>
+<p>UpdateMetadata function will replace the whole metadata for one file.</p>
+<pre class="prettyprint"><code class="language-scala"><br/>val value = Map(&quot;index&quot;-&gt;11, &quot;category&quot;-&gt;&quot;templates&quot;)
+ImageFilesDAO.updateMetadata(oid, value)
 
 </code></pre>
-<p>WorkspaceController fxml must be saved at <code>/controller/Workspace.fxml</code>.</p>
-<h2><a href="#different-fxml-path-lookup-pattern" name="different-fxml-path-lookup-pattern" class="anchor"><span class="anchor-link"></span></a>Different FXML-Path lookup pattern</h2><div class="callout note "><div class="callout-title">Hint</div>
-<p>In case of mixing this pattern, FXML-Path is resolved from Pattern 1 to 3</p></div>
-<h3><a href="#pattern-1-define-path-in-getcontroller-" name="pattern-1-define-path-in-getcontroller-" class="anchor"><span class="anchor-link"></span></a>Pattern 1: Define path in getController:</h3>
-<pre class="prettyprint"><code class="language-scala">  lazy val controller = 
-     getController[WorkspaceController](&quot;/fxml/special/path/special_name.fxml&quot;)
+<h2><a href="#update-metadata-elements" name="update-metadata-elements" class="anchor"><span class="anchor-link"></span></a>Update Metadata elements</h2>
+<p>UpdateMetadataElement/s update some part of the metadata by a given filter.</p>
+<pre class="prettyprint"><code class="language-scala"><br/> val elements =  Map(&quot;category&quot;-&gt;&quot;logos&quot;)
+ val filter = Map() // all files
+ ImageFilesDAO.updateMetadataElements(filter, elements)
+
+
 </code></pre>
-<p>@FxmlLoader(path=&ldquo;/fxml/widget/Person.fxml&rdquo;) class PersonController extends AbstractViewController { WorkspaceController fxml must be saved at <code>/fxml/special/path/special_name.fxml</code>.</p>
-<h3><a href="#pattern-2-define-path-in-fxmlloader-annotation-" name="pattern-2-define-path-in-fxmlloader-annotation-" class="anchor"><span class="anchor-link"></span></a>Pattern 2: Define path in FxmlLoader Annotation:</h3>
-<pre class="prettyprint"><code class="language-scala">@FxmlLoader(path=&quot;/fxml/widget/Person.fxml&quot;)
-class PersonController extends AbstractViewController {
-  // some stuff ...
-}
-</code></pre>
-<p>WorkspaceController fxml must be saved at <code>/fxml/widget/Person.fxml</code>.</p>
-<h3><a href="#pattern-3-define-path-in-application-conf-" name="pattern-3-define-path-in-application-conf-" class="anchor"><span class="anchor-link"></span></a>Pattern 3: Define path in application.conf:</h3>
-<pre><code>sapphire.core.fxml.basePath=&quot;/fxml/&quot; 
-</code></pre>
-<p>WorkspaceController fxml must be saved at <code>/fxml/Workspace.fxml</code>.</p>
 </div>
 <div>
-<a href="https://github.com/sfxcode/sapphire-core/tree/v1.6.0/docs/src/main/paradox/detail/fxml_loading.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/master/docs/src/main/paradox/gridfs/metadata.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.6.0
+1.6.6*
 </span>
 </div>
 </article>
@@ -268,7 +239,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../detail/fxbean.html" title="In Depth FXBean" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../gridfs/crud.html" title="CRUD Functions" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -277,17 +248,17 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-In Depth FXBean
+CRUD Functions
 </span>
 </div>
 </a>
-<a href="../detail/view_controller.html" title="In Depth ViewController" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../features/index.html" title="Features" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-In Depth ViewController
+Features
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">

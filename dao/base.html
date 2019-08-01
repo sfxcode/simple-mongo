@@ -20,7 +20,7 @@
 
 <meta name="description" content="simple mongo docs">
 <link rel="shortcut icon" href="../assets/images/favicon.png">
-<title>Tutorial · simple-mongo</title>
+<title>MongoDAO Base · simple-mongo</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.451f80e5.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -56,7 +56,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 simple-mongo
 </span>
 <span class="md-header-nav__topic">
-Tutorial
+MongoDAO Base
 </span>
 </div>
 </div>
@@ -138,7 +138,7 @@ sfxcode/simple-mongo
   <li><a href="../database_provider.html" class="page">DatabaseProvider</a></li>
   <li><a href="../dao/index.html" class="page">MongoDAO</a>
   <ul>
-    <li><a href="../dao/base.html" class="page">MongoDAO Base</a></li>
+    <li><a href="../dao/base.html" class="active page">MongoDAO Base</a></li>
     <li><a href="../dao/crud.html" class="page">CRUD Functions</a></li>
     <li><a href="../dao/search.html" class="page">Search Functions</a></li>
   </ul></li>
@@ -154,7 +154,7 @@ sfxcode/simple-mongo
     <li><a href="../features/observable.html" class="page">Observable</a></li>
     <li><a href="../features/converter.html" class="page">Converter</a></li>
   </ul></li>
-  <li><a href="../tutorial/index.html" class="active page">Tutorial</a>
+  <li><a href="../tutorial/index.html" class="page">Tutorial</a>
   <ul>
     <li><a href="../tutorial/setup.html" class="page">Part 1 - Setup</a></li>
     <li><a href="../tutorial/database.html" class="page">Part 2 - Database</a></li>
@@ -164,6 +164,14 @@ sfxcode/simple-mongo
   <li><a href="../changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">Table of contents</label>
+<ul>
+  <li><a href="../dao/base.html#mongodao-base" class="header">MongoDAO Base</a>
+  <ul>
+    <li><a href="../dao/base.html#additional-features" class="header">Additional Features</a></li>
+    <li><a href="../dao/base.html#base-functions" class="header">Base Functions</a></li>
+  </ul></li>
+</ul>
 </nav>
 
 </nav>
@@ -177,19 +185,81 @@ sfxcode/simple-mongo
 </div>
 </div>
 </div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">Table of contents</label>
+<ul>
+  <li><a href="../dao/base.html#mongodao-base" class="header">MongoDAO Base</a>
+  <ul>
+    <li><a href="../dao/base.html#additional-features" class="header">Additional Features</a></li>
+    <li><a href="../dao/base.html#base-functions" class="header">Base Functions</a></li>
+  </ul></li>
+</ul>
+</nav>
+
+</div>
+</div>
+</div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#tutorial" name="tutorial" class="anchor"><span class="anchor-link"></span></a>Tutorial</h1>
+<h1><a href="#mongodao-base" name="mongodao-base" class="anchor"><span class="anchor-link"></span></a>MongoDAO Base</h1>
+<p>With an object extending MongoDAO class all functions on a specific MongoCollection can be easily used.</p>
+<p>Base Functions like</p>
 <ul>
-  <li>Part 1 : <a href="setup.html">Setup Database and Resources</a></li>
-  <li>Part 2 : <a href="database.html">Database</a></li>
-  <li>Part 3 : <a href="functions.html">Function Trait Pattern</a></li>
-  <li>Part 4 : <a href="application.html">Demo Application</a></li>
+  <li>drop</li>
+  <li>count</li>
+  <li>createIndex</li>
 </ul>
+<p>are implemented.</p>
+<p><a href="search.html">Search Functions</a> and <a href="crud.html">CRUD Functions</a> are available.</p>
+<p>##</p>
+<h2><a href="#additional-features" name="additional-features" class="anchor"><span class="anchor-link"></span></a>Additional Features</h2>
+<h3><a href="#synchronous-result" name="synchronous-result" class="anchor"><span class="anchor-link"></span></a>Synchronous Result</h3>
+<p>All functions support synchronous result handling.</p>
+<p>Use pacckage import</p>
+<pre class="prettyprint"><code class="language-scala">import com.sfxcode.nosql.mongo._
+</code></pre>
+<p>and append</p>
+<ul>
+  <li>.headResult() for Single Result object</li>
+  <li>.resultList() for List result object</li>
+</ul>
+<p>or use implicit conversion:</p>
+<pre class="prettyprint"><code class="language-scala">def restaurantsSize: Long = RestaurantDAO.count()
+</code></pre>
+<h3><a href="#raw-support" name="raw-support" class="anchor"><span class="anchor-link"></span></a>Raw Support</h3>
+<p>Sometimes we need Raw Support (DAO maps to Document). This is automatically included in the MongoDAO class. Simply call Raw on your DAO Object.</p>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L44-L47" target="_blank" title="Go to snippet source"></a><code class="language-scala">val aggregator = List(filterStage, groupStage, sortStage)
+
+val aggregated = PersonDAO.Raw.findAggregated(aggregator).resultList()
+</code></pre>
+<h2><a href="#base-functions" name="base-functions" class="anchor"><span class="anchor-link"></span></a>Base Functions</h2>
+<h3><a href="#drop" name="drop" class="anchor"><span class="anchor-link"></span></a>Drop</h3>
+<p>Drop Collection.</p>
+<pre class="prettyprint"><code class="language-scala">def drop(): Observable[Completed]
+</code></pre>
+<h3><a href="#count" name="count" class="anchor"><span class="anchor-link"></span></a>Count</h3>
+<p>Count of collection with optional filter.</p>
+<pre class="prettyprint"><code class="language-scala">def count(filter: Bson = Document()): Observable[Long]
+</code></pre>
+<h3><a href="#indexes" name="indexes" class="anchor"><span class="anchor-link"></span></a>Indexes</h3>
+<pre class="prettyprint"><code class="language-scala"><br/>def createIndex(key: Bson, options: IndexOptions = IndexOptions()): SingleObservable[String]
+
+// Simple Index creation
+def createIndexForField(field: String, sortAscending: Boolean = true): SingleObservable[String]
+
+def dropIndex(keys: Bson): SingleObservable[Completed]
+
+// Simple Index delete
+def dropIndexForName(name: String): SingleObservable[Completed]
+
+</code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/master/docs/src/main/paradox/tutorial/index.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/master/docs/src/main/paradox/dao/base.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
@@ -205,7 +275,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../features/converter.html" title="Converter" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../dao/index.html" title="MongoDAO" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -214,17 +284,17 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Converter
+MongoDAO
 </span>
 </div>
 </a>
-<a href="../tutorial/setup.html" title="Part 1 - Setup" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../dao/crud.html" title="CRUD Functions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Part 1 - Setup
+CRUD Functions
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">

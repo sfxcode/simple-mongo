@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="description" content="sapphire core docs">
+<meta name="description" content="simple mongo docs">
 <meta name="generator" content="Paradox, paradox-material-theme=0.6.0, mkdocs-material=3.0.3">
 
 <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -18,9 +18,9 @@
 <meta name="lang:search.tokenizer" content="[\s\-]+">
 
 
-<meta name="description" content="sapphire core docs">
+<meta name="description" content="simple mongo docs">
 <link rel="shortcut icon" href="assets/images/favicon.png">
-<title>Sapphire Core</title>
+<title>simple-mongo</title>
 <link rel="stylesheet" href="assets/stylesheets/application.451f80e5.css">
 <link rel="stylesheet" href="lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="lib/prettify/prettify.css">
@@ -43,7 +43,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 <nav class="md-header-nav md-grid">
 <div class="md-flex">
 <div class="md-flex__cell md-flex__cell--shrink">
-<a href="index.html" title="Sapphire Core" class="md-header-nav__button md-logo">
+<a href="index.html" title="simple-mongo" class="md-header-nav__button md-logo">
 <i class="md-icon">local_library</i>
 </a>
 </div>
@@ -52,7 +52,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 </div>
 <div class="md-flex__cell md-flex__cell--stretch">
 <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-Sapphire Core
+simple-mongo
 </div>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">
@@ -81,7 +81,7 @@ Type to start searching
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">
 <div class="md-header-nav__source">
-<a href="https://github.com/sfxcode/sapphire-core"
+<a href="https://github.com/sfxcode/simple-mongo"
 title="Go to repository"
 class="md-source"
 data-md-source="github">
@@ -89,7 +89,7 @@ data-md-source="github">
 <i class="fa fa-github"></i>
 </div>
 <div class="md-source__repository">
-sfxcode/sapphire-core
+sfxcode/simple-mongo
 </div>
 </a>
 
@@ -107,16 +107,16 @@ sfxcode/sapphire-core
 <div class="md-sidebar__inner">
 <nav class="md-nav md-nav--primary" data-md-level="0" style="visibility: hidden">
 <label class="md-nav__title md-nav__title--site" for="drawer">
-<a href="index.html" title="Sapphire Core" class="md-nav__button md-logo">
+<a href="index.html" title="simple-mongo" class="md-nav__button md-logo">
 <span class="md-nav__button md-logo">
 <i class="md-icon">local_library</i>
 </a>
-<a href="index.html" title="Sapphire Core">
-Sapphire Core
+<a href="index.html" title="simple-mongo">
+simple-mongo
 </a>
 </label>
 <div class="md-nav__source">
-<a href="https://github.com/sfxcode/sapphire-core"
+<a href="https://github.com/sfxcode/simple-mongo"
 title="Go to repository"
 class="md-source"
 data-md-source="github">
@@ -124,48 +124,47 @@ data-md-source="github">
 <i class="fa fa-github"></i>
 </div>
 <div class="md-source__repository">
-sfxcode/sapphire-core
+sfxcode/simple-mongo
 </div>
 </a>
 
 </div>
 <ul>
-  <li><a href="features.html" class="page">Features</a></li>
-  <li><a href="development/index.html" class="page">Development</a>
+  <li><a href="database_provider.html" class="page">DatabaseProvider</a></li>
+  <li><a href="dao/index.html" class="page">MongoDAO</a>
   <ul>
-    <li><a href="development/tools.html" class="page">Development Tools</a></li>
-    <li><a href="development/development.html" class="page">Hot Reloading</a></li>
+    <li><a href="dao/base.html" class="page">MongoDAO Base</a></li>
+    <li><a href="dao/crud.html" class="page">CRUD Functions</a></li>
+    <li><a href="dao/search.html" class="page">Search Functions</a></li>
+  </ul></li>
+  <li><a href="gridfs/index.html" class="page">GridFSDAO</a>
+  <ul>
+    <li><a href="gridfs/crud.html" class="page">CRUD Functions</a></li>
+    <li><a href="gridfs/metadata.html" class="page">Metadata</a></li>
+  </ul></li>
+  <li><a href="features/index.html" class="page">Features</a>
+  <ul>
+    <li><a href="features/aggregation.html" class="page">Aggregation</a></li>
+    <li><a href="features/relationships.html" class="page">Relationships</a></li>
+    <li><a href="features/observable.html" class="page">Observable</a></li>
+    <li><a href="features/converter.html" class="page">Converter</a></li>
   </ul></li>
   <li><a href="tutorial/index.html" class="page">Tutorial</a>
   <ul>
-    <li><a href="tutorial/setup.html" class="page">Tutorial Setup</a></li>
-    <li><a href="tutorial/application.html" class="page">Tutorial Application</a></li>
-    <li><a href="tutorial/main_window.html" class="page">Tutorial Main Controller</a></li>
-    <li><a href="tutorial/navigation.html" class="page">Tutorial Navigation</a></li>
+    <li><a href="tutorial/setup.html" class="page">Part 1 - Setup</a></li>
+    <li><a href="tutorial/database.html" class="page">Part 2 - Database</a></li>
+    <li><a href="tutorial/functions.html" class="page">Part 3 - Functions</a></li>
+    <li><a href="tutorial/application.html" class="page">Part 4 - Application</a></li>
   </ul></li>
-  <li><a href="detail/index.html" class="page">Core Concepts</a>
-  <ul>
-    <li><a href="detail/fxbean.html" class="page">In Depth FXBean</a></li>
-    <li><a href="detail/fxml_loading.html" class="page">In Depth FxmlLoading</a></li>
-    <li><a href="detail/view_controller.html" class="page">In Depth ViewController</a></li>
-  </ul></li>
-  <li><a href="sample/index.html" class="page">Examples</a>
-  <ul>
-    <li><a href="sample/basic.html" class="page">Samples Basic</a></li>
-    <li><a href="sample/advanced.html" class="page">Samples Advanced</a></li>
-  </ul></li>
-  <li><a href="extension.html" class="page">Sapphire Extension</a></li>
   <li><a href="changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="index.html#sapphire-core" class="header">Sapphire Core</a>
+  <li><a href="index.html#simple-mongo" class="header">simple-mongo</a>
   <ul>
-    <li><a href="index.html#cross-build" class="header">Cross Build</a></li>
-    <li><a href="index.html#frameworks" class="header">Frameworks</a></li>
-    <li><a href="index.html#maven" class="header">Maven</a></li>
-    <li><a href="index.html#getting-started" class="header">Getting started</a></li>
+    <li><a href="index.html#additional-documentation" class="header">Additional Documentation</a></li>
+    <li><a href="index.html#dependency-setup" class="header">Dependency Setup</a></li>
     <li><a href="index.html#licence" class="header">Licence</a></li>
   </ul></li>
 </ul>
@@ -175,7 +174,7 @@ sfxcode/sapphire-core
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> 1.6.0
+<i class="md-icon" title="Version">label_outline</i> 1.6.6*
 </label>
 </li>
 </ul>
@@ -188,12 +187,10 @@ sfxcode/sapphire-core
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="index.html#sapphire-core" class="header">Sapphire Core</a>
+  <li><a href="index.html#simple-mongo" class="header">simple-mongo</a>
   <ul>
-    <li><a href="index.html#cross-build" class="header">Cross Build</a></li>
-    <li><a href="index.html#frameworks" class="header">Frameworks</a></li>
-    <li><a href="index.html#maven" class="header">Maven</a></li>
-    <li><a href="index.html#getting-started" class="header">Getting started</a></li>
+    <li><a href="index.html#additional-documentation" class="header">Additional Documentation</a></li>
+    <li><a href="index.html#dependency-setup" class="header">Dependency Setup</a></li>
     <li><a href="index.html#licence" class="header">Licence</a></li>
   </ul></li>
 </ul>
@@ -205,53 +202,41 @@ sfxcode/sapphire-core
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#sapphire-core" name="sapphire-core" class="anchor"><span class="anchor-link"></span></a>Sapphire Core</h1>
-<p>A JavaFX Application Framework for Scala User. It combines scala programming patterns with MVC for building complex JavaFX Applications.</p>
-<h2><a href="#cross-build" name="cross-build" class="anchor"><span class="anchor-link"></span></a>Cross Build</h2>
-<p>Build and tested against Scala 2.12/2.13 and JDK 11/12</p>
-<h2><a href="#frameworks" name="frameworks" class="anchor"><span class="anchor-link"></span></a>Frameworks</h2>
-<h3><a href="#javafx" name="javafx" class="anchor"><span class="anchor-link"></span></a>JavaFX</h3>
-<p>Java UI Application Framework as replacement for Swing.</p>
-<p>Sapphire depends on OpenJFX 11/12.</p>
-<p><a href="https://openjfx.io">https://openjfx.io</a></p>
-<h3><a href="#dependency-injection" name="dependency-injection" class="anchor"><span class="anchor-link"></span></a>Dependency Injection</h3>
-<p>Sapphire use <a href="http://deltaspike.apache.org">Apache Deltaspike</a> as CDI Abstraction Layer (1.9.x).</p>
-<p>The default <a href="https://de.wikipedia.org/wiki/Contexts_and_Dependency_Injection">CDI</a> implementation depends on <a href="http://openwebbeans.apache.org">Apache OpenWebBeans</a> (2.0.x).</p>
-<h3><a href="#expression-language" name="expression-language" class="anchor"><span class="anchor-link"></span></a>Expression Language</h3>
-<p>Expressions are resolved by <a href="http://juel.sourceforge.net">JUEL</a>.</p>
-<h3><a href="#scalafx" name="scalafx" class="anchor"><span class="anchor-link"></span></a>ScalaFX</h3>
-<p>Until Version 1.5.x Sapphire depends on <a href="http://www.scalafx.org/">ScalaFX</a>, a DSL for JavaFX written in Scala.</p>
-<p>Version 1.6.x and newer versions are built without ScalaFX dependency, because ScalaFX (as a wrapper library) is not really needed for sapphire functionality. However, it can be used on top of this framework when it is useful.</p>
-<h2><a href="#maven" name="maven" class="anchor"><span class="anchor-link"></span></a>Maven</h2>
-<p>Sapphire is published to Bintray and linked to Maven Central.</p>
-<h3><a href="#repository" name="repository" class="anchor"><span class="anchor-link"></span></a>Repository</h3>
-<pre><code>resolvers += &quot;sfxcode-bintray&quot; at &quot;https://dl.bintray.com/sfxcode/maven&quot;
-
-</code></pre>
-<h3><a href="#artifact" name="artifact" class="anchor"><span class="anchor-link"></span></a>Artifact</h3><dl class="dependency"><dt>sbt</dt><dd><pre class="prettyprint"><code class="language-scala">libraryDependencies += "com.sfxcode.sapphire" %% "sapphire-core" % "$app-version$"</code></pre></dd><dt>Maven</dt><dd><pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
-  &lt;groupId&gt;com.sfxcode.sapphire&lt;/groupId&gt;
-  &lt;artifactId&gt;sapphire-core_2.12&lt;/artifactId&gt;
-  &lt;version&gt;$app-version$&lt;/version&gt;
+<h1><a href="#simple-mongo" name="simple-mongo" class="anchor"><span class="anchor-link"></span></a>simple-mongo</h1>
+<p>A library for easy usage of the mongo-scala-driver.</p>
+<p>Features:</p>
+<ul>
+  <li>Easy Config with <a href="database_provider.html">DatabaseProvider</a></li>
+  <li>Implement the <a href="https://en.wikipedia.org/wiki/Data_access_object">DAO</a> Pattern for simple MongoDB database usage (<a href="dao/index.html">MongoDAO</a>)</li>
+  <li>Enhanced <a href="http://mongodb.github.io/mongo-scala-driver/2.2/bson/">BSON</a> conversion support (<a href="features/converter.html">Converter</a>)</li>
+  <li>
+  <p><a href="https://docs.mongodb.com/manual/core/gridfs/">GridFS</a> support (<a href="gridfs/index.html">GridFSDAO</a>)</p></li>
+  <li><a href="features/relationships.html">Relationships</a></li>
+</ul>
+<h2><a href="#additional-documentation" name="additional-documentation" class="anchor"><span class="anchor-link"></span></a>Additional Documentation</h2>
+<ul>
+  <li><a href="http://mongodb.github.io/mongo-scala-driver/2.2/">mongo-scala-driver</a></li>
+  <li><a href="https://docs.mongodb.com/">MongoDB</a></li>
+</ul>
+<h2><a href="#dependency-setup" name="dependency-setup" class="anchor"><span class="anchor-link"></span></a>Dependency Setup</h2>
+<p>Support Scala 2.11 and Scala 2.12.</p><dl class="dependency"><dt>sbt</dt><dd><pre class="prettyprint"><code class="language-scala">libraryDependencies += "com.sfxcode.nosql" %% "simple-mongo" % "1.6.6-SNAPSHOT"</code></pre></dd><dt>Maven</dt><dd><pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
+  &lt;groupId&gt;com.sfxcode.nosql&lt;/groupId&gt;
+  &lt;artifactId&gt;simple-mongo_2.12&lt;/artifactId&gt;
+  &lt;version&gt;1.6.6-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</code></pre></dd><dt>Gradle</dt><dd><pre class="prettyprint"><code class="language-gradle">dependencies {
-  compile group: 'com.sfxcode.sapphire', name: 'sapphire-core_2.12', version: '$app-version$'
+  compile group: 'com.sfxcode.nosql', name: 'simple-mongo_2.12', version: '1.6.6-SNAPSHOT'
 }</code></pre></dd></dl>
-<h2><a href="#getting-started" name="getting-started" class="anchor"><span class="anchor-link"></span></a>Getting started</h2>
-<h3><a href="#setup-base-application-with-giter8" name="setup-base-application-with-giter8" class="anchor"><span class="anchor-link"></span></a>Setup Base Application with Giter8</h3>
-<pre><code>g8 https://github.com/sfxcode/sapphire-sbt.g8
-</code></pre>
-<h3><a href="#demos" name="demos" class="anchor"><span class="anchor-link"></span></a>Demos</h3>
-<p>Explore demos and Tutorial in project demo directory.</p>
 <h2><a href="#licence" name="licence" class="anchor"><span class="anchor-link"></span></a>Licence</h2>
-<p><a href="https://github.com/sfxcode/sapphire-core/blob/master/LICENSE">Apache 2</a></p>
+<p><a href="https://github.com/sfxcode/simple-mongo/blob/master/LICENSE">Apache 2</a></p>
 </div>
 <div>
-<a href="https://github.com/sfxcode/sapphire-core/tree/v1.6.0/docs/src/main/paradox/index.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/master/docs/src/main/paradox/index.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.6.0
+1.6.6*
 </span>
 </div>
 </article>
@@ -261,13 +246,13 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="features.html" title="Features" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="database_provider.html" title="DatabaseProvider" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Features
+DatabaseProvider
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">

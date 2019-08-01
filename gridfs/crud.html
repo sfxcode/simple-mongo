@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="description" content="sapphire core docs">
+<meta name="description" content="simple mongo docs">
 <meta name="generator" content="Paradox, paradox-material-theme=0.6.0, mkdocs-material=3.0.3">
 
 <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -18,9 +18,9 @@
 <meta name="lang:search.tokenizer" content="[\s\-]+">
 
 
-<meta name="description" content="sapphire core docs">
+<meta name="description" content="simple mongo docs">
 <link rel="shortcut icon" href="../assets/images/favicon.png">
-<title>Development Tools · Sapphire Core</title>
+<title>CRUD Functions · simple-mongo</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.451f80e5.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -43,7 +43,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 <nav class="md-header-nav md-grid">
 <div class="md-flex">
 <div class="md-flex__cell md-flex__cell--shrink">
-<a href="../index.html" title="Sapphire Core" class="md-header-nav__button md-logo">
+<a href="../index.html" title="simple-mongo" class="md-header-nav__button md-logo">
 <i class="md-icon">local_library</i>
 </a>
 </div>
@@ -53,10 +53,10 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 <div class="md-flex__cell md-flex__cell--stretch">
 <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
 <span class="md-header-nav__topic">
-Sapphire Core
+simple-mongo
 </span>
 <span class="md-header-nav__topic">
-Development Tools
+CRUD Functions
 </span>
 </div>
 </div>
@@ -86,7 +86,7 @@ Type to start searching
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">
 <div class="md-header-nav__source">
-<a href="https://github.com/sfxcode/sapphire-core"
+<a href="https://github.com/sfxcode/simple-mongo"
 title="Go to repository"
 class="md-source"
 data-md-source="github">
@@ -94,7 +94,7 @@ data-md-source="github">
 <i class="fa fa-github"></i>
 </div>
 <div class="md-source__repository">
-sfxcode/sapphire-core
+sfxcode/simple-mongo
 </div>
 </a>
 
@@ -112,16 +112,16 @@ sfxcode/sapphire-core
 <div class="md-sidebar__inner">
 <nav class="md-nav md-nav--primary" data-md-level="0" style="visibility: hidden">
 <label class="md-nav__title md-nav__title--site" for="drawer">
-<a href="../index.html" title="Sapphire Core" class="md-nav__button md-logo">
+<a href="../index.html" title="simple-mongo" class="md-nav__button md-logo">
 <span class="md-nav__button md-logo">
 <i class="md-icon">local_library</i>
 </a>
-<a href="../index.html" title="Sapphire Core">
-Sapphire Core
+<a href="../index.html" title="simple-mongo">
+simple-mongo
 </a>
 </label>
 <div class="md-nav__source">
-<a href="https://github.com/sfxcode/sapphire-core"
+<a href="https://github.com/sfxcode/simple-mongo"
 title="Go to repository"
 class="md-source"
 data-md-source="github">
@@ -129,48 +129,48 @@ data-md-source="github">
 <i class="fa fa-github"></i>
 </div>
 <div class="md-source__repository">
-sfxcode/sapphire-core
+sfxcode/simple-mongo
 </div>
 </a>
 
 </div>
 <ul>
-  <li><a href="../features.html" class="page">Features</a></li>
-  <li><a href="../development/index.html" class="page">Development</a>
+  <li><a href="../database_provider.html" class="page">DatabaseProvider</a></li>
+  <li><a href="../dao/index.html" class="page">MongoDAO</a>
   <ul>
-    <li><a href="../development/tools.html" class="active page">Development Tools</a></li>
-    <li><a href="../development/development.html" class="page">Hot Reloading</a></li>
+    <li><a href="../dao/base.html" class="page">MongoDAO Base</a></li>
+    <li><a href="../dao/crud.html" class="page">CRUD Functions</a></li>
+    <li><a href="../dao/search.html" class="page">Search Functions</a></li>
+  </ul></li>
+  <li><a href="../gridfs/index.html" class="page">GridFSDAO</a>
+  <ul>
+    <li><a href="../gridfs/crud.html" class="active page">CRUD Functions</a></li>
+    <li><a href="../gridfs/metadata.html" class="page">Metadata</a></li>
+  </ul></li>
+  <li><a href="../features/index.html" class="page">Features</a>
+  <ul>
+    <li><a href="../features/aggregation.html" class="page">Aggregation</a></li>
+    <li><a href="../features/relationships.html" class="page">Relationships</a></li>
+    <li><a href="../features/observable.html" class="page">Observable</a></li>
+    <li><a href="../features/converter.html" class="page">Converter</a></li>
   </ul></li>
   <li><a href="../tutorial/index.html" class="page">Tutorial</a>
   <ul>
-    <li><a href="../tutorial/setup.html" class="page">Tutorial Setup</a></li>
-    <li><a href="../tutorial/application.html" class="page">Tutorial Application</a></li>
-    <li><a href="../tutorial/main_window.html" class="page">Tutorial Main Controller</a></li>
-    <li><a href="../tutorial/navigation.html" class="page">Tutorial Navigation</a></li>
+    <li><a href="../tutorial/setup.html" class="page">Part 1 - Setup</a></li>
+    <li><a href="../tutorial/database.html" class="page">Part 2 - Database</a></li>
+    <li><a href="../tutorial/functions.html" class="page">Part 3 - Functions</a></li>
+    <li><a href="../tutorial/application.html" class="page">Part 4 - Application</a></li>
   </ul></li>
-  <li><a href="../detail/index.html" class="page">Core Concepts</a>
-  <ul>
-    <li><a href="../detail/fxbean.html" class="page">In Depth FXBean</a></li>
-    <li><a href="../detail/fxml_loading.html" class="page">In Depth FxmlLoading</a></li>
-    <li><a href="../detail/view_controller.html" class="page">In Depth ViewController</a></li>
-  </ul></li>
-  <li><a href="../sample/index.html" class="page">Examples</a>
-  <ul>
-    <li><a href="../sample/basic.html" class="page">Samples Basic</a></li>
-    <li><a href="../sample/advanced.html" class="page">Samples Advanced</a></li>
-  </ul></li>
-  <li><a href="../extension.html" class="page">Sapphire Extension</a></li>
   <li><a href="../changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../development/tools.html#development-tools" class="header">Development Tools</a>
+  <li><a href="../gridfs/crud.html#crud-functions" class="header">CRUD Functions</a>
   <ul>
-    <li><a href="../development/tools.html#intellij-ide" class="header">IntelliJ IDE</a></li>
-    <li><a href="../development/tools.html#scenebuilder" class="header">SceneBuilder</a></li>
-    <li><a href="../development/tools.html#scenicview" class="header">ScenicView</a></li>
-    <li><a href="../development/tools.html#sbt-plugins" class="header">SBT Plugins</a></li>
+    <li><a href="../gridfs/crud.html#create" class="header">Create</a></li>
+    <li><a href="../gridfs/crud.html#update" class="header">Update</a></li>
+    <li><a href="../gridfs/crud.html#delete" class="header">Delete</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -179,7 +179,7 @@ sfxcode/sapphire-core
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> 1.6.0
+<i class="md-icon" title="Version">label_outline</i> 1.6.6*
 </label>
 </li>
 </ul>
@@ -192,12 +192,11 @@ sfxcode/sapphire-core
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../development/tools.html#development-tools" class="header">Development Tools</a>
+  <li><a href="../gridfs/crud.html#crud-functions" class="header">CRUD Functions</a>
   <ul>
-    <li><a href="../development/tools.html#intellij-ide" class="header">IntelliJ IDE</a></li>
-    <li><a href="../development/tools.html#scenebuilder" class="header">SceneBuilder</a></li>
-    <li><a href="../development/tools.html#scenicview" class="header">ScenicView</a></li>
-    <li><a href="../development/tools.html#sbt-plugins" class="header">SBT Plugins</a></li>
+    <li><a href="../gridfs/crud.html#create" class="header">Create</a></li>
+    <li><a href="../gridfs/crud.html#update" class="header">Update</a></li>
+    <li><a href="../gridfs/crud.html#delete" class="header">Delete</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -208,30 +207,42 @@ sfxcode/sapphire-core
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#development-tools" name="development-tools" class="anchor"><span class="anchor-link"></span></a>Development Tools</h1>
-<p>Some useful tools.</p>
-<h2><a href="#intellij-ide" name="intellij-ide" class="anchor"><span class="anchor-link"></span></a>IntelliJ IDE</h2>
-<p><a href="https://www.jetbrains.com/idea/download">IntelliJ</a> is my favorite IDE for Scala / JavaFX Coding. Even the Community Edition has all features for developing JavaFX Applications.</p>
-<p><img src="../images/intellij.png" /></p>
-<h2><a href="#scenebuilder" name="scenebuilder" class="anchor"><span class="anchor-link"></span></a>SceneBuilder</h2>
-<p>Scenebuilder (backed by Gluon) can be found at the <a href="http://gluonhq.com/products/scene-builder/">Gluon Site</a>.</p>
-<p><img src="../images/scenebuilder.png" /></p>
-<h2><a href="#scenicview" name="scenicview" class="anchor"><span class="anchor-link"></span></a>ScenicView</h2>
-<p><a href="http://fxexperience.com/scenic-view/">Scenic View</a> is a JavaFX application designed to make it simple to understand the current state of your application scenegraph, and to also easily manipulate properties of the scenegraph without having to keep editing your code. This lets you find bugs, and get things pixel perfect without having to do the compile-check-compile dance.</p>
-<h2><a href="#sbt-plugins" name="sbt-plugins" class="anchor"><span class="anchor-link"></span></a>SBT Plugins</h2>
-<h3><a href="#sbt-javafx" name="sbt-javafx" class="anchor"><span class="anchor-link"></span></a>sbt-javafx</h3>
-<p>(Simple Build Tool) plugin for building JavaFx Application</p>
-<p><a href="https://quadstingray.github.io/sbt-javafx/">Documentation</a></p>
-<p><a href="https://bintray.com/quadstingray/sbt-plugins/sbt-javafx/_latestVersion"> <img src="https://api.bintray.com/packages/quadstingray/sbt-plugins/sbt-javafx/images/download.svg" alt="Download" /> </a>  <a href="https://travis-ci.org/QuadStingray/sbt-javafx"><img src="https://travis-ci.org/QuadStingray/sbt-javafx.svg?branch=master" alt="Build Status" /></a> <a href="https://www.codacy.com/app/QuadStingray/sbt-javafx?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=QuadStingray/sbt-javafx&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/b18d8cb66b5a47f3ad5485c848c5bda7" alt="Codacy Badge" /></a></p>
+<h1><a href="#crud-functions" name="crud-functions" class="anchor"><span class="anchor-link"></span></a>CRUD Functions</h1>
+<h2><a href="#create" name="create" class="anchor"><span class="anchor-link"></span></a>Create</h2>
+<p>You need a filename, an input stream and some kind of metadata.</p>
+<p>Possible Metadata types:</p>
+<ul>
+  <li>Document</li>
+  <li>Map</li>
+  <li>Scala Case Class</li>
+</ul>
+<p>Return Observable of ObjectId.</p>
+<pre class="prettyprint"><code class="language-scala">    ImageFilesDAO.insertOne(filename, stream, metadata)
+</code></pre>
+<h2><a href="#update" name="update" class="anchor"><span class="anchor-link"></span></a>Update</h2><div class="callout note "><div class="callout-title">Official_MongoDB_Documentation</div>
+<p>Do not use GridFS if you need to update the content of the entire file atomically. As an alternative you can store multiple versions of each file and specify the current version of the file in the metadata. You can update the metadata field that indicates “latest” status in an atomic update after uploading the new version of the file, and later remove previous versions if needed.Do not use GridFS if you need to update the content of the entire file atomically. As an alternative you can store multiple versions of each file and specify the current version of the file in the metadata. You can update the metadata field that indicates “latest” status in an atomic update after uploading the new version of the file, and later remove previous versions if needed.</p></div>
+<h2><a href="#delete" name="delete" class="anchor"><span class="anchor-link"></span></a>Delete</h2>
+<p>GridFSFile will be deleted by a given ObjectID.</p>
+<p>With implicit conversion you can use for OID Parameter:</p>
+<ul>
+  <li>ObjectID</li>
+  <li>GridFSFile</li>
+  <li>String</li>
+</ul>
+<pre class="prettyprint"><code class="language-scala">  // for implicit conversion usage
+  import com.sfxcode.nosql.mongo._
+  
+  ImageFilesDAO.deleteOne(oid)
+</code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/sapphire-core/tree/v1.6.0/docs/src/main/paradox/development/tools.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/master/docs/src/main/paradox/gridfs/crud.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.6.0
+1.6.6*
 </span>
 </div>
 </article>
@@ -241,7 +252,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../development/index.html" title="Development" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../gridfs/index.html" title="GridFSDAO" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -250,17 +261,17 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Development
+GridFSDAO
 </span>
 </div>
 </a>
-<a href="../development/development.html" title="Hot Reloading" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../gridfs/metadata.html" title="Metadata" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Hot Reloading
+Metadata
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">
