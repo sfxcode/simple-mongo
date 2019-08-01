@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="description" content="sapphire core docs">
+<meta name="description" content="simple mongo docs">
 <meta name="generator" content="Paradox, paradox-material-theme=0.6.0, mkdocs-material=3.0.3">
 
 <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -18,9 +18,9 @@
 <meta name="lang:search.tokenizer" content="[\s\-]+">
 
 
-<meta name="description" content="sapphire core docs">
+<meta name="description" content="simple mongo docs">
 <link rel="shortcut icon" href="../assets/images/favicon.png">
-<title>Tutorial Application · Sapphire Core</title>
+<title>Part 4 - Application · simple-mongo</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.451f80e5.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -43,7 +43,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 <nav class="md-header-nav md-grid">
 <div class="md-flex">
 <div class="md-flex__cell md-flex__cell--shrink">
-<a href="../index.html" title="Sapphire Core" class="md-header-nav__button md-logo">
+<a href="../index.html" title="simple-mongo" class="md-header-nav__button md-logo">
 <i class="md-icon">local_library</i>
 </a>
 </div>
@@ -53,10 +53,10 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 <div class="md-flex__cell md-flex__cell--stretch">
 <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
 <span class="md-header-nav__topic">
-Sapphire Core
+simple-mongo
 </span>
 <span class="md-header-nav__topic">
-Tutorial Application
+Part 4 - Application
 </span>
 </div>
 </div>
@@ -86,7 +86,7 @@ Type to start searching
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">
 <div class="md-header-nav__source">
-<a href="https://github.com/sfxcode/sapphire-core"
+<a href="https://github.com/sfxcode/simple-mongo"
 title="Go to repository"
 class="md-source"
 data-md-source="github">
@@ -94,7 +94,7 @@ data-md-source="github">
 <i class="fa fa-github"></i>
 </div>
 <div class="md-source__repository">
-sfxcode/sapphire-core
+sfxcode/simple-mongo
 </div>
 </a>
 
@@ -112,16 +112,16 @@ sfxcode/sapphire-core
 <div class="md-sidebar__inner">
 <nav class="md-nav md-nav--primary" data-md-level="0" style="visibility: hidden">
 <label class="md-nav__title md-nav__title--site" for="drawer">
-<a href="../index.html" title="Sapphire Core" class="md-nav__button md-logo">
+<a href="../index.html" title="simple-mongo" class="md-nav__button md-logo">
 <span class="md-nav__button md-logo">
 <i class="md-icon">local_library</i>
 </a>
-<a href="../index.html" title="Sapphire Core">
-Sapphire Core
+<a href="../index.html" title="simple-mongo">
+simple-mongo
 </a>
 </label>
 <div class="md-nav__source">
-<a href="https://github.com/sfxcode/sapphire-core"
+<a href="https://github.com/sfxcode/simple-mongo"
 title="Go to repository"
 class="md-source"
 data-md-source="github">
@@ -129,47 +129,47 @@ data-md-source="github">
 <i class="fa fa-github"></i>
 </div>
 <div class="md-source__repository">
-sfxcode/sapphire-core
+sfxcode/simple-mongo
 </div>
 </a>
 
 </div>
 <ul>
-  <li><a href="../features.html" class="page">Features</a></li>
-  <li><a href="../development/index.html" class="page">Development</a>
+  <li><a href="../database_provider.html" class="page">DatabaseProvider</a></li>
+  <li><a href="../dao/index.html" class="page">MongoDAO</a>
   <ul>
-    <li><a href="../development/tools.html" class="page">Development Tools</a></li>
-    <li><a href="../development/development.html" class="page">Hot Reloading</a></li>
+    <li><a href="../dao/base.html" class="page">MongoDAO Base</a></li>
+    <li><a href="../dao/crud.html" class="page">CRUD Functions</a></li>
+    <li><a href="../dao/search.html" class="page">Search Functions</a></li>
+  </ul></li>
+  <li><a href="../gridfs/index.html" class="page">GridFSDAO</a>
+  <ul>
+    <li><a href="../gridfs/crud.html" class="page">CRUD Functions</a></li>
+    <li><a href="../gridfs/metadata.html" class="page">Metadata</a></li>
+  </ul></li>
+  <li><a href="../features/index.html" class="page">Features</a>
+  <ul>
+    <li><a href="../features/aggregation.html" class="page">Aggregation</a></li>
+    <li><a href="../features/relationships.html" class="page">Relationships</a></li>
+    <li><a href="../features/observable.html" class="page">Observable</a></li>
+    <li><a href="../features/converter.html" class="page">Converter</a></li>
   </ul></li>
   <li><a href="../tutorial/index.html" class="page">Tutorial</a>
   <ul>
-    <li><a href="../tutorial/setup.html" class="page">Tutorial Setup</a></li>
-    <li><a href="../tutorial/application.html" class="active page">Tutorial Application</a></li>
-    <li><a href="../tutorial/main_window.html" class="page">Tutorial Main Controller</a></li>
-    <li><a href="../tutorial/navigation.html" class="page">Tutorial Navigation</a></li>
+    <li><a href="../tutorial/setup.html" class="page">Part 1 - Setup</a></li>
+    <li><a href="../tutorial/database.html" class="page">Part 2 - Database</a></li>
+    <li><a href="../tutorial/functions.html" class="page">Part 3 - Functions</a></li>
+    <li><a href="../tutorial/application.html" class="active page">Part 4 - Application</a></li>
   </ul></li>
-  <li><a href="../detail/index.html" class="page">Core Concepts</a>
-  <ul>
-    <li><a href="../detail/fxbean.html" class="page">In Depth FXBean</a></li>
-    <li><a href="../detail/fxml_loading.html" class="page">In Depth FxmlLoading</a></li>
-    <li><a href="../detail/view_controller.html" class="page">In Depth ViewController</a></li>
-  </ul></li>
-  <li><a href="../sample/index.html" class="page">Examples</a>
-  <ul>
-    <li><a href="../sample/basic.html" class="page">Samples Basic</a></li>
-    <li><a href="../sample/advanced.html" class="page">Samples Advanced</a></li>
-  </ul></li>
-  <li><a href="../extension.html" class="page">Sapphire Extension</a></li>
   <li><a href="../changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../tutorial/application.html#tutorial-application" class="header">Tutorial Application</a>
+  <li><a href="../tutorial/application.html#part-4-application" class="header">Part 4 - Application</a>
   <ul>
-    <li><a href="../tutorial/application.html#application-object" class="header">Application object</a></li>
-    <li><a href="../tutorial/application.html#applicationcontroller" class="header">ApplicationController</a></li>
-    <li><a href="../tutorial/application.html#mainwindowcontroller" class="header">MainWindowController</a></li>
+    <li><a href="../tutorial/application.html#info" class="header">Info</a></li>
+    <li><a href="../tutorial/application.html#simple-application" class="header">Simple Application</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -178,7 +178,7 @@ sfxcode/sapphire-core
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> 1.6.0
+<i class="md-icon" title="Version">label_outline</i> 1.6.6*
 </label>
 </li>
 </ul>
@@ -191,11 +191,10 @@ sfxcode/sapphire-core
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../tutorial/application.html#tutorial-application" class="header">Tutorial Application</a>
+  <li><a href="../tutorial/application.html#part-4-application" class="header">Part 4 - Application</a>
   <ul>
-    <li><a href="../tutorial/application.html#application-object" class="header">Application object</a></li>
-    <li><a href="../tutorial/application.html#applicationcontroller" class="header">ApplicationController</a></li>
-    <li><a href="../tutorial/application.html#mainwindowcontroller" class="header">MainWindowController</a></li>
+    <li><a href="../tutorial/application.html#info" class="header">Info</a></li>
+    <li><a href="../tutorial/application.html#simple-application" class="header">Simple Application</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -206,82 +205,37 @@ sfxcode/sapphire-core
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#tutorial-application" name="tutorial-application" class="anchor"><span class="anchor-link"></span></a>Tutorial Application</h1>
-<h2><a href="#application-object" name="application-object" class="anchor"><span class="anchor-link"></span></a>Application object</h2>
-<p>A sapphire application must contain an Application object that extends FXApp.</p>
-<p>applicationStage must be implemented.</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/sapphire-core/tree/v1.6.0/demos/tutorial/src/main/scala/com/sfxcode/sapphire/core/demo/tutorial/Application.scala" target="_blank" title="Go to snippet source"></a><code class="language-scala">package com.sfxcode.sapphire.core.demo.tutorial
+<h1><a href="#part-4-application" name="part-4-application" class="anchor"><span class="anchor-link"></span></a>Part 4 - Application</h1>
+<h2><a href="#info" name="info" class="anchor"><span class="anchor-link"></span></a>Info</h2>
+<p>This Demo Application should demonstrate the basic usage of simple-mongo.</p>
+<h2><a href="#simple-application" name="simple-application" class="anchor"><span class="anchor-link"></span></a>Simple Application</h2>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/demo/restaurant/RestaurantDemoApp.scala#L4-L22" target="_blank" title="Go to snippet source"></a><code class="language-scala"><br/>object RestaurantDemoApp extends App with RestaurantDemoDatabaseFunctions {
 
-import com.sfxcode.sapphire.core.application.FXApp
+  // find specific restaurant by name as Option Result
+  val restaurant = findRestaurantByName(&quot;Dj Reynolds Pub And Restaurant&quot;)
 
-object Application extends FXApp {
-  override def height: Int = 555
+  println(restaurant)
 
-  override def width: Int = 700
+  // use count function
+  println(restaurantsSize)
 
-  override def forceMaxWidth: Boolean = true
+  // find restaurants by filter
+  private val filter = Map(&quot;address.zipcode&quot; -&gt; &quot;10075&quot;, &quot;cuisine&quot; -&gt; &quot;Italian&quot;)
+  val restaurants = findAllRestaurants(filter)
 
-  override def forceMaxHeight: Boolean = true
+  restaurants.sortBy(r =&gt; r.name).foreach(r =&gt; println(r.name))
+
 }
 </code></pre>
-<h2><a href="#applicationcontroller" name="applicationcontroller" class="anchor"><span class="anchor-link"></span></a>ApplicationController</h2>
-<p>Application controller is used for startup purposes.</p>
-<p>Normally the main scene content is replaced by a ViewController.</p>
-<p>Here we will use a MainWindowController and later we connect a Navigation-, Workspace- and StatusBarController.</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/sapphire-core/tree/v1.6.0/demos/tutorial/src/main/scala/com/sfxcode/sapphire/core/demo/tutorial/ApplicationController.scala" target="_blank" title="Go to snippet source"></a><code class="language-scala">package com.sfxcode.sapphire.core.demo.tutorial
-
-import com.sfxcode.sapphire.core.controller.DefaultWindowController
-import com.sfxcode.sapphire.core.demo.tutorial.controller.MainController
-import javax.enterprise.context.ApplicationScoped
-import javax.enterprise.inject.Produces
-import javax.inject.Named
-
-@Named
-@ApplicationScoped
-class ApplicationController extends DefaultWindowController {
-
-  lazy val mainWindowController: MainController =
-    getController[MainController]()
-
-  def applicationDidLaunch() {
-    logger.info(&quot;start &quot; + this)
-    applicationEnvironment.loadResourceBundle(&quot;bundles/application&quot;)
-    replaceSceneContent(mainWindowController)
-  }
-
-  def reload(): Unit = {
-    // Styling
-    reloadStyles()
-    // Resources
-    applicationEnvironment.clearResourceBundleCache()
-    applicationEnvironment.loadResourceBundle(&quot;bundles/application&quot;)
-    // FXML
-    val newMainWindowController = getController[MainController]()
-    replaceSceneContent(newMainWindowController)
-  }
-
-  @Produces
-  def applicationName: ApplicationName = {
-    ApplicationName(configStringValue(&quot;application.name&quot;))
-  }
-}
-
-case class ApplicationName(name: String)</code></pre>
-<h2><a href="#mainwindowcontroller" name="mainwindowcontroller" class="anchor"><span class="anchor-link"></span></a>MainWindowController</h2>
-<p>The following code snippet loads the MainWindowController by the <a href="https://github.com/sfxcode/sapphire-core/blob/master/src/main/scala/com/sfxcode/sapphire/core/fxml/FxmlLoading.scala">FXMLoader</a> from the CDI managed ApplicationController Bean.</p>
-<pre class="prettyprint"><code class="language-scala">  def mainWindowController = getController[MainWindowController]()
-
-</code></pre>
-<p>This pattern for Controller-Loading is commonly used in sapphire-core Framework.</p>
 </div>
 <div>
-<a href="https://github.com/sfxcode/sapphire-core/tree/v1.6.0/docs/src/main/paradox/tutorial/application.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/master/docs/src/main/paradox/tutorial/application.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.6.0
+1.6.6*
 </span>
 </div>
 </article>
@@ -291,7 +245,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../tutorial/setup.html" title="Tutorial Setup" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../tutorial/functions.html" title="Part 3 - Functions" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -300,17 +254,17 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Tutorial Setup
+Part 3 - Functions
 </span>
 </div>
 </a>
-<a href="../tutorial/main_window.html" title="Tutorial Main Controller" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../changes.html" title="Version History" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Tutorial Main Controller
+Version History
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">
