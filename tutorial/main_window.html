@@ -177,7 +177,7 @@ sfxcode/sapphire-core
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> 1.6.1*
+<i class="md-icon" title="Version">label_outline</i> 1.6.0
 </label>
 </li>
 </ul>
@@ -207,7 +207,7 @@ sfxcode/sapphire-core
 <h1><a href="#tutorial-main-controller" name="tutorial-main-controller" class="anchor"><span class="anchor-link"></span></a>Tutorial Main Controller</h1>
 <h2><a href="#main-fxml-file" name="main-fxml-file" class="anchor"><span class="anchor-link"></span></a>Main FXML File</h2>
 <p>The MainController in the /controller/MainController needs a valid FXML File. The bindings for Navigation, Workspace and StatusBar Controller uses the <strong>fx:id</strong> values.</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/sapphire-core/tree/master/docs/src/main/paradox/tutorial/main_window.xml" target="_blank" title="Go to snippet source"></a><code class="language-xml">&lt;BorderPane&gt;
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/sapphire-core/tree/v1.6.0/docs/src/main/paradox/tutorial/main_window.xml" target="_blank" title="Go to snippet source"></a><code class="language-xml">&lt;BorderPane&gt;
     &lt;top&gt;
         &lt;AnchorPane fx:id=&quot;navigationPane&quot; /&gt;
     &lt;/top&gt;
@@ -229,7 +229,7 @@ sfxcode/sapphire-core
   <li>Optional CDI based Functions / Injection Points</li>
 </ol>
 <h3><a href="#prepare-subcontroller" name="prepare-subcontroller" class="anchor"><span class="anchor-link"></span></a>Prepare SubController</h3>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/sapphire-core/tree/master/demos/tutorial/src/main/scala/com/sfxcode/sapphire/core/demo/tutorial/controller/MainController.scala#L13-L22" target="_blank" title="Go to snippet source"></a><code class="language-scala">lazy val workspaceController: WorkspaceController =
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/sapphire-core/tree/v1.6.0/demos/tutorial/src/main/scala/com/sfxcode/sapphire/core/demo/tutorial/controller/MainController.scala#L13-L22" target="_blank" title="Go to snippet source"></a><code class="language-scala">lazy val workspaceController: WorkspaceController =
   getController[WorkspaceController]()
 lazy val barChartController: BarChartController =
   getController[BarChartController]()
@@ -240,18 +240,18 @@ lazy val navigationController: NavigationController =
 lazy val statusBarController: StatusBarController =
   getBean[StatusBarController]()</code></pre>
 <h3><a href="#connect-with-fxml-identifier" name="connect-with-fxml-identifier" class="anchor"><span class="anchor-link"></span></a>Connect with FXML identifier</h3>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/sapphire-core/tree/master/demos/tutorial/src/main/scala/com/sfxcode/sapphire/core/demo/tutorial/controller/MainController.scala#L26-L31" target="_blank" title="Go to snippet source"></a><code class="language-scala">@FXML
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/sapphire-core/tree/v1.6.0/demos/tutorial/src/main/scala/com/sfxcode/sapphire/core/demo/tutorial/controller/MainController.scala#L26-L31" target="_blank" title="Go to snippet source"></a><code class="language-scala">@FXML
 var workspacePane: Pane = _
 @FXML
 var statusPane: Pane = _
 @FXML
 var navigationPane: Pane = _</code></pre>
 <h3><a href="#contentmanager" name="contentmanager" class="anchor"><span class="anchor-link"></span></a>ContentManager</h3>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/sapphire-core/tree/master/demos/tutorial/src/main/scala/com/sfxcode/sapphire/core/demo/tutorial/controller/MainController.scala#L35-L37" target="_blank" title="Go to snippet source"></a><code class="language-scala">var workspaceManager: ContentManager = _
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/sapphire-core/tree/v1.6.0/demos/tutorial/src/main/scala/com/sfxcode/sapphire/core/demo/tutorial/controller/MainController.scala#L35-L37" target="_blank" title="Go to snippet source"></a><code class="language-scala">var workspaceManager: ContentManager = _
 var navigationManager: ContentManager = _
 var statusBarManager: ContentManager = _</code></pre>
 <h3><a href="#init-controller" name="init-controller" class="anchor"><span class="anchor-link"></span></a>Init Controller</h3>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/sapphire-core/tree/master/demos/tutorial/src/main/scala/com/sfxcode/sapphire/core/demo/tutorial/controller/MainController.scala#L41-L48" target="_blank" title="Go to snippet source"></a><code class="language-scala">override def didGainVisibilityFirstTime() {
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/sapphire-core/tree/v1.6.0/demos/tutorial/src/main/scala/com/sfxcode/sapphire/core/demo/tutorial/controller/MainController.scala#L41-L48" target="_blank" title="Go to snippet source"></a><code class="language-scala">override def didGainVisibilityFirstTime() {
   navigationManager =
     ContentManager(navigationPane, this, navigationController)
   statusBarManager =
@@ -261,18 +261,18 @@ var statusBarManager: ContentManager = _</code></pre>
 }</code></pre>
 <h3><a href="#cdi-optional-" name="cdi-optional-" class="anchor"><span class="anchor-link"></span></a>CDI (optional)</h3>
 <p>Make use of CDI Observers, Injection Points, &hellip;</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/sapphire-core/tree/master/demos/tutorial/src/main/scala/com/sfxcode/sapphire/core/demo/tutorial/controller/MainController.scala#L52-L54" target="_blank" title="Go to snippet source"></a><code class="language-scala">def listenToChanges(@Observes event: ContentDidChangeEvent) {
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/sapphire-core/tree/v1.6.0/demos/tutorial/src/main/scala/com/sfxcode/sapphire/core/demo/tutorial/controller/MainController.scala#L52-L54" target="_blank" title="Go to snippet source"></a><code class="language-scala">def listenToChanges(@Observes event: ContentDidChangeEvent) {
   logger.debug(event.toString)
 }</code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/sapphire-core/tree/master/docs/src/main/paradox/tutorial/main_window.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/sapphire-core/tree/v1.6.0/docs/src/main/paradox/tutorial/main_window.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.6.1*
+1.6.0
 </span>
 </div>
 </article>
