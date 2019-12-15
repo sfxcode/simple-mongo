@@ -179,7 +179,7 @@ sfxcode/simple-mongo
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> 1.6.6*
+<i class="md-icon" title="Version">label_outline</i> 1.7.0
 </label>
 </li>
 </ul>
@@ -237,7 +237,7 @@ sfxcode/simple-mongo
   <li>OneToOne loginRelation (LoginDAO, key is id in user collection)</li>
   <li>OneToMany friendsRelation (FriendDAO, key is userId in friend collection)</li>
 </ul>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/relation/RelationDemoDatabase.scala#L45-L48" target="_blank" title="Go to snippet source"></a><code class="language-scala">object UserDAO extends MongoDAO[User](provider, &quot;user&quot;) {
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.7.0/src/test/scala/com/sfxcode/nosql/mongo/relation/RelationDemoDatabase.scala#L45-L48" target="_blank" title="Go to snippet source"></a><code class="language-scala">object UserDAO extends MongoDAO[User](provider, &quot;user&quot;) {
   lazy val loginRelation = OneToOneRelationship(LoginDAO, &quot;id&quot;)
   lazy val friendsRelation = OneToManyRelationship(FriendDAO, &quot;userId&quot;)
 }</code></pre>
@@ -246,7 +246,7 @@ sfxcode/simple-mongo
   <li>login (create an Option of Login)</li>
   <li>friends (create a List of Friend)</li>
 </ul>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/relation/RelationDemoDatabase.scala#L31-L37" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class User(id: Long, name: String, loginId: String) extends Relations {
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.7.0/src/test/scala/com/sfxcode/nosql/mongo/relation/RelationDemoDatabase.scala#L31-L37" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class User(id: Long, name: String, loginId: String) extends Relations {
 
   def login: Option[Login] = relatedRecordForOneToOne(UserDAO.loginRelation, loginId)
 
@@ -255,13 +255,13 @@ sfxcode/simple-mongo
 }</code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/master/docs/src/main/paradox/features/relationships.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/v1.7.0/docs/src/main/paradox/features/relationships.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.6.6*
+1.7.0
 </span>
 </div>
 </article>

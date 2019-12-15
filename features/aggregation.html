@@ -178,7 +178,7 @@ sfxcode/simple-mongo
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> 1.6.6*
+<i class="md-icon" title="Version">label_outline</i> 1.7.0
 </label>
 </li>
 </ul>
@@ -210,10 +210,10 @@ sfxcode/simple-mongo
 <p>MongoDB support an easy to use <a href="https://docs.mongodb.com/manual/aggregation/">Aggregation Handling</a>.</p>
 <h2><a href="#demo" name="demo" class="anchor"><span class="anchor-link"></span></a>Demo</h2>
 <h3><a href="#setup-imports" name="setup-imports" class="anchor"><span class="anchor-link"></span></a>Setup imports</h3>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L4-L5" target="_blank" title="Go to snippet source"></a><code class="language-scala">import com.sfxcode.nosql.mongo.Aggregate._
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.7.0/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L4-L5" target="_blank" title="Go to snippet source"></a><code class="language-scala">import com.sfxcode.nosql.mongo.Aggregate._
 import com.sfxcode.nosql.mongo._</code></pre>
 <h3><a href="#define-stages" name="define-stages" class="anchor"><span class="anchor-link"></span></a>Define stages</h3>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L19-L27" target="_blank" title="Go to snippet source"></a><code class="language-scala">val filterStage: Bson = filter(and(
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.7.0/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L19-L27" target="_blank" title="Go to snippet source"></a><code class="language-scala">val filterStage: Bson = filter(and(
   equal(&quot;gender&quot;, &quot;female&quot;),
   notNullFilter(&quot;balance&quot;)))
 
@@ -224,22 +224,22 @@ val groupStage: Bson = group(
 val sortStage: Bson = sort(sortByKey(&quot;age&quot;))</code></pre>
 <h3><a href="#execute-aggregation" name="execute-aggregation" class="anchor"><span class="anchor-link"></span></a>Execute Aggregation</h3><div class="callout note "><div class="callout-title">Important</div>
 <p>In most cases we have to use the RAW attribute, because the aggregation result not follows the case class pattern. RAW returns always Documents instead of case classes.</p></div>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L44-L47" target="_blank" title="Go to snippet source"></a><code class="language-scala">val aggregator = List(filterStage, groupStage, sortStage)
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.7.0/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L44-L47" target="_blank" title="Go to snippet source"></a><code class="language-scala">val aggregator = List(filterStage, groupStage, sortStage)
 
 val aggregated = PersonDAO.Raw.findAggregated(aggregator).resultList()
 </code></pre>
 <h3><a href="#convert-result" name="convert-result" class="anchor"><span class="anchor-link"></span></a>Convert Result</h3>
 <p>For easy result handling, using the implicit Document to Map conversion can be useful.</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L53" target="_blank" title="Go to snippet source"></a><code class="language-scala">val list: List[Map[String, Any]] = aggregated</code></pre>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.7.0/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L53" target="_blank" title="Go to snippet source"></a><code class="language-scala">val list: List[Map[String, Any]] = aggregated</code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/master/docs/src/main/paradox/features/aggregation.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/v1.7.0/docs/src/main/paradox/features/aggregation.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.6.6*
+1.7.0
 </span>
 </div>
 </article>

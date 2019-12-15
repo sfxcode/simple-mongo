@@ -178,7 +178,7 @@ sfxcode/simple-mongo
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> 1.6.6*
+<i class="md-icon" title="Version">label_outline</i> 1.7.0
 </label>
 </li>
 </ul>
@@ -232,7 +232,7 @@ sfxcode/simple-mongo
 </code></pre>
 <h3><a href="#raw-support" name="raw-support" class="anchor"><span class="anchor-link"></span></a>Raw Support</h3>
 <p>Sometimes we need Raw Support (DAO maps to Document). This is automatically included in the MongoDAO class. Simply call Raw on your DAO Object.</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/master/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L44-L47" target="_blank" title="Go to snippet source"></a><code class="language-scala">val aggregator = List(filterStage, groupStage, sortStage)
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.7.0/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L44-L47" target="_blank" title="Go to snippet source"></a><code class="language-scala">val aggregator = List(filterStage, groupStage, sortStage)
 
 val aggregated = PersonDAO.Raw.findAggregated(aggregator).resultList()
 </code></pre>
@@ -259,13 +259,13 @@ def dropIndexForName(name: String): SingleObservable[Completed]
 </code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/master/docs/src/main/paradox/dao/base.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/v1.7.0/docs/src/main/paradox/dao/base.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.6.6*
+1.7.0
 </span>
 </div>
 </article>
