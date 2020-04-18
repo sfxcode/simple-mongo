@@ -149,7 +149,7 @@ sfxcode/simple-mongo
   </ul></li>
   <li><a href="../features/index.html" class="page">Features</a>
   <ul>
-    <li><a href="../features/aggregation.html" class="page">Aggregation</a></li>
+    <li><a href="../features/aggregation.html" class="page">Info</a></li>
     <li><a href="../features/relationships.html" class="page">Relationships</a></li>
     <li><a href="../features/observable.html" class="page">Observable</a></li>
     <li><a href="../features/converter.html" class="page">Converter</a></li>
@@ -182,7 +182,7 @@ sfxcode/simple-mongo
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> 1.7.0
+<i class="md-icon" title="Version">label_outline</i> 1.8.0
 </label>
 </li>
 </ul>
@@ -217,7 +217,7 @@ sfxcode/simple-mongo
 <h2><a href="#info" name="info" class="anchor"><span class="anchor-link"></span></a>Info</h2>
 <p>The database provides static import to our <a href="https://en.wikipedia.org/wiki/Data_access_object">DAO</a> objects.</p>
 <h2><a href="#imports" name="imports" class="anchor"><span class="anchor-link"></span></a>Imports</h2>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.7.0/src/test/scala/com/sfxcode/nosql/mongo/demo/restaurant/RestaurantDemoDatabase.scala#L4-L10" target="_blank" title="Go to snippet source"></a><code class="language-scala">import java.util.Date
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.8.0/src/test/scala/com/sfxcode/nosql/mongo/demo/restaurant/RestaurantDemoDatabase.scala#L4-L10" target="_blank" title="Go to snippet source"></a><code class="language-scala">import java.util.Date
 
 import com.sfxcode.nosql.mongo.MongoDAO
 import com.sfxcode.nosql.mongo.database.DatabaseProvider
@@ -225,26 +225,27 @@ import org.bson.codecs.configuration.CodecRegistries._
 import org.mongodb.scala.bson.ObjectId
 import org.mongodb.scala.bson.codecs.Macros._</code></pre>
 <h2><a href="#case-classes-for-document-representation" name="case-classes-for-document-representation" class="anchor"><span class="anchor-link"></span></a>case classes for document representation</h2>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.7.0/src/test/scala/com/sfxcode/nosql/mongo/demo/restaurant/RestaurantDemoDatabase.scala#L19-L28" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class Address(street: String, building: String,
-  zipcode: String, coord: List[Double])
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.8.0/src/test/scala/com/sfxcode/nosql/mongo/demo/restaurant/RestaurantDemoDatabase.scala#L19-L31" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class Address(street: String, building: String, zipcode: String, coord: List[Double])
 
 case class Grade(date: Date, grade: String, score: Int)
 
-case class Restaurant(restaurant_id: String, name: String,
-  borough: String, cuisine: String,
-  grades: List[Grade], address: Address,
+case class Restaurant(
+  restaurant_id: String,
+  name: String,
+  borough: String,
+  cuisine: String,
+  grades: List[Grade],
+  address: Address,
   _id: ObjectId = new ObjectId())
 </code></pre>
 <h2><a href="#registry-and-database" name="registry-and-database" class="anchor"><span class="anchor-link"></span></a>Registry and database</h2>
 <p>scala-mongo-driver use a registry pattern for deserialization</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.7.0/src/test/scala/com/sfxcode/nosql/mongo/demo/restaurant/RestaurantDemoDatabase.scala#L32-L37" target="_blank" title="Go to snippet source"></a><code class="language-scala">private val registry = fromProviders(
-  classOf[Restaurant],
-  classOf[Address], classOf[Grade])
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.8.0/src/test/scala/com/sfxcode/nosql/mongo/demo/restaurant/RestaurantDemoDatabase.scala#L35-L38" target="_blank" title="Go to snippet source"></a><code class="language-scala">private val registry = fromProviders(classOf[Restaurant], classOf[Address], classOf[Grade])
 
 val provider = DatabaseProvider.fromPath(&quot;test.mongo&quot;, registry)
 </code></pre>
 <h2><a href="#restaurant-dao" name="restaurant-dao" class="anchor"><span class="anchor-link"></span></a>Restaurant DAO</h2>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.7.0/src/test/scala/com/sfxcode/nosql/mongo/demo/restaurant/RestaurantDemoDatabase.scala#L41-L42" target="_blank" title="Go to snippet source"></a><code class="language-scala">object RestaurantDAO extends MongoDAO[Restaurant](provider, &quot;another_database_name:restaurants&quot;)
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.8.0/src/test/scala/com/sfxcode/nosql/mongo/demo/restaurant/RestaurantDemoDatabase.scala#L42-L43" target="_blank" title="Go to snippet source"></a><code class="language-scala">object RestaurantDAO extends MongoDAO[Restaurant](provider, &quot;another_database_name:restaurants&quot;)
 </code></pre>
 <h2><a href="#usage" name="usage" class="anchor"><span class="anchor-link"></span></a>Usage</h2>
 <ul>
@@ -272,13 +273,13 @@ object RestaurantDAO extends MongoDAO[Restaurant](database, &quot;restaurants&qu
 </code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/v1.7.0/docs/src/main/paradox/tutorial/database.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/v1.8.0/docs/src/main/paradox/tutorial/database.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.7.0
+1.8.0
 </span>
 </div>
 </article>

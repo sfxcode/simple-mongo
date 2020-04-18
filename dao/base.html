@@ -149,7 +149,7 @@ sfxcode/simple-mongo
   </ul></li>
   <li><a href="../features/index.html" class="page">Features</a>
   <ul>
-    <li><a href="../features/aggregation.html" class="page">Aggregation</a></li>
+    <li><a href="../features/aggregation.html" class="page">Info</a></li>
     <li><a href="../features/relationships.html" class="page">Relationships</a></li>
     <li><a href="../features/observable.html" class="page">Observable</a></li>
     <li><a href="../features/converter.html" class="page">Converter</a></li>
@@ -178,7 +178,7 @@ sfxcode/simple-mongo
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> 1.7.0
+<i class="md-icon" title="Version">label_outline</i> 1.8.0
 </label>
 </li>
 </ul>
@@ -232,14 +232,14 @@ sfxcode/simple-mongo
 </code></pre>
 <h3><a href="#raw-support" name="raw-support" class="anchor"><span class="anchor-link"></span></a>Raw Support</h3>
 <p>Sometimes we need Raw Support (DAO maps to Document). This is automatically included in the MongoDAO class. Simply call Raw on your DAO Object.</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.7.0/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L44-L47" target="_blank" title="Go to snippet source"></a><code class="language-scala">val aggregator = List(filterStage, groupStage, sortStage)
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.8.0/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L40-L43" target="_blank" title="Go to snippet source"></a><code class="language-scala">val aggregator = List(filterStage, groupStage, sortStage)
 
 val aggregated = PersonDAO.Raw.findAggregated(aggregator).resultList()
 </code></pre>
 <h2><a href="#base-functions" name="base-functions" class="anchor"><span class="anchor-link"></span></a>Base Functions</h2>
 <h3><a href="#drop" name="drop" class="anchor"><span class="anchor-link"></span></a>Drop</h3>
 <p>Drop Collection.</p>
-<pre class="prettyprint"><code class="language-scala">def drop(): Observable[Completed]
+<pre class="prettyprint"><code class="language-scala">def drop(): Observable[Void]
 </code></pre>
 <h3><a href="#count" name="count" class="anchor"><span class="anchor-link"></span></a>Count</h3>
 <p>Count of collection with optional filter.</p>
@@ -251,21 +251,21 @@ val aggregated = PersonDAO.Raw.findAggregated(aggregator).resultList()
 // Simple Index creation
 def createIndexForField(field: String, sortAscending: Boolean = true): SingleObservable[String]
 
-def dropIndex(keys: Bson): SingleObservable[Completed]
+def dropIndex(keys: Bson): SingleObservable[Void]
 
 // Simple Index delete
-def dropIndexForName(name: String): SingleObservable[Completed]
+def dropIndexForName(name: String): SingleObservable[Void]
 
 </code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/v1.7.0/docs/src/main/paradox/dao/base.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/v1.8.0/docs/src/main/paradox/dao/base.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.7.0
+1.8.0
 </span>
 </div>
 </article>
