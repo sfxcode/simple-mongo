@@ -20,7 +20,7 @@
 
 <meta name="description" content="simple mongo docs">
 <link rel="shortcut icon" href="assets/images/favicon.png">
-<title>DatabaseProvider · simple-mongo</title>
+<title>Database · simple-mongo</title>
 <link rel="stylesheet" href="assets/stylesheets/application.451f80e5.css">
 <link rel="stylesheet" href="lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="lib/prettify/prettify.css">
@@ -56,7 +56,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 simple-mongo
 </span>
 <span class="md-header-nav__topic">
-DatabaseProvider
+Database
 </span>
 </div>
 </div>
@@ -135,7 +135,7 @@ sfxcode/simple-mongo
 
 </div>
 <ul>
-  <li><a href="database_provider.html" class="active page">DatabaseProvider</a></li>
+  <li><a href="database_provider.html" class="active page">Database</a></li>
   <li><a href="dao/index.html" class="page">MongoDAO</a>
   <ul>
     <li><a href="dao/base.html" class="page">MongoDAO Base</a></li>
@@ -147,33 +147,28 @@ sfxcode/simple-mongo
     <li><a href="gridfs/crud.html" class="page">CRUD Functions</a></li>
     <li><a href="gridfs/metadata.html" class="page">Metadata</a></li>
   </ul></li>
-  <li><a href="features/index.html" class="page">Features</a>
+  <li><a href="reactive_streams.html" class="page">Reactive Streams</a></li>
+  <li><a href="features/index.html" class="page">Additional Features</a>
   <ul>
     <li><a href="features/aggregation.html" class="page">Info</a></li>
     <li><a href="features/relationships.html" class="page">Relationships</a></li>
     <li><a href="features/observable.html" class="page">Observable</a></li>
     <li><a href="features/converter.html" class="page">Converter</a></li>
   </ul></li>
-  <li><a href="tutorial/index.html" class="page">Tutorial</a>
-  <ul>
-    <li><a href="tutorial/setup.html" class="page">Part 1 - Setup</a></li>
-    <li><a href="tutorial/database.html" class="page">Part 2 - Database</a></li>
-    <li><a href="tutorial/functions.html" class="page">Part 3 - Functions</a></li>
-    <li><a href="tutorial/application.html" class="page">Part 4 - Application</a></li>
-  </ul></li>
   <li><a href="changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="database_provider.html#databaseprovider" class="header">DatabaseProvider</a>
+  <li><a href="database_provider.html#database" class="header">Database</a>
   <ul>
-    <li><a href="database_provider.html#mongoconfig" class="header">MongoConfig</a></li>
-    <li><a href="database_provider.html#mongopooloptions" class="header">MongoPoolOptions</a></li>
-    <li><a href="database_provider.html#create-mongoconfig-with-properties" class="header">Create MongoConfig with properties</a></li>
-    <li><a href="database_provider.html#create-mongoconfig-with-config" class="header">Create MongoConfig with config</a></li>
+    <li><a href="database_provider.html#databaseprovider" class="header">DatabaseProvider</a></li>
+    <li><a href="database_provider.html#create-mongoconfig-with-application-conf" class="header">Create MongoConfig with application.conf</a></li>
     <li><a href="database_provider.html#create-mongoconfig-with-custom-clientsettings" class="header">Create MongoConfig with custom ClientSettings</a></li>
     <li><a href="database_provider.html#registries" class="header">Registries</a></li>
+    <li><a href="database_provider.html#mongoconfig-options" class="header">MongoConfig Options</a></li>
+    <li><a href="database_provider.html#mongoconfig-pool-options" class="header">MongoConfig Pool Options</a></li>
+    <li><a href="database_provider.html#multiple-databases-access" class="header">Multiple databases access</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -182,7 +177,7 @@ sfxcode/simple-mongo
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> 1.8.0
+<i class="md-icon" title="Version">label_outline</i> 1.9.3
 </label>
 </li>
 </ul>
@@ -195,14 +190,15 @@ sfxcode/simple-mongo
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="database_provider.html#databaseprovider" class="header">DatabaseProvider</a>
+  <li><a href="database_provider.html#database" class="header">Database</a>
   <ul>
-    <li><a href="database_provider.html#mongoconfig" class="header">MongoConfig</a></li>
-    <li><a href="database_provider.html#mongopooloptions" class="header">MongoPoolOptions</a></li>
-    <li><a href="database_provider.html#create-mongoconfig-with-properties" class="header">Create MongoConfig with properties</a></li>
-    <li><a href="database_provider.html#create-mongoconfig-with-config" class="header">Create MongoConfig with config</a></li>
+    <li><a href="database_provider.html#databaseprovider" class="header">DatabaseProvider</a></li>
+    <li><a href="database_provider.html#create-mongoconfig-with-application-conf" class="header">Create MongoConfig with application.conf</a></li>
     <li><a href="database_provider.html#create-mongoconfig-with-custom-clientsettings" class="header">Create MongoConfig with custom ClientSettings</a></li>
     <li><a href="database_provider.html#registries" class="header">Registries</a></li>
+    <li><a href="database_provider.html#mongoconfig-options" class="header">MongoConfig Options</a></li>
+    <li><a href="database_provider.html#mongoconfig-pool-options" class="header">MongoConfig Pool Options</a></li>
+    <li><a href="database_provider.html#multiple-databases-access" class="header">Multiple databases access</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -213,10 +209,67 @@ sfxcode/simple-mongo
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#databaseprovider" name="databaseprovider" class="anchor"><span class="anchor-link"></span></a>DatabaseProvider</h1>
-<p>DatabaseProvider is the central repository for MongoClient, databases, collections. It is referenced by the <a href="dao/index.html">MongoDAO</a> Patttern.</p>
-<h2><a href="#mongoconfig" name="mongoconfig" class="anchor"><span class="anchor-link"></span></a>MongoConfig</h2>
-<p>MongoConfig holds all the neded Data for creating a MongoClient. It is used for DatabaseProvider creation.</p>
+<h1><a href="#database" name="database" class="anchor"><span class="anchor-link"></span></a>Database</h1>
+<p>Database Connection can be done using MongConfig.</p>
+<p>DatabaseProvider Instance contains setup for registries and databases.</p>
+<p>Database provider will ues database by name from MongoConfig by default. Multiple databases access is supported on the same client is supported. For different MongoDBs you have to use different providers.</p>
+<h2><a href="#databaseprovider" name="databaseprovider" class="anchor"><span class="anchor-link"></span></a>DatabaseProvider</h2>
+<p>DatabaseProvider is the central repository for MongoClient, registries, databases and collections.</p>
+<p>Every <a href="dao/index.html">MongoDAO</a> / <a href="gridfs/index.html">GridFSDAO</a> Instance needs this class.</p>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/docs/src/main/scala/DatabaseProviderDoc.scala#L27-L32" target="_blank" title="Go to snippet source"></a><code class="language-scala">val provider: DatabaseProvider = DatabaseProvider(MongoConfig.fromPath())
+
+val database: MongoDatabase = provider.database()
+
+val databaseNames: Observable[String]   = provider.databaseNames()
+val collectionNames: Observable[String] = provider.collectionNames()</code></pre>
+<h2><a href="#create-mongoconfig-with-application-conf" name="create-mongoconfig-with-application-conf" class="anchor"><span class="anchor-link"></span></a>Create MongoConfig with application.conf</h2>
+<h3><a href="#with-default-path" name="with-default-path" class="anchor"><span class="anchor-link"></span></a>With default path</h3>
+<p>Default path in application.conf: mongo</p>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/docs/src/main/resources/docs.conf#L3-L14" target="_blank" title="Go to snippet source"></a><code class="language-conf">mongo {
+  database = &quot;university&quot;
+  host = &quot;localhost&quot;
+  port = 270007
+  applicationName = &quot;mongo.db.sample&quot;
+  userName = &quot;standard_user&quot;
+  password = &quot;change_me&quot;
+  pool {
+    minSize = 5
+    maxSize = 100
+  }
+}</code></pre>
+<p>Scala Code Snippet</p>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/docs/src/main/scala/DatabaseProviderDoc.scala#L19" target="_blank" title="Go to snippet source"></a><code class="language-scala">val config: MongoConfig = MongoConfig.fromPath()</code></pre>
+<h3><a href="#with-custom-path" name="with-custom-path" class="anchor"><span class="anchor-link"></span></a>With custom path</h3>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/docs/src/main/resources/docs.conf#L19-L26" target="_blank" title="Go to snippet source"></a><code class="language-conf">mongo.db.test {
+  database = &quot;unit_test&quot;
+  host = &quot;localhost&quot;
+  port = 270007
+  applicationName = &quot;mongo.db.unit.test&quot;
+  userName = &quot;unit_test&quot;
+  password = &quot;change_me&quot;
+}</code></pre>
+<p>Scala Code Snippet</p>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/docs/src/main/scala/DatabaseProviderDoc.scala#L23" target="_blank" title="Go to snippet source"></a><code class="language-scala">val customConfig: MongoConfig = MongoConfig.fromPath(&quot;mongo.db.prod&quot;)</code></pre>
+<h2><a href="#create-mongoconfig-with-custom-clientsettings" name="create-mongoconfig-with-custom-clientsettings" class="anchor"><span class="anchor-link"></span></a>Create MongoConfig with custom ClientSettings</h2>
+<pre class="prettyprint"><code class="language-scala"><br/>val config = MongoConfig(&quot;my_database&quot;, customClientSettings = Some(myClientSettings))
+</code></pre>
+<h2><a href="#registries" name="registries" class="anchor"><span class="anchor-link"></span></a>Registries</h2><div class="callout note "><div class="callout-title">ScalaDriverDocs</div>
+<p>Additional Info for <a href="https://mongodb.github.io/mongo-java-driver/4.0/driver-scala/getting-started/quick-start-case-class/#configuring-case-classes">Registries</a></p></div>
+<h3><a href="#create-case-classes" name="create-case-classes" class="anchor"><span class="anchor-link"></span></a>Create Case Classes</h3>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/docs/src/main/scala/DatabaseProviderDoc.scala#L9-L13" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class Student(_id: Long, name: String, scores: List[Score])
+
+case class Score(score: Double, `type`: String)
+
+case class Grade(_id: ObjectId, student_id: Long, class_id: Long, scores: List[Score])</code></pre>
+<h3><a href="#create-registry" name="create-registry" class="anchor"><span class="anchor-link"></span></a>Create Registry</h3>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/docs/src/main/scala/DatabaseProviderDoc.scala#L36-L40" target="_blank" title="Go to snippet source"></a><code class="language-scala">val registry: CodecRegistry =
+  fromProviders(classOf[Student], classOf[Score], classOf[Grade])
+
+val providerWithRegistry: DatabaseProvider =
+  DatabaseProvider(MongoConfig.fromPath(), registry)</code></pre>
+<h2><a href="#mongoconfig-options" name="mongoconfig-options" class="anchor"><span class="anchor-link"></span></a>MongoConfig Options</h2>
+<p>MongoConfig holds all the neded Data for creating a MongoClient.</p>
+<p>It is used for DatabaseProvider creation.</p>
 <table>
   <thead>
     <tr>
@@ -262,13 +315,18 @@ sfxcode/simple-mongo
       <td align="left">MongoPoolOptions() </td>
     </tr>
     <tr>
+      <td align="left">compressors </td>
+      <td align="left">List: zlib, snappy, zstd </td>
+      <td align="left">List() </td>
+    </tr>
+    <tr>
       <td align="left">customClientSettings </td>
       <td align="left"> </td>
       <td align="left">None </td>
     </tr>
   </tbody>
 </table>
-<h2><a href="#mongopooloptions" name="mongopooloptions" class="anchor"><span class="anchor-link"></span></a>MongoPoolOptions</h2>
+<h2><a href="#mongoconfig-pool-options" name="mongoconfig-pool-options" class="anchor"><span class="anchor-link"></span></a>MongoConfig Pool Options</h2>
 <table>
   <thead>
     <tr>
@@ -290,51 +348,21 @@ sfxcode/simple-mongo
       <td align="left">0 </td>
     </tr>
     <tr>
-      <td align="left">maxWaitQueueSize </td>
-      <td align="left">500 </td>
-    </tr>
-    <tr>
       <td align="left">DefaultMaintenanceInitialDelay </td>
       <td align="left">0 </td>
     </tr>
   </tbody>
 </table>
-<h2><a href="#create-mongoconfig-with-properties" name="create-mongoconfig-with-properties" class="anchor"><span class="anchor-link"></span></a>Create MongoConfig with properties</h2>
-<p>Example:</p>
-<pre class="prettyprint"><code class="language-scala"><br/>val config = MongoConfig(&quot;my_database&quot;, host = &quot;localhost&quot;,
-        applicationName = &quot;Awesome Application Name&quot;)
-
-</code></pre>
-<h2><a href="#create-mongoconfig-with-config" name="create-mongoconfig-with-config" class="anchor"><span class="anchor-link"></span></a>Create MongoConfig with config</h2>
-<p>Create application.conf:</p>
-<pre class="prettyprint"><code class="language-hocon"><br/>config.test.auth.mongo {
-  database = &quot;another_database&quot;
-  host = &quot;localhost&quot;
-  port = 270007
-  applicationName = &quot;simple-mongo-config-test-with-auth&quot;
-  userName = &quot;admin_user&quot;
-  password = &quot;1234&quot;
-  pool {
-    minSize = 5
-    maxSize = 100
-  }
-
-</code></pre>
-<pre class="prettyprint"><code class="language-scala">val config = MongoConfig.fromPath(&quot;config.test.auth.mongo&quot;)
-</code></pre>
-<h2><a href="#create-mongoconfig-with-custom-clientsettings" name="create-mongoconfig-with-custom-clientsettings" class="anchor"><span class="anchor-link"></span></a>Create MongoConfig with custom ClientSettings</h2>
-<pre class="prettyprint"><code class="language-scala"><br/>val config = MongoConfig(&quot;my_database&quot;, customClientSettings = Some(myClientSettings))
-</code></pre>
-<h2><a href="#registries" name="registries" class="anchor"><span class="anchor-link"></span></a>Registries</h2>
+<h2><a href="#multiple-databases-access" name="multiple-databases-access" class="anchor"><span class="anchor-link"></span></a>Multiple databases access</h2>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/v1.8.0/docs/src/main/paradox/database_provider.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/docs/src/main/paradox/database_provider.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.8.0
+1.9.3
 </span>
 </div>
 </article>

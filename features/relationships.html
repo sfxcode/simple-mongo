@@ -135,7 +135,7 @@ sfxcode/simple-mongo
 
 </div>
 <ul>
-  <li><a href="../database_provider.html" class="page">DatabaseProvider</a></li>
+  <li><a href="../database_provider.html" class="page">Database</a></li>
   <li><a href="../dao/index.html" class="page">MongoDAO</a>
   <ul>
     <li><a href="../dao/base.html" class="page">MongoDAO Base</a></li>
@@ -147,19 +147,13 @@ sfxcode/simple-mongo
     <li><a href="../gridfs/crud.html" class="page">CRUD Functions</a></li>
     <li><a href="../gridfs/metadata.html" class="page">Metadata</a></li>
   </ul></li>
-  <li><a href="../features/index.html" class="page">Features</a>
+  <li><a href="../reactive_streams.html" class="page">Reactive Streams</a></li>
+  <li><a href="../features/index.html" class="page">Additional Features</a>
   <ul>
     <li><a href="../features/aggregation.html" class="page">Info</a></li>
     <li><a href="../features/relationships.html" class="active page">Relationships</a></li>
     <li><a href="../features/observable.html" class="page">Observable</a></li>
     <li><a href="../features/converter.html" class="page">Converter</a></li>
-  </ul></li>
-  <li><a href="../tutorial/index.html" class="page">Tutorial</a>
-  <ul>
-    <li><a href="../tutorial/setup.html" class="page">Part 1 - Setup</a></li>
-    <li><a href="../tutorial/database.html" class="page">Part 2 - Database</a></li>
-    <li><a href="../tutorial/functions.html" class="page">Part 3 - Functions</a></li>
-    <li><a href="../tutorial/application.html" class="page">Part 4 - Application</a></li>
   </ul></li>
   <li><a href="../changes.html" class="page">Version History</a></li>
 </ul>
@@ -179,7 +173,7 @@ sfxcode/simple-mongo
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> 1.8.0
+<i class="md-icon" title="Version">label_outline</i> 1.9.3
 </label>
 </li>
 </ul>
@@ -237,31 +231,31 @@ sfxcode/simple-mongo
   <li>OneToOne loginRelation (LoginDAO, key is id in user collection)</li>
   <li>OneToMany friendsRelation (FriendDAO, key is userId in friend collection)</li>
 </ul>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.8.0/src/test/scala/com/sfxcode/nosql/mongo/relation/RelationDemoDatabase.scala#L43-L46" target="_blank" title="Go to snippet source"></a><code class="language-scala">object UserDAO extends MongoDAO[User](provider, &quot;user&quot;) {
-  lazy val loginRelation = OneToOneRelationship(LoginDAO, &quot;id&quot;)
-  lazy val friendsRelation = OneToManyRelationship(FriendDAO, &quot;userId&quot;)
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/src/test/scala/com/sfxcode/nosql/mongo/relation/RelationDemoDatabase.scala#L43-L46" target="_blank" title="Go to snippet source"></a><code class="language-scala">object UserDAO extends MongoDAO[User](provider, &quot;user&quot;) {
+  lazy val loginRelation   = OneToOneRelationship(LoginDAO, &quot;id&quot;)
+  lazy val friendsRelation = OneToManyRelationship(SimplePersonDAO, &quot;userId&quot;)
 }</code></pre>
 <p>We extend the User case class with the Relations trait and add relation specific functions.</p>
 <ul>
   <li>login (create an Option of Login)</li>
   <li>friends (create a List of Friend)</li>
 </ul>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.8.0/src/test/scala/com/sfxcode/nosql/mongo/relation/RelationDemoDatabase.scala#L29-L35" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class User(id: Long, name: String, loginId: String) extends Relations {
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/src/test/scala/com/sfxcode/nosql/mongo/relation/RelationDemoDatabase.scala#L29-L35" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class User(id: Long, name: String, loginId: String) extends Relations {
 
   def login: Option[Login] = relatedRecordForOneToOne(UserDAO.loginRelation, loginId)
 
-  def friends: List[Friend] = relatedRecordForOneToMany(UserDAO.friendsRelation, id)
+  def friends: List[SimplePerson] = relatedRecordForOneToMany(UserDAO.friendsRelation, id)
 
 }</code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/v1.8.0/docs/src/main/paradox/features/relationships.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/docs/src/main/paradox/features/relationships.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.8.0
+1.9.3
 </span>
 </div>
 </article>
