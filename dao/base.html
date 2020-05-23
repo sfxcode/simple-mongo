@@ -135,7 +135,14 @@ sfxcode/simple-mongo
 
 </div>
 <ul>
-  <li><a href="../database_provider.html" class="page">Database</a></li>
+  <li><a href="../database/index.html" class="page">Database</a>
+  <ul>
+    <li><a href="../database/config.html" class="page">MongConfig</a></li>
+    <li><a href="../database/provider.html" class="page">DatabaseProvider</a></li>
+    <li><a href="../database/reactive_streams.html" class="page">Reactive Streams</a></li>
+    <li><a href="../database/bson.html" class="page">Bson</a></li>
+    <li><a href="../database/relationships.html" class="page">Relationships</a></li>
+  </ul></li>
   <li><a href="../dao/index.html" class="page">MongoDAO</a>
   <ul>
     <li><a href="../dao/base.html" class="active page">MongoDAO Base</a></li>
@@ -147,14 +154,11 @@ sfxcode/simple-mongo
     <li><a href="../gridfs/crud.html" class="page">CRUD Functions</a></li>
     <li><a href="../gridfs/metadata.html" class="page">Metadata</a></li>
   </ul></li>
-  <li><a href="../reactive_streams.html" class="page">Reactive Streams</a></li>
-  <li><a href="../features/index.html" class="page">Additional Features</a>
+  <li><a href="../collection/index.html" class="page">Collection</a>
   <ul>
-    <li><a href="../features/aggregation.html" class="page">Info</a></li>
-    <li><a href="../features/relationships.html" class="page">Relationships</a></li>
-    <li><a href="../features/observable.html" class="page">Observable</a></li>
-    <li><a href="../features/converter.html" class="page">Converter</a></li>
+    <li><a href="../collection/aggregation.html" class="page">Aggregation</a></li>
   </ul></li>
+  <li><a href="../server.html" class="page">LocalServer</a></li>
   <li><a href="../changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
@@ -172,7 +176,7 @@ sfxcode/simple-mongo
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> 1.9.3
+<i class="md-icon" title="Version">label_outline</i> 2.0.1
 </label>
 </li>
 </ul>
@@ -226,9 +230,9 @@ sfxcode/simple-mongo
 </code></pre>
 <h3><a href="#raw-support" name="raw-support" class="anchor"><span class="anchor-link"></span></a>Raw Support</h3>
 <p>Sometimes we need Raw Support (DAO maps to Document). This is automatically included in the MongoDAO class. Simply call Raw on your DAO Object.</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L38-L41" target="_blank" title="Go to snippet source"></a><code class="language-scala">val aggregator = List(filterStage, groupStage, sortStage)
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L38-L41" target="_blank" title="Go to snippet source"></a><code class="language-scala">val pipeline = List(filterStage, groupStage, sortStage)
 
-val aggregated = PersonDAO.Raw.findAggregated(aggregator).resultList()
+val aggregated = PersonDAO.Raw.findAggregated(pipeline).resultList()
 </code></pre>
 <h2><a href="#base-functions" name="base-functions" class="anchor"><span class="anchor-link"></span></a>Base Functions</h2>
 <h3><a href="#drop" name="drop" class="anchor"><span class="anchor-link"></span></a>Drop</h3>
@@ -253,13 +257,13 @@ def dropIndexForName(name: String): SingleObservable[Void]
 </code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/docs/src/main/paradox/dao/base.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/docs/src/main/paradox/dao/base.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.9.3
+2.0.1
 </span>
 </div>
 </article>

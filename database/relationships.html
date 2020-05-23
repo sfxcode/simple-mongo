@@ -20,7 +20,7 @@
 
 <meta name="description" content="simple mongo docs">
 <link rel="shortcut icon" href="../assets/images/favicon.png">
-<title>CRUD Functions · simple-mongo</title>
+<title>Relationships · simple-mongo</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.451f80e5.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -56,7 +56,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 simple-mongo
 </span>
 <span class="md-header-nav__topic">
-CRUD Functions
+Relationships
 </span>
 </div>
 </div>
@@ -141,12 +141,12 @@ sfxcode/simple-mongo
     <li><a href="../database/provider.html" class="page">DatabaseProvider</a></li>
     <li><a href="../database/reactive_streams.html" class="page">Reactive Streams</a></li>
     <li><a href="../database/bson.html" class="page">Bson</a></li>
-    <li><a href="../database/relationships.html" class="page">Relationships</a></li>
+    <li><a href="../database/relationships.html" class="active page">Relationships</a></li>
   </ul></li>
   <li><a href="../dao/index.html" class="page">MongoDAO</a>
   <ul>
     <li><a href="../dao/base.html" class="page">MongoDAO Base</a></li>
-    <li><a href="../dao/crud.html" class="active page">CRUD Functions</a></li>
+    <li><a href="../dao/crud.html" class="page">CRUD Functions</a></li>
     <li><a href="../dao/search.html" class="page">Search Functions</a></li>
   </ul></li>
   <li><a href="../gridfs/index.html" class="page">GridFSDAO</a>
@@ -164,12 +164,11 @@ sfxcode/simple-mongo
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../dao/crud.html#crud-functions" class="header">CRUD Functions</a>
+  <li><a href="../database/relationships.html#relationships" class="header">Relationships</a>
   <ul>
-    <li><a href="../dao/crud.html#info" class="header">Info</a></li>
-    <li><a href="../dao/crud.html#create" class="header">Create</a></li>
-    <li><a href="../dao/crud.html#update" class="header">Update</a></li>
-    <li><a href="../dao/crud.html#delete" class="header">Delete</a></li>
+    <li><a href="../database/relationships.html#info" class="header">Info</a></li>
+    <li><a href="../database/relationships.html#relations-trait" class="header">Relations trait</a></li>
+    <li><a href="../database/relationships.html#demo" class="header">Demo</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -191,12 +190,11 @@ sfxcode/simple-mongo
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../dao/crud.html#crud-functions" class="header">CRUD Functions</a>
+  <li><a href="../database/relationships.html#relationships" class="header">Relationships</a>
   <ul>
-    <li><a href="../dao/crud.html#info" class="header">Info</a></li>
-    <li><a href="../dao/crud.html#create" class="header">Create</a></li>
-    <li><a href="../dao/crud.html#update" class="header">Update</a></li>
-    <li><a href="../dao/crud.html#delete" class="header">Delete</a></li>
+    <li><a href="../database/relationships.html#info" class="header">Info</a></li>
+    <li><a href="../database/relationships.html#relations-trait" class="header">Relations trait</a></li>
+    <li><a href="../database/relationships.html#demo" class="header">Demo</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -207,39 +205,55 @@ sfxcode/simple-mongo
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#crud-functions" name="crud-functions" class="anchor"><span class="anchor-link"></span></a>CRUD Functions</h1>
+<h1><a href="#relationships" name="relationships" class="anchor"><span class="anchor-link"></span></a>Relationships</h1>
 <h2><a href="#info" name="info" class="anchor"><span class="anchor-link"></span></a>Info</h2>
-<p><a href="index.html">MongoDAO</a> CRUD Collection functions.</p>
-<h2><a href="#create" name="create" class="anchor"><span class="anchor-link"></span></a>Create</h2>
-<pre class="prettyprint"><code class="language-scala"><br/>def insertOne(value: A): Observable[Void]
-
-def insertOne(value: A), options: InsertOneOptions: Observable[Void]
-
-def insertMany(values: Seq[A]): Observable[Void]
-
-def insertMany(values: Seq[A], options: InsertManyOptions): Observable[Void]
-
+<p>Normal Relationship handling is the use of <a href="https://docs.mongodb.com/manual/tutorial/model-embedded-one-to-one-relationships-between-documents/">embedded documents</a>. However, sometimes there is a need for <a href="https://docs.mongodb.com/manual/tutorial/model-referenced-one-to-many-relationships-between-documents/">relationsips beetween collections</a>. There is a Relations Trait to be used in case classes for easy relationship handling.</p>
+<h2><a href="#relations-trait" name="relations-trait" class="anchor"><span class="anchor-link"></span></a>Relations trait</h2>
+<p>The Relations trait extends DAO case classes with relationship functions.</p>
+<ul>
+  <li>relatedRecordForOneToOne (OneToOneRelationship and reference vlue needed)</li>
+  <li>relatedRecordsForOneToMany (OneToManyRelationship and reference vlue needed)</li>
+</ul>
+<h2><a href="#demo" name="demo" class="anchor"><span class="anchor-link"></span></a>Demo</h2>
+<p>Simple Setup.</p>
+<ul>
+  <li>User Collection(should have one login and multiple friends)</li>
+  <li>Login Collection</li>
+  <li>Friend Collection</li>
+</ul>
+<pre class="prettyprint"><code class="language-scala"><br/>  case class User(id: Long, name: String, loginId: String)
+  case class Login(id: String, email: String, password: String)
+  case class Friend(id: Long, name: String, userId: Long)
+  
+  object UserDAO extends MongoDAO[User](database, &quot;user&quot;) 
+  object LoginDAO extends MongoDAO[Login](database, &quot;login&quot;)
+  object FriendDAO extends MongoDAO[Friend](database, &quot;friend&quot;)
+  
 </code></pre>
-<h2><a href="#update" name="update" class="anchor"><span class="anchor-link"></span></a>Update</h2>
-<pre class="prettyprint"><code class="language-scala"><br/>def replaceOne(value: A): Observable[UpdateResult]
+<p>For relationship setup we create two Relationships in the UserDAO.</p>
+<ul>
+  <li>OneToOne loginRelation (LoginDAO, key is id in user collection)</li>
+  <li>OneToMany friendsRelation (FriendDAO, key is userId in friend collection)</li>
+</ul>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/src/test/scala/com/sfxcode/nosql/mongo/relation/RelationDemoDatabase.scala#L43-L46" target="_blank" title="Go to snippet source"></a><code class="language-scala">object UserDAO extends MongoDAO[User](provider, &quot;user&quot;) {
+  lazy val loginRelation   = OneToOneRelationship(LoginDAO, &quot;id&quot;)
+  lazy val friendsRelation = OneToManyRelationship(SimplePersonDAO, &quot;userId&quot;)
+}</code></pre>
+<p>We extend the User case class with the Relations trait and add relation specific functions.</p>
+<ul>
+  <li>login (create an Option of Login)</li>
+  <li>friends (create a List of Friend)</li>
+</ul>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/src/test/scala/com/sfxcode/nosql/mongo/relation/RelationDemoDatabase.scala#L29-L35" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class User(id: Long, name: String, loginId: String) extends Relations {
 
-def replaceOne(value: A, options: ReplaceOptions): Observable[UpdateResult]
+  def login: Option[Login] = relatedRecordForOneToOne(UserDAO.loginRelation, loginId)
 
-</code></pre>
-<h2><a href="#delete" name="delete" class="anchor"><span class="anchor-link"></span></a>Delete</h2>
-<pre class="prettyprint"><code class="language-scala"><br/>def deleteOne(value: A): Observable[DeleteResult]
+  def friends: List[SimplePerson] = relatedRecordForOneToMany(UserDAO.friendsRelation, id)
 
-def deleteOne(filter: Bson): Observable[DeleteResult]
-
-def deleteMany(filter: Bson): Observable[DeleteResult]
-
-def deleteAll(): Observable[DeleteResult]
-
-
-</code></pre>
+}</code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/docs/src/main/paradox/dao/crud.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/docs/src/main/paradox/database/relationships.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
@@ -255,7 +269,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../dao/base.html" title="MongoDAO Base" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../database/bson.html" title="Bson" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -264,17 +278,17 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-MongoDAO Base
+Bson
 </span>
 </div>
 </a>
-<a href="../dao/search.html" title="Search Functions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../dao/index.html" title="MongoDAO" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Search Functions
+MongoDAO
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">

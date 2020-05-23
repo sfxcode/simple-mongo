@@ -130,7 +130,14 @@ sfxcode/simple-mongo
 
 </div>
 <ul>
-  <li><a href="database_provider.html" class="page">Database</a></li>
+  <li><a href="database/index.html" class="page">Database</a>
+  <ul>
+    <li><a href="database/config.html" class="page">MongConfig</a></li>
+    <li><a href="database/provider.html" class="page">DatabaseProvider</a></li>
+    <li><a href="database/reactive_streams.html" class="page">Reactive Streams</a></li>
+    <li><a href="database/bson.html" class="page">Bson</a></li>
+    <li><a href="database/relationships.html" class="page">Relationships</a></li>
+  </ul></li>
   <li><a href="dao/index.html" class="page">MongoDAO</a>
   <ul>
     <li><a href="dao/base.html" class="page">MongoDAO Base</a></li>
@@ -142,14 +149,11 @@ sfxcode/simple-mongo
     <li><a href="gridfs/crud.html" class="page">CRUD Functions</a></li>
     <li><a href="gridfs/metadata.html" class="page">Metadata</a></li>
   </ul></li>
-  <li><a href="reactive_streams.html" class="page">Reactive Streams</a></li>
-  <li><a href="features/index.html" class="page">Additional Features</a>
+  <li><a href="collection/index.html" class="page">Collection</a>
   <ul>
-    <li><a href="features/aggregation.html" class="page">Info</a></li>
-    <li><a href="features/relationships.html" class="page">Relationships</a></li>
-    <li><a href="features/observable.html" class="page">Observable</a></li>
-    <li><a href="features/converter.html" class="page">Converter</a></li>
+    <li><a href="collection/aggregation.html" class="page">Aggregation</a></li>
   </ul></li>
+  <li><a href="server.html" class="page">LocalServer</a></li>
   <li><a href="changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
@@ -160,6 +164,8 @@ sfxcode/simple-mongo
     <li><a href="index.html#additional-documentation" class="header">Additional Documentation</a></li>
     <li><a href="index.html#dependency-setup" class="header">Dependency Setup</a></li>
     <li><a href="index.html#licence" class="header">Licence</a></li>
+    <li><a href="index.html#example-model" class="header">Example: Model</a></li>
+    <li><a href="index.html#example-database" class="header">Example: Database</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -168,7 +174,7 @@ sfxcode/simple-mongo
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> 1.9.3
+<i class="md-icon" title="Version">label_outline</i> 2.0.1
 </label>
 </li>
 </ul>
@@ -186,6 +192,8 @@ sfxcode/simple-mongo
     <li><a href="index.html#additional-documentation" class="header">Additional Documentation</a></li>
     <li><a href="index.html#dependency-setup" class="header">Dependency Setup</a></li>
     <li><a href="index.html#licence" class="header">Licence</a></li>
+    <li><a href="index.html#example-model" class="header">Example: Model</a></li>
+    <li><a href="index.html#example-database" class="header">Example: Database</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -200,12 +208,12 @@ sfxcode/simple-mongo
 <p>A library for easy usage of the mongo-scala-driver.</p>
 <p>Features:</p>
 <ul>
-  <li>Easy Database Config with <a href="database_provider.html">DatabaseProvider</a> and MongoConfig</li>
+  <li>Easy Database Config with <a href="database/provider.html">provider</a> and MongoConfig</li>
   <li>Implement the <a href="https://en.wikipedia.org/wiki/Data_access_object">DAO</a> Pattern for simple MongoDB usage (<a href="dao/index.html">MongoDAO</a>)</li>
   <li><a href="https://mongodb.github.io/mongo-java-driver/4.0/driver-scala/tutorials/gridfs/">GridFS</a> support (<a href="gridfs/index.html">GridFSDAO</a>)</li>
-  <li><a href="https://mongodb.github.io/mongo-java-driver/4.0/driver-scala/getting-started/quick-start-primer/">Reactive Streams</a> support (<a href="reactive_streams.html">Usage in simple-mongo</a>)</li>
-  <li>Enhanced <a href="https://mongodb.github.io/mongo-java-driver/4.0/driver-scala/bson/">BSON</a> conversion support (<a href="features/converter.html">Bson Converter</a>)</li>
-  <li><a href="features/relationships.html">Relationships</a></li>
+  <li><a href="https://mongodb.github.io/mongo-java-driver/4.0/driver-scala/getting-started/quick-start-primer/">Reactive Streams</a> support (<a href="database/reactive_streams.html">Usage in simple-mongo</a>)</li>
+  <li>Enhanced <a href="https://mongodb.github.io/mongo-java-driver/4.0/driver-scala/bson/">BSON</a> conversion support (<a href="database/bson.html">Bson</a>)</li>
+  <li><a href="database/relationships.html">Relationships</a></li>
 </ul>
 <h2><a href="#additional-documentation" name="additional-documentation" class="anchor"><span class="anchor-link"></span></a>Additional Documentation</h2>
 <ul>
@@ -213,24 +221,64 @@ sfxcode/simple-mongo
   <li><a href="https://docs.mongodb.com/">MongoDB</a></li>
 </ul>
 <h2><a href="#dependency-setup" name="dependency-setup" class="anchor"><span class="anchor-link"></span></a>Dependency Setup</h2>
-<p>Support Scala 2.12 and Scala 2.13.</p><dl class="dependency"><dt>sbt</dt><dd><pre class="prettyprint"><code class="language-scala">libraryDependencies += "com.sfxcode.nosql" %% "simple-mongo" % "1.9.3"</code></pre></dd><dt>Maven</dt><dd><pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
+<p>Support Scala 2.12 and Scala 2.13.</p><dl class="dependency"><dt>sbt</dt><dd><pre class="prettyprint"><code class="language-scala">libraryDependencies += "com.sfxcode.nosql" %% "simple-mongo" % "2.0.1"</code></pre></dd><dt>Maven</dt><dd><pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
   &lt;groupId&gt;com.sfxcode.nosql&lt;/groupId&gt;
   &lt;artifactId&gt;simple-mongo_2.13&lt;/artifactId&gt;
-  &lt;version&gt;1.9.3&lt;/version&gt;
+  &lt;version&gt;2.0.1&lt;/version&gt;
 &lt;/dependency&gt;</code></pre></dd><dt>Gradle</dt><dd><pre class="prettyprint"><code class="language-gradle">dependencies {
-  compile group: 'com.sfxcode.nosql', name: 'simple-mongo_2.13', version: '1.9.3'
+  compile group: 'com.sfxcode.nosql', name: 'simple-mongo_2.13', version: '2.0.1'
 }</code></pre></dd></dl>
 <h2><a href="#licence" name="licence" class="anchor"><span class="anchor-link"></span></a>Licence</h2>
 <p><a href="https://github.com/sfxcode/simple-mongo/blob/master/LICENSE">Apache 2</a></p>
+<h2><a href="#example-model" name="example-model" class="anchor"><span class="anchor-link"></span></a>Example: Model</h2>
+<p>Create custom model classes.</p>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/src/test/scala/com/sfxcode/nosql/mongo/model/model.scala#L56-L62" target="_blank" title="Go to snippet source"></a><code class="language-scala"><br/>case class Student(_id: Long, name: String, scores: List[Score], image: Option[ObjectId])
+
+case class Score(score: Double, `type`: String)
+
+case class Grade(_id: ObjectId, student_id: Long, class_id: Long, scores: List[Score])
+</code></pre>
+<h2><a href="#example-database" name="example-database" class="anchor"><span class="anchor-link"></span></a>Example: Database</h2>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/src/test/scala/com/sfxcode/nosql/mongo/test/UniversityDatabase.scala" target="_blank" title="Go to snippet source"></a><code class="language-scala">package com.sfxcode.nosql.mongo.test
+
+import com.sfxcode.nosql.mongo.database.DatabaseProvider
+import com.sfxcode.nosql.mongo.model._
+import com.sfxcode.nosql.mongo.server.LocalServer
+import com.sfxcode.nosql.mongo.{GridFSDAO, MongoDAO}
+import org.bson.codecs.configuration.CodecRegistries.{fromProviders, fromRegistries}
+import org.bson.codecs.configuration.CodecRegistry
+import org.mongodb.scala.bson.codecs.Macros._
+
+object UniversityDatabase {
+  // create local test server (mongo-java-server)
+  val LocalTestServer = LocalServer.fromPath(&quot;unit.test.local.mongo.server&quot;)
+
+  // create codecs for custom classes
+  private val universityRegistry: CodecRegistry = fromProviders(classOf[Student], classOf[Score], classOf[Grade])
+
+  private val registry: CodecRegistry = fromRegistries(universityRegistry)
+
+  // create provider
+  val provider: DatabaseProvider = DatabaseProvider.fromPath(configPath = &quot;unit.test.mongo.local&quot;, registry = registry)
+
+  // setup DAO objects with mongo collection names
+
+  object StudentDAO extends MongoDAO[Student](provider, &quot;university-students&quot;)
+
+  object GradeDAO extends MongoDAO[Book](provider, &quot;university-grades&quot;)
+
+  object SudentImagesDAO extends GridFSDAO(provider, &quot;university-images&quot;)
+
+}</code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/docs/src/main/paradox/index.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/docs/src/main/paradox/index.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.9.3
+2.0.1
 </span>
 </div>
 </article>
@@ -240,7 +288,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="database_provider.html" title="Database" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="database/index.html" title="Database" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">

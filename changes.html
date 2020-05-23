@@ -135,7 +135,14 @@ sfxcode/simple-mongo
 
 </div>
 <ul>
-  <li><a href="database_provider.html" class="page">Database</a></li>
+  <li><a href="database/index.html" class="page">Database</a>
+  <ul>
+    <li><a href="database/config.html" class="page">MongConfig</a></li>
+    <li><a href="database/provider.html" class="page">DatabaseProvider</a></li>
+    <li><a href="database/reactive_streams.html" class="page">Reactive Streams</a></li>
+    <li><a href="database/bson.html" class="page">Bson</a></li>
+    <li><a href="database/relationships.html" class="page">Relationships</a></li>
+  </ul></li>
   <li><a href="dao/index.html" class="page">MongoDAO</a>
   <ul>
     <li><a href="dao/base.html" class="page">MongoDAO Base</a></li>
@@ -147,14 +154,11 @@ sfxcode/simple-mongo
     <li><a href="gridfs/crud.html" class="page">CRUD Functions</a></li>
     <li><a href="gridfs/metadata.html" class="page">Metadata</a></li>
   </ul></li>
-  <li><a href="reactive_streams.html" class="page">Reactive Streams</a></li>
-  <li><a href="features/index.html" class="page">Additional Features</a>
+  <li><a href="collection/index.html" class="page">Collection</a>
   <ul>
-    <li><a href="features/aggregation.html" class="page">Info</a></li>
-    <li><a href="features/relationships.html" class="page">Relationships</a></li>
-    <li><a href="features/observable.html" class="page">Observable</a></li>
-    <li><a href="features/converter.html" class="page">Converter</a></li>
+    <li><a href="collection/aggregation.html" class="page">Aggregation</a></li>
   </ul></li>
+  <li><a href="server.html" class="page">LocalServer</a></li>
   <li><a href="changes.html" class="active page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
@@ -172,7 +176,7 @@ sfxcode/simple-mongo
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> 1.9.3
+<i class="md-icon" title="Version">label_outline</i> 2.0.1
 </label>
 </li>
 </ul>
@@ -203,14 +207,25 @@ sfxcode/simple-mongo
 <h2><a href="#current-version" name="current-version" class="anchor"><span class="anchor-link"></span></a>Current Version</h2>
 <p><a href="https://bintray.com/sfxcode/maven/simple-mongo/_latestVersion"> <img src="https://api.bintray.com/packages/sfxcode/maven/simple-mongo/images/download.svg" alt="Download" /> </a></p>
 <h2><a href="#history" name="history" class="anchor"><span class="anchor-link"></span></a>History</h2>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/CHANGES.md" target="_blank" title="Go to snippet source"></a><code class="language-md"># Changes #
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/CHANGES.md" target="_blank" title="Go to snippet source"></a><code class="language-md"># Changes #
 
 ## Versions
+
+### 2.0.1
+* Mongo Java Server Support
+* LocalServer, ServerConfig added
+
+### 2.0.0
+* mongo package no longer extends MongoImplcits =&gt; Use MongoImplcits trait if needed
+
+### 1.9.7
+* Support for Dot notation in documents
+* extend Document functions with getValue. updateValue, getIntValue ... (with dot support)
 
 ### 1.9.4
 * Rewrite Docs and Samples
 * Specs Setup Redesign
-* Added more Specs
+* Added more Specs (Coverage min from 60 to 70)
 
 ### 1.9.2
 * scala 2.13.2
@@ -367,13 +382,13 @@ sfxcode/simple-mongo
 </code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/docs/src/main/paradox/changes.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/docs/src/main/paradox/changes.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.9.3
+2.0.1
 </span>
 </div>
 </article>
@@ -383,7 +398,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="features/converter.html" title="Converter" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="server.html" title="LocalServer" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -392,7 +407,7 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Converter
+LocalServer
 </span>
 </div>
 </a>

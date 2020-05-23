@@ -20,7 +20,7 @@
 
 <meta name="description" content="simple mongo docs">
 <link rel="shortcut icon" href="../assets/images/favicon.png">
-<title>Additional Features · simple-mongo</title>
+<title>Aggregation · simple-mongo</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.451f80e5.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -56,7 +56,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 simple-mongo
 </span>
 <span class="md-header-nav__topic">
-Additional Features
+Aggregation
 </span>
 </div>
 </div>
@@ -135,7 +135,14 @@ sfxcode/simple-mongo
 
 </div>
 <ul>
-  <li><a href="../database_provider.html" class="page">Database</a></li>
+  <li><a href="../database/index.html" class="page">Database</a>
+  <ul>
+    <li><a href="../database/config.html" class="page">MongConfig</a></li>
+    <li><a href="../database/provider.html" class="page">DatabaseProvider</a></li>
+    <li><a href="../database/reactive_streams.html" class="page">Reactive Streams</a></li>
+    <li><a href="../database/bson.html" class="page">Bson</a></li>
+    <li><a href="../database/relationships.html" class="page">Relationships</a></li>
+  </ul></li>
   <li><a href="../dao/index.html" class="page">MongoDAO</a>
   <ul>
     <li><a href="../dao/base.html" class="page">MongoDAO Base</a></li>
@@ -147,49 +154,87 @@ sfxcode/simple-mongo
     <li><a href="../gridfs/crud.html" class="page">CRUD Functions</a></li>
     <li><a href="../gridfs/metadata.html" class="page">Metadata</a></li>
   </ul></li>
-  <li><a href="../reactive_streams.html" class="page">Reactive Streams</a></li>
-  <li><a href="../features/index.html" class="active page">Additional Features</a>
+  <li><a href="../collection/index.html" class="page">Collection</a>
   <ul>
-    <li><a href="../features/aggregation.html" class="page">Info</a></li>
-    <li><a href="../features/relationships.html" class="page">Relationships</a></li>
-    <li><a href="../features/observable.html" class="page">Observable</a></li>
-    <li><a href="../features/converter.html" class="page">Converter</a></li>
+    <li><a href="../collection/aggregation.html" class="active page">Aggregation</a></li>
   </ul></li>
+  <li><a href="../server.html" class="page">LocalServer</a></li>
   <li><a href="../changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">Table of contents</label>
+<ul>
+  <li><a href="../collection/aggregation.html#aggregation" class="header">Aggregation</a>
+  <ul>
+    <li><a href="../collection/aggregation.html#info" class="header">Info</a></li>
+    <li><a href="../collection/aggregation.html#demo" class="header">Demo</a></li>
+  </ul></li>
+</ul>
 </nav>
 
 </nav>
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> 1.9.3
+<i class="md-icon" title="Version">label_outline</i> 2.0.1
 </label>
 </li>
 </ul>
 </div>
 </div>
 </div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">Table of contents</label>
+<ul>
+  <li><a href="../collection/aggregation.html#aggregation" class="header">Aggregation</a>
+  <ul>
+    <li><a href="../collection/aggregation.html#info" class="header">Info</a></li>
+    <li><a href="../collection/aggregation.html#demo" class="header">Demo</a></li>
+  </ul></li>
+</ul>
+</nav>
+
+</div>
+</div>
+</div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#additional-features" name="additional-features" class="anchor"><span class="anchor-link"></span></a>Additional Features</h1>
-<ul>
-  <li><a href="aggregation.html">Aggregation</a></li>
-  <li><a href="converter.html">Converter</a></li>
-  <li><a href="observable.html">Observable</a></li>
-  <li><a href="relationships.html">Relationshpips</a></li>
-</ul>
+<h1><a href="#aggregation" name="aggregation" class="anchor"><span class="anchor-link"></span></a>Aggregation</h1>
+<h2><a href="#info" name="info" class="anchor"><span class="anchor-link"></span></a>Info</h2>
+<p>MongoDB support an easy to use <a href="https://docs.mongodb.com/manual/aggregation/">Aggregation Handling</a>.</p>
+<h2><a href="#demo" name="demo" class="anchor"><span class="anchor-link"></span></a>Demo</h2>
+<h3><a href="#setup-imports" name="setup-imports" class="anchor"><span class="anchor-link"></span></a>Setup imports</h3>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L4-L6" target="_blank" title="Go to snippet source"></a><code class="language-scala">import com.sfxcode.nosql.mongo.Aggregate._
+import com.sfxcode.nosql.mongo._
+import com.sfxcode.nosql.mongo.dao.PersonSpecification</code></pre>
+<h3><a href="#define-stages" name="define-stages" class="anchor"><span class="anchor-link"></span></a>Define stages</h3>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L17-L21" target="_blank" title="Go to snippet source"></a><code class="language-scala">val filterStage: Bson = filter(and(equal(&quot;gender&quot;, &quot;female&quot;), notNullFilter(&quot;balance&quot;)))
+
+val groupStage: Bson = group(Map(&quot;age&quot; -&gt; &quot;$age&quot;), sumField(&quot;balance&quot;), firstField(&quot;age&quot;))
+
+val sortStage: Bson = sort(sortByKey(&quot;age&quot;))</code></pre>
+<h3><a href="#execute-aggregation" name="execute-aggregation" class="anchor"><span class="anchor-link"></span></a>Execute Aggregation</h3><div class="callout note "><div class="callout-title">Important</div>
+<p>In most cases we have to use the RAW attribute, because the aggregation result not follows the case class pattern. RAW returns always Documents instead of case classes.</p></div>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L38-L41" target="_blank" title="Go to snippet source"></a><code class="language-scala">val pipeline = List(filterStage, groupStage, sortStage)
+
+val aggregated = PersonDAO.Raw.findAggregated(pipeline).resultList()
+</code></pre>
+<h3><a href="#convert-result" name="convert-result" class="anchor"><span class="anchor-link"></span></a>Convert Result</h3>
+<p>For easy result handling, using the implicit Document to Map conversion can be useful.</p>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L47" target="_blank" title="Go to snippet source"></a><code class="language-scala">val list: List[Map[String, Any]] = aggregated</code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/docs/src/main/paradox/features/index.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/docs/src/main/paradox/collection/aggregation.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.9.3
+2.0.1
 </span>
 </div>
 </article>
@@ -199,7 +244,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../reactive_streams.html" title="Reactive Streams" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../collection/index.html" title="Collection" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -208,17 +253,17 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Reactive Streams
+Collection
 </span>
 </div>
 </a>
-<a href="../features/aggregation.html" title="Info" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../server.html" title="LocalServer" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Info
+LocalServer
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">

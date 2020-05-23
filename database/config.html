@@ -20,7 +20,7 @@
 
 <meta name="description" content="simple mongo docs">
 <link rel="shortcut icon" href="../assets/images/favicon.png">
-<title>Info · simple-mongo</title>
+<title>MongConfig · simple-mongo</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.451f80e5.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -56,7 +56,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 simple-mongo
 </span>
 <span class="md-header-nav__topic">
-Info
+MongConfig
 </span>
 </div>
 </div>
@@ -135,7 +135,14 @@ sfxcode/simple-mongo
 
 </div>
 <ul>
-  <li><a href="../database_provider.html" class="page">Database</a></li>
+  <li><a href="../database/index.html" class="page">Database</a>
+  <ul>
+    <li><a href="../database/config.html" class="active page">MongConfig</a></li>
+    <li><a href="../database/provider.html" class="page">DatabaseProvider</a></li>
+    <li><a href="../database/reactive_streams.html" class="page">Reactive Streams</a></li>
+    <li><a href="../database/bson.html" class="page">Bson</a></li>
+    <li><a href="../database/relationships.html" class="page">Relationships</a></li>
+  </ul></li>
   <li><a href="../dao/index.html" class="page">MongoDAO</a>
   <ul>
     <li><a href="../dao/base.html" class="page">MongoDAO Base</a></li>
@@ -147,22 +154,23 @@ sfxcode/simple-mongo
     <li><a href="../gridfs/crud.html" class="page">CRUD Functions</a></li>
     <li><a href="../gridfs/metadata.html" class="page">Metadata</a></li>
   </ul></li>
-  <li><a href="../reactive_streams.html" class="page">Reactive Streams</a></li>
-  <li><a href="../features/index.html" class="page">Additional Features</a>
+  <li><a href="../collection/index.html" class="page">Collection</a>
   <ul>
-    <li><a href="../features/aggregation.html" class="active page">Info</a></li>
-    <li><a href="../features/relationships.html" class="page">Relationships</a></li>
-    <li><a href="../features/observable.html" class="page">Observable</a></li>
-    <li><a href="../features/converter.html" class="page">Converter</a></li>
+    <li><a href="../collection/aggregation.html" class="page">Aggregation</a></li>
   </ul></li>
+  <li><a href="../server.html" class="page">LocalServer</a></li>
   <li><a href="../changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../features/aggregation.html#info" class="header">Info</a>
+  <li><a href="../database/config.html#mongconfig" class="header">MongConfig</a>
   <ul>
-    <li><a href="../features/aggregation.html#demo" class="header">Demo</a></li>
+    <li><a href="../database/config.html#create-mongoconfig-with-application-conf" class="header">Create MongoConfig with application.conf</a></li>
+    <li><a href="../database/config.html#create-mongoconfig-with-custom-clientsettings" class="header">Create MongoConfig with custom ClientSettings</a></li>
+    <li><a href="../database/config.html#mongoconfig-options" class="header">MongoConfig Options</a></li>
+    <li><a href="../database/config.html#mongoconfig-pool-options" class="header">MongoConfig Pool Options</a></li>
+    <li><a href="../database/config.html#multiple-databases-access" class="header">Multiple databases access</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -171,7 +179,7 @@ sfxcode/simple-mongo
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> 1.9.3
+<i class="md-icon" title="Version">label_outline</i> 2.0.1
 </label>
 </li>
 </ul>
@@ -184,9 +192,13 @@ sfxcode/simple-mongo
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../features/aggregation.html#info" class="header">Info</a>
+  <li><a href="../database/config.html#mongconfig" class="header">MongConfig</a>
   <ul>
-    <li><a href="../features/aggregation.html#demo" class="header">Demo</a></li>
+    <li><a href="../database/config.html#create-mongoconfig-with-application-conf" class="header">Create MongoConfig with application.conf</a></li>
+    <li><a href="../database/config.html#create-mongoconfig-with-custom-clientsettings" class="header">Create MongoConfig with custom ClientSettings</a></li>
+    <li><a href="../database/config.html#mongoconfig-options" class="header">MongoConfig Options</a></li>
+    <li><a href="../database/config.html#mongoconfig-pool-options" class="header">MongoConfig Pool Options</a></li>
+    <li><a href="../database/config.html#multiple-databases-access" class="header">Multiple databases access</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -197,38 +209,135 @@ sfxcode/simple-mongo
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<p># Aggregation</p>
-<h2><a href="#info" name="info" class="anchor"><span class="anchor-link"></span></a>Info</h2>
-<p>MongoDB support an easy to use <a href="https://docs.mongodb.com/manual/aggregation/">Aggregation Handling</a>.</p>
-<h2><a href="#demo" name="demo" class="anchor"><span class="anchor-link"></span></a>Demo</h2>
-<h3><a href="#setup-imports" name="setup-imports" class="anchor"><span class="anchor-link"></span></a>Setup imports</h3>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L4-L6" target="_blank" title="Go to snippet source"></a><code class="language-scala">import com.sfxcode.nosql.mongo.Aggregate._
-import com.sfxcode.nosql.mongo._
-import com.sfxcode.nosql.mongo.dao.PersonSpecification</code></pre>
-<h3><a href="#define-stages" name="define-stages" class="anchor"><span class="anchor-link"></span></a>Define stages</h3>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L17-L21" target="_blank" title="Go to snippet source"></a><code class="language-scala">val filterStage: Bson = filter(and(equal(&quot;gender&quot;, &quot;female&quot;), notNullFilter(&quot;balance&quot;)))
-
-val groupStage: Bson = group(Map(&quot;age&quot; -&gt; &quot;$age&quot;), sumField(&quot;balance&quot;), firstField(&quot;age&quot;))
-
-val sortStage: Bson = sort(sortByKey(&quot;age&quot;))</code></pre>
-<h3><a href="#execute-aggregation" name="execute-aggregation" class="anchor"><span class="anchor-link"></span></a>Execute Aggregation</h3><div class="callout note "><div class="callout-title">Important</div>
-<p>In most cases we have to use the RAW attribute, because the aggregation result not follows the case class pattern. RAW returns always Documents instead of case classes.</p></div>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L38-L41" target="_blank" title="Go to snippet source"></a><code class="language-scala">val aggregator = List(filterStage, groupStage, sortStage)
-
-val aggregated = PersonDAO.Raw.findAggregated(aggregator).resultList()
+<h1><a href="#mongconfig" name="mongconfig" class="anchor"><span class="anchor-link"></span></a>MongConfig</h1>
+<p>Database Configuration can be done using MongConfig.</p>
+<h2><a href="#create-mongoconfig-with-application-conf" name="create-mongoconfig-with-application-conf" class="anchor"><span class="anchor-link"></span></a>Create MongoConfig with application.conf</h2>
+<h3><a href="#with-default-path" name="with-default-path" class="anchor"><span class="anchor-link"></span></a>With default path</h3>
+<p>Default path in application.conf: mongo</p>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/docs/src/main/resources/docs.conf#L3-L14" target="_blank" title="Go to snippet source"></a><code class="language-conf">mongo {
+  database = &quot;university&quot;
+  host = &quot;localhost&quot;
+  port = 270007
+  applicationName = &quot;mongo.db.sample&quot;
+  userName = &quot;standard_user&quot;
+  password = &quot;change_me&quot;
+  pool {
+    minSize = 5
+    maxSize = 100
+  }
+}</code></pre>
+<p>Scala Code Snippet</p>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/docs/src/main/scala/DatabaseProviderDoc.scala#L19" target="_blank" title="Go to snippet source"></a><code class="language-scala">val config: MongoConfig = MongoConfig.fromPath()</code></pre>
+<h3><a href="#with-custom-path" name="with-custom-path" class="anchor"><span class="anchor-link"></span></a>With custom path</h3>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/docs/src/main/resources/docs.conf#L19-L26" target="_blank" title="Go to snippet source"></a><code class="language-conf">mongo.db.test {
+  database = &quot;unit_test&quot;
+  host = &quot;localhost&quot;
+  port = 270007
+  applicationName = &quot;mongo.db.unit.test&quot;
+  userName = &quot;unit_test&quot;
+  password = &quot;change_me&quot;
+}</code></pre>
+<p>Scala Code Snippet</p>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/docs/src/main/scala/DatabaseProviderDoc.scala#L23" target="_blank" title="Go to snippet source"></a><code class="language-scala">val customConfig: MongoConfig = MongoConfig.fromPath(&quot;mongo.db.prod&quot;)</code></pre>
+<h2><a href="#create-mongoconfig-with-custom-clientsettings" name="create-mongoconfig-with-custom-clientsettings" class="anchor"><span class="anchor-link"></span></a>Create MongoConfig with custom ClientSettings</h2>
+<pre class="prettyprint"><code class="language-scala"><br/>val config = MongoConfig(&quot;my_database&quot;, customClientSettings = Some(myClientSettings))
 </code></pre>
-<h3><a href="#convert-result" name="convert-result" class="anchor"><span class="anchor-link"></span></a>Convert Result</h3>
-<p>For easy result handling, using the implicit Document to Map conversion can be useful.</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/src/test/scala/com/sfxcode/nosql/mongo/operation/AggregationSpec.scala#L47" target="_blank" title="Go to snippet source"></a><code class="language-scala">val list: List[Map[String, Any]] = aggregated</code></pre>
+<h2><a href="#mongoconfig-options" name="mongoconfig-options" class="anchor"><span class="anchor-link"></span></a>MongoConfig Options</h2>
+<p>MongoConfig holds all the neded Data for creating a MongoClient.</p>
+<p>It is used for DatabaseProvider creation.</p>
+<table>
+  <thead>
+    <tr>
+      <th align="left">Key </th>
+      <th align="left">Description </th>
+      <th align="left">Default value </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left">database </td>
+      <td align="left">default database to use </td>
+      <td align="left"> </td>
+    </tr>
+    <tr>
+      <td align="left">host </td>
+      <td align="left"> </td>
+      <td align="left">127.0.0.1 </td>
+    </tr>
+    <tr>
+      <td align="left">port </td>
+      <td align="left"> </td>
+      <td align="left">27017 </td>
+    </tr>
+    <tr>
+      <td align="left">applicationName </td>
+      <td align="left"> </td>
+      <td align="left">simple-mongo-app </td>
+    </tr>
+    <tr>
+      <td align="left">userName </td>
+      <td align="left">used for Authentification </td>
+      <td align="left"> </td>
+    </tr>
+    <tr>
+      <td align="left">password </td>
+      <td align="left">used for Authentification </td>
+      <td align="left"> </td>
+    </tr>
+    <tr>
+      <td align="left">poolOptions </td>
+      <td align="left"> </td>
+      <td align="left">MongoPoolOptions() </td>
+    </tr>
+    <tr>
+      <td align="left">compressors </td>
+      <td align="left">List: zlib, snappy, zstd </td>
+      <td align="left">List() </td>
+    </tr>
+    <tr>
+      <td align="left">customClientSettings </td>
+      <td align="left"> </td>
+      <td align="left">None </td>
+    </tr>
+  </tbody>
+</table>
+<h2><a href="#mongoconfig-pool-options" name="mongoconfig-pool-options" class="anchor"><span class="anchor-link"></span></a>MongoConfig Pool Options</h2>
+<table>
+  <thead>
+    <tr>
+      <th align="left">Key </th>
+      <th align="left">Default value </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left">maxConnectionIdleTime </td>
+      <td align="left">60 </td>
+    </tr>
+    <tr>
+      <td align="left">maxSize </td>
+      <td align="left">50 </td>
+    </tr>
+    <tr>
+      <td align="left">minSize </td>
+      <td align="left">0 </td>
+    </tr>
+    <tr>
+      <td align="left">DefaultMaintenanceInitialDelay </td>
+      <td align="left">0 </td>
+    </tr>
+  </tbody>
+</table>
+<h2><a href="#multiple-databases-access" name="multiple-databases-access" class="anchor"><span class="anchor-link"></span></a>Multiple databases access</h2>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/docs/src/main/paradox/features/aggregation.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/docs/src/main/paradox/database/config.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.9.3
+2.0.1
 </span>
 </div>
 </article>
@@ -238,7 +347,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../features/index.html" title="Additional Features" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../database/index.html" title="Database" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -247,17 +356,17 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Additional Features
+Database
 </span>
 </div>
 </a>
-<a href="../features/relationships.html" title="Relationships" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../database/provider.html" title="DatabaseProvider" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Relationships
+DatabaseProvider
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">

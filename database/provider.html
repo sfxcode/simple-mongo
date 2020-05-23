@@ -20,7 +20,7 @@
 
 <meta name="description" content="simple mongo docs">
 <link rel="shortcut icon" href="../assets/images/favicon.png">
-<title>Observable · simple-mongo</title>
+<title>DatabaseProvider · simple-mongo</title>
 <link rel="stylesheet" href="../assets/stylesheets/application.451f80e5.css">
 <link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
 <link rel="stylesheet" href="../lib/prettify/prettify.css">
@@ -56,7 +56,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 simple-mongo
 </span>
 <span class="md-header-nav__topic">
-Observable
+DatabaseProvider
 </span>
 </div>
 </div>
@@ -135,7 +135,14 @@ sfxcode/simple-mongo
 
 </div>
 <ul>
-  <li><a href="../database_provider.html" class="page">Database</a></li>
+  <li><a href="../database/index.html" class="page">Database</a>
+  <ul>
+    <li><a href="../database/config.html" class="page">MongConfig</a></li>
+    <li><a href="../database/provider.html" class="active page">DatabaseProvider</a></li>
+    <li><a href="../database/reactive_streams.html" class="page">Reactive Streams</a></li>
+    <li><a href="../database/bson.html" class="page">Bson</a></li>
+    <li><a href="../database/relationships.html" class="page">Relationships</a></li>
+  </ul></li>
   <li><a href="../dao/index.html" class="page">MongoDAO</a>
   <ul>
     <li><a href="../dao/base.html" class="page">MongoDAO Base</a></li>
@@ -147,23 +154,20 @@ sfxcode/simple-mongo
     <li><a href="../gridfs/crud.html" class="page">CRUD Functions</a></li>
     <li><a href="../gridfs/metadata.html" class="page">Metadata</a></li>
   </ul></li>
-  <li><a href="../reactive_streams.html" class="page">Reactive Streams</a></li>
-  <li><a href="../features/index.html" class="page">Additional Features</a>
+  <li><a href="../collection/index.html" class="page">Collection</a>
   <ul>
-    <li><a href="../features/aggregation.html" class="page">Info</a></li>
-    <li><a href="../features/relationships.html" class="page">Relationships</a></li>
-    <li><a href="../features/observable.html" class="active page">Observable</a></li>
-    <li><a href="../features/converter.html" class="page">Converter</a></li>
+    <li><a href="../collection/aggregation.html" class="page">Aggregation</a></li>
   </ul></li>
+  <li><a href="../server.html" class="page">LocalServer</a></li>
   <li><a href="../changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../features/observable.html#observable" class="header">Observable</a>
+  <li><a href="../database/provider.html#databaseprovider" class="header">DatabaseProvider</a>
   <ul>
-    <li><a href="../features/observable.html#info" class="header">Info</a></li>
-    <li><a href="../features/observable.html#dealing-with-observables" class="header">Dealing with Observables</a></li>
+    <li><a href="../database/provider.html#registries" class="header">Registries</a></li>
+    <li><a href="../database/provider.html#multiple-databases-access" class="header">Multiple databases access</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -172,7 +176,7 @@ sfxcode/simple-mongo
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> 1.9.3
+<i class="md-icon" title="Version">label_outline</i> 2.0.1
 </label>
 </li>
 </ul>
@@ -185,10 +189,10 @@ sfxcode/simple-mongo
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../features/observable.html#observable" class="header">Observable</a>
+  <li><a href="../database/provider.html#databaseprovider" class="header">DatabaseProvider</a>
   <ul>
-    <li><a href="../features/observable.html#info" class="header">Info</a></li>
-    <li><a href="../features/observable.html#dealing-with-observables" class="header">Dealing with Observables</a></li>
+    <li><a href="../database/provider.html#registries" class="header">Registries</a></li>
+    <li><a href="../database/provider.html#multiple-databases-access" class="header">Multiple databases access</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -199,44 +203,38 @@ sfxcode/simple-mongo
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#observable" name="observable" class="anchor"><span class="anchor-link"></span></a>Observable</h1>
-<h2><a href="#info" name="info" class="anchor"><span class="anchor-link"></span></a>Info</h2><div class="callout note "><div class="callout-title">MongoDB_Scala_Driver_Documentation</div>
-<p>The MongoDB Scala Driver is an asynchronous and non blocking driver. Using the Observable model asynchronous events become simple, composable operations, freed from the complexity of nested callbacks.</p></div>
-<p>See <a href="http://mongodb.github.io/mongo-scala-driver/2.4/reference/observables/">MongoDB Scala Driver Documentation</a>.</p>
-<h2><a href="#dealing-with-observables" name="dealing-with-observables" class="anchor"><span class="anchor-link"></span></a>Dealing with Observables</h2>
-<h3><a href="#as-future" name="as-future" class="anchor"><span class="anchor-link"></span></a>As Future</h3>
-<pre class="prettyprint"><code class="language-scala"><br/>  def findAllRestaurants: Future[Seq[Restaurant]] = 
-      RestaurantDAO.find().asFuture()
+<h1><a href="#databaseprovider" name="databaseprovider" class="anchor"><span class="anchor-link"></span></a>DatabaseProvider</h1>
+<p>DatabaseProvider is the central repository for MongoClient, registries, databases and collections.</p>
+<p>DatabaseProvider gives access to</p>
+<ul>
+  <li>MongoClient</li>
+  <li>MongoDatabase</li>
+  <li>MongoCollection</li>
+</ul>
+<h2><a href="#registries" name="registries" class="anchor"><span class="anchor-link"></span></a>Registries</h2><div class="callout note "><div class="callout-title">ScalaDriverDocs</div>
+<p>Additional Info for <a href="https://mongodb.github.io/mongo-java-driver/4.0/driver-scala/getting-started/quick-start-case-class/#configuring-case-classes">Registries</a></p></div>
+<h3><a href="#create-case-classes" name="create-case-classes" class="anchor"><span class="anchor-link"></span></a>Create Case Classes</h3>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/docs/src/main/scala/DatabaseProviderDoc.scala#L9-L13" target="_blank" title="Go to snippet source"></a><code class="language-scala">case class Student(_id: Long, name: String, scores: List[Score])
 
-</code></pre>
-<h3><a href="#result-functions" name="result-functions" class="anchor"><span class="anchor-link"></span></a>Result Functions</h3>
-<p>Convert Observable to result object. Import mongo package is needed.</p>
-<p>Functions result anf resultList have an optional maxWait in seconds parameter (Default maxWait = 10 seconds).</p>
-<pre class="prettyprint"><code class="language-scala">  import com.sfxcode.nosql.mongo._
+case class Score(score: Double, `type`: String)
 
-  def restaurantsSize = RestaurantDAO.count().result()
-  
-  def findAllRestaurants = RestaurantDAO.find().resultList(maxWait = 20)
+case class Grade(_id: ObjectId, student_id: Long, class_id: Long, scores: List[Score])</code></pre>
+<h3><a href="#create-registry" name="create-registry" class="anchor"><span class="anchor-link"></span></a>Create Registry</h3>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/docs/src/main/scala/DatabaseProviderDoc.scala#L36-L40" target="_blank" title="Go to snippet source"></a><code class="language-scala">val registry: CodecRegistry =
+  fromProviders(classOf[Student], classOf[Score], classOf[Grade])
 
-</code></pre>
-<h3><a href="#implicit-result-functions" name="implicit-result-functions" class="anchor"><span class="anchor-link"></span></a>Implicit Result Functions</h3>
-<p>Implicit result conversion to a given type. Import mongo package is needed.</p>
-<pre class="prettyprint"><code class="language-scala ">  import com.sfxcode.nosql.mongo._
-
-  def restaurantsSize: Long = RestaurantDAO.count()
-  
-  def findAllRestaurants:List[Restaurant] = RestaurantDAO.find()
-
-</code></pre>
+val providerWithRegistry: DatabaseProvider =
+  DatabaseProvider(MongoConfig.fromPath(), registry)</code></pre>
+<h2><a href="#multiple-databases-access" name="multiple-databases-access" class="anchor"><span class="anchor-link"></span></a>Multiple databases access</h2>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/docs/src/main/paradox/features/observable.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/docs/src/main/paradox/database/provider.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.9.3
+2.0.1
 </span>
 </div>
 </article>
@@ -246,7 +244,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../features/relationships.html" title="Relationships" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../database/config.html" title="MongConfig" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -255,17 +253,17 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Relationships
+MongConfig
 </span>
 </div>
 </a>
-<a href="../features/converter.html" title="Converter" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../database/reactive_streams.html" title="Reactive Streams" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Converter
+Reactive Streams
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">

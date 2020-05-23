@@ -19,20 +19,20 @@
 
 
 <meta name="description" content="simple mongo docs">
-<link rel="shortcut icon" href="assets/images/favicon.png">
+<link rel="shortcut icon" href="../assets/images/favicon.png">
 <title>Reactive Streams · simple-mongo</title>
-<link rel="stylesheet" href="assets/stylesheets/application.451f80e5.css">
-<link rel="stylesheet" href="lib/material__tabs/dist/mdc.tabs.min.css">
-<link rel="stylesheet" href="lib/prettify/prettify.css">
-<script src="assets/javascripts/modernizr.1aa3b519.js"></script>
+<link rel="stylesheet" href="../assets/stylesheets/application.451f80e5.css">
+<link rel="stylesheet" href="../lib/material__tabs/dist/mdc.tabs.min.css">
+<link rel="stylesheet" href="../lib/prettify/prettify.css">
+<script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
 <style>
 body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}
 code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 </style>
-<link rel="stylesheet" href="assets/fonts/font-awesome.css">
-<link rel="stylesheet" href="assets/fonts/material-icons.css">
-<link rel="stylesheet" href="assets/stylesheets/paradox-material-theme.css">
+<link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+<link rel="stylesheet" href="../assets/fonts/material-icons.css">
+<link rel="stylesheet" href="../assets/stylesheets/paradox-material-theme.css">
 </head>
 <body
 >
@@ -43,7 +43,7 @@ code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}
 <nav class="md-header-nav md-grid">
 <div class="md-flex">
 <div class="md-flex__cell md-flex__cell--shrink">
-<a href="index.html" title="simple-mongo" class="md-header-nav__button md-logo">
+<a href="../index.html" title="simple-mongo" class="md-header-nav__button md-logo">
 <i class="md-icon">local_library</i>
 </a>
 </div>
@@ -112,11 +112,11 @@ sfxcode/simple-mongo
 <div class="md-sidebar__inner">
 <nav class="md-nav md-nav--primary" data-md-level="0" style="visibility: hidden">
 <label class="md-nav__title md-nav__title--site" for="drawer">
-<a href="index.html" title="simple-mongo" class="md-nav__button md-logo">
+<a href="../index.html" title="simple-mongo" class="md-nav__button md-logo">
 <span class="md-nav__button md-logo">
 <i class="md-icon">local_library</i>
 </a>
-<a href="index.html" title="simple-mongo">
+<a href="../index.html" title="simple-mongo">
 simple-mongo
 </a>
 </label>
@@ -135,35 +135,39 @@ sfxcode/simple-mongo
 
 </div>
 <ul>
-  <li><a href="database_provider.html" class="page">Database</a></li>
-  <li><a href="dao/index.html" class="page">MongoDAO</a>
+  <li><a href="../database/index.html" class="page">Database</a>
   <ul>
-    <li><a href="dao/base.html" class="page">MongoDAO Base</a></li>
-    <li><a href="dao/crud.html" class="page">CRUD Functions</a></li>
-    <li><a href="dao/search.html" class="page">Search Functions</a></li>
+    <li><a href="../database/config.html" class="page">MongConfig</a></li>
+    <li><a href="../database/provider.html" class="page">DatabaseProvider</a></li>
+    <li><a href="../database/reactive_streams.html" class="active page">Reactive Streams</a></li>
+    <li><a href="../database/bson.html" class="page">Bson</a></li>
+    <li><a href="../database/relationships.html" class="page">Relationships</a></li>
   </ul></li>
-  <li><a href="gridfs/index.html" class="page">GridFSDAO</a>
+  <li><a href="../dao/index.html" class="page">MongoDAO</a>
   <ul>
-    <li><a href="gridfs/crud.html" class="page">CRUD Functions</a></li>
-    <li><a href="gridfs/metadata.html" class="page">Metadata</a></li>
+    <li><a href="../dao/base.html" class="page">MongoDAO Base</a></li>
+    <li><a href="../dao/crud.html" class="page">CRUD Functions</a></li>
+    <li><a href="../dao/search.html" class="page">Search Functions</a></li>
   </ul></li>
-  <li><a href="reactive_streams.html" class="active page">Reactive Streams</a></li>
-  <li><a href="features/index.html" class="page">Additional Features</a>
+  <li><a href="../gridfs/index.html" class="page">GridFSDAO</a>
   <ul>
-    <li><a href="features/aggregation.html" class="page">Info</a></li>
-    <li><a href="features/relationships.html" class="page">Relationships</a></li>
-    <li><a href="features/observable.html" class="page">Observable</a></li>
-    <li><a href="features/converter.html" class="page">Converter</a></li>
+    <li><a href="../gridfs/crud.html" class="page">CRUD Functions</a></li>
+    <li><a href="../gridfs/metadata.html" class="page">Metadata</a></li>
   </ul></li>
-  <li><a href="changes.html" class="page">Version History</a></li>
+  <li><a href="../collection/index.html" class="page">Collection</a>
+  <ul>
+    <li><a href="../collection/aggregation.html" class="page">Aggregation</a></li>
+  </ul></li>
+  <li><a href="../server.html" class="page">LocalServer</a></li>
+  <li><a href="../changes.html" class="page">Version History</a></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="reactive_streams.html#reactive-streams" class="header">Reactive Streams</a>
+  <li><a href="../database/reactive_streams.html#reactive-streams" class="header">Reactive Streams</a>
   <ul>
-    <li><a href="reactive_streams.html#blocking-results" class="header">Blocking Results</a></li>
-    <li><a href="reactive_streams.html#future-results" class="header">Future Results</a></li>
+    <li><a href="../database/reactive_streams.html#blocking-results" class="header">Blocking Results</a></li>
+    <li><a href="../database/reactive_streams.html#future-results" class="header">Future Results</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -172,7 +176,7 @@ sfxcode/simple-mongo
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> 1.9.3
+<i class="md-icon" title="Version">label_outline</i> 2.0.1
 </label>
 </li>
 </ul>
@@ -185,10 +189,10 @@ sfxcode/simple-mongo
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="reactive_streams.html#reactive-streams" class="header">Reactive Streams</a>
+  <li><a href="../database/reactive_streams.html#reactive-streams" class="header">Reactive Streams</a>
   <ul>
-    <li><a href="reactive_streams.html#blocking-results" class="header">Blocking Results</a></li>
-    <li><a href="reactive_streams.html#future-results" class="header">Future Results</a></li>
+    <li><a href="../database/reactive_streams.html#blocking-results" class="header">Blocking Results</a></li>
+    <li><a href="../database/reactive_streams.html#future-results" class="header">Future Results</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -206,6 +210,7 @@ sfxcode/simple-mongo
   <li>For Blocking Results (implicit) conversion to Result Objects is provided</li>
   <li>Conversion of Observable to Future is available</li>
 </ul><div class="callout note "><div class="callout-title">ScalaDriverDocs</div>
+<p>The MongoDB Scala Driver is an asynchronous and non blocking driver. Using the Observable model asynchronous events become simple, composable operations, freed from the complexity of nested callbacks.</p>
 <p>Additional Info for <a href="https://github.com/reactive-streams/reactive-streams-jvm/">Reactive Streams JVM</a></p>
 <p>Additional Info for <a href="https://mongodb.github.io/mongo-java-driver/4.0/driver-scala/getting-started/quick-start-primer/">Mongo Scala Reactive Streams</a></p></div>
 <h2><a href="#blocking-results" name="blocking-results" class="anchor"><span class="anchor-link"></span></a>Blocking Results</h2>
@@ -213,7 +218,7 @@ sfxcode/simple-mongo
 <table>
   <thead>
     <tr>
-      <th align="left">Funcion Name </th>
+      <th align="left">Function Name </th>
       <th align="left">Function Result </th>
       <th align="left">Sample </th>
       <th align="left">Sample Result </th>
@@ -246,18 +251,21 @@ sfxcode/simple-mongo
     </tr>
   </tbody>
 </table>
+<p>All functions have an optional maxWait parameter (Default maxWait = 10 seconds).</p>
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/docs/src/main/scala/ReactiveStreamsDoc.scala#L15" target="_blank" title="Go to snippet source"></a><code class="language-scala">val listWithCustomMaxWait: List[Person] = PersonDAO.find().resultList(maxWait = 15)</code></pre>
 <h3><a href="#implicit-result-conversion-blocking-" name="implicit-result-conversion-blocking-" class="anchor"><span class="anchor-link"></span></a>Implicit Result Conversion (Blocking)</h3>
 <p>To use implicit result conversion, you have to import the simple mongo base package object.</p>
 <pre class="prettyprint"><code class="language-scala">import com.sfxcode.nosql.mongo._
 </code></pre>
 <p>After that, implicit conversion and other useful implicits (e.g. Map -&gt; Bson) are available.</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/docs/src/main/scala/ReactiveStreamsDoc.scala#L14-L17" target="_blank" title="Go to snippet source"></a><code class="language-scala">val imagesCount: Long      = ImageFilesDAO.count()
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/docs/src/main/scala/ReactiveStreamsDoc.scala#L19-L23" target="_blank" title="Go to snippet source"></a><code class="language-scala">val imagesCount: Long      = ImageFilesDAO.count()
 val seq: Seq[Person]       = PersonDAO.find()
 val list: List[Person]     = PersonDAO.find()
-val option: Option[Person] = PersonDAO.find(&quot;id&quot;, 42)</code></pre>
+val option: Option[Person] = PersonDAO.find(&quot;id&quot;, 42)
+</code></pre>
 <h2><a href="#future-results" name="future-results" class="anchor"><span class="anchor-link"></span></a>Future Results</h2>
 <p>DAO Instances support (implicit) conversion to Future,</p>
-<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/docs/src/main/scala/ReactiveStreamsDoc.scala#L21-L26" target="_blank" title="Go to snippet source"></a><code class="language-scala">val future: Future[Seq[Person]] = PersonDAO.find().asFuture()
+<pre class="prettyprint"><a class="icon go-to-source" href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/docs/src/main/scala/ReactiveStreamsDoc.scala#L27-L32" target="_blank" title="Go to snippet source"></a><code class="language-scala">val future: Future[Seq[Person]] = PersonDAO.find().asFuture()
 val mapped: Future[Seq[String]] =
   future.map(personSeq =&gt; personSeq.map(p =&gt; p.name))
 
@@ -265,13 +273,13 @@ val duration           = Duration(10, TimeUnit.SECONDS)
 val names: Seq[String] = Await.result(mapped, duration)</code></pre>
 </div>
 <div>
-<a href="https://github.com/sfxcode/simple-mongo/tree/v1.9.3/docs/src/main/paradox/reactive_streams.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/sfxcode/simple-mongo/tree/v2.0.1/docs/src/main/paradox/database/reactive_streams.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-1.9.3
+2.0.1
 </span>
 </div>
 </article>
@@ -281,7 +289,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="gridfs/metadata.html" title="Metadata" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../database/provider.html" title="DatabaseProvider" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -290,17 +298,17 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Metadata
+DatabaseProvider
 </span>
 </div>
 </a>
-<a href="features/index.html" title="Additional Features" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+<a href="../database/bson.html" title="Bson" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
 <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
 <span class="md-flex__ellipsis">
 <span class="md-footer-nav__direction">
 Next
 </span>
-Additional Features
+Bson
 </span>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">
@@ -323,11 +331,11 @@ and
 </footer>
 
 </div>
-<script src="assets/javascripts/application.583bbe55.js"></script>
-<script src="assets/javascripts/paradox-material-theme.js"></script>
-<script>app.initialize({version:"0.17",url:{base:"."}})</script>
-<script type="text/javascript" src="lib/prettify/prettify.js"></script>
-<script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
+<script src="../assets/javascripts/application.583bbe55.js"></script>
+<script src="../assets/javascripts/paradox-material-theme.js"></script>
+<script>app.initialize({version:"0.17",url:{base:"../."}})</script>
+<script type="text/javascript" src="../lib/prettify/prettify.js"></script>
+<script type="text/javascript" src="../lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function(event) {
 window.prettyPrint && prettyPrint();
